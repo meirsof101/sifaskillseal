@@ -1,0 +1,41 @@
+ <!-- Navbar -->
+    <nav class="bg-brand-white shadow-lg sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <div class="text-2xl font-bold text-brand-navy">SifaSkills</div>
+                    <div class="ml-2 text-sm text-brand-purple font-medium">(EA) Ltd</div>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Home</a>
+                    <a href="about.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">About</a>
+                    <a href="services.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Services</a>
+                    <a href="team.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Team</a>
+                    <a href="whyus.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Why Choose Us</a>
+                    <a href="contact.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-brand-navy focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-brand-white border-t">
+            <a href="#home" class="block text-brand-navy py-3 hover:text-brand-orange transition">Home</a>
+            <a href="#about" class="block text-brand-navy py-3 hover:text-brand-orange transition">About</a>
+            <a href="#services" class="block text-brand-navy py-3 hover:text-brand-orange transition">Services</a>
+            <a href="#team" class="block text-brand-navy py-3 hover:text-brand-orange transition">Team</a>
+            <a href="whyus.html" class="block text-brand-navy py-3 hover:text-brand-orange transition">Why Choose Us</a>
+            <a href="#contact" class="block text-brand-navy py-3 hover:text-brand-orange transition">Contact</a>
+        </div>
+    </nav>

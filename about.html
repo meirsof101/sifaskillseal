@@ -23,49 +23,8 @@
     <title>About Us - SifaSkills (EA) Ltd</title>
 </head>
 <body class="font-sans">
-    <!-- Navbar -->
-    <nav class="bg-brand-white shadow-lg sticky top-0 z-50 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="flex items-center">
-                        <div class="text-2xl font-bold text-brand-navy">SifaSkills</div>
-                        <div class="ml-2 text-sm text-brand-purple font-medium">(EA) Ltd</div>
-                    </a>
-                </div>
-
-                <!-- Desktop Links -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Home</a>
-                    <a href="about.html" class="text-brand-orange font-medium border-b-2 border-brand-orange">About</a>
-                    <a href="services.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Services</a>
-                    <a href="team.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Team</a>
-                    <a href="blog.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Blog</a>
-                    <a href="contact.html" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Contact</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-brand-navy focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-brand-white border-t">
-            <a href="index.html" class="block text-brand-navy py-3 hover:text-brand-orange transition">Home</a>
-            <a href="about.html" class="block text-brand-orange py-3 font-medium">About</a>
-            <a href="services.html" class="block text-brand-navy py-3 hover:text-brand-orange transition">Services</a>
-            <a href="team.html" class="block text-brand-navy py-3 hover:text-brand-orange transition">Team</a>
-            <a href="blog.html" class="block text-brand-navy py-3 hover:text-brand-orange transition">Blog</a>
-            <a href="contact.html" class="block text-brand-navy py-3 hover:text-brand-orange transition">Contact</a>
-        </div>
-    </nav>
+    <!--load the navbar-->
+    <div id="navbar-placeholder"></div>
 
     <!-- Page Header -->
     <section class="bg-gradient-to-r from-brand-navy to-brand-purple py-16 text-brand-white">
@@ -268,54 +227,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black text-brand-white py-12">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <!-- Company Info -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <div class="text-2xl font-bold text-brand-orange">SifaSkills</div>
-                        <div class="ml-2 text-brand-purple font-medium">(EA) Ltd</div>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        The SEAL of Professional Growth - Unlocking human potential and driving sustainable development across East Africa.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="font-bold text-brand-orange mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="index.html" class="hover:text-brand-white transition">Home</a></li>
-                        <li><a href="about.html" class="text-brand-orange">About Us</a></li>
-                        <li><a href="services.html" class="hover:text-brand-white transition">Services</a></li>
-                        <li><a href="team.html" class="hover:text-brand-white transition">Our Team</a></li>
-                        <li><a href="blog.html" class="hover:text-brand-white transition">Blog</a></li>
-                        <li><a href="contact.html" class="hover:text-brand-white transition">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="font-bold text-brand-orange mb-4">Contact</h4>
-                    <div class="text-gray-400 text-sm space-y-2">
-                        <p>📧 seal.infoea@gmail.com</p>
-                        <p>📞 0787941241</p>
-                        <p>🌐 www.sifaskillseal.co.ke</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Footer -->
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2025 SifaSkills (EA) Ltd. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
+    <!--load the footer-->
+    <div id="footer-placeholder"></div>
+     <!--load partials js-->
+    <script src="js/loadpartials.js"></script>
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
