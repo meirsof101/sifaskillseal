@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-orange': '#f48a32',
+                        'brand-purple': '#8c18a9',
+                        'brand-navy': '#1b265d',
+                        'brand-white': '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>SifaSkills (EA) Ltd - The SEAL of Professional Growth</title>
+</head>
+<body class="font-sans">
+    <!-- Navbar -->
+    <nav class="bg-brand-white shadow-lg sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <div class="text-2xl font-bold text-brand-navy">SifaSkills</div>
+                    <div class="ml-2 text-sm text-brand-purple font-medium">(EA) Ltd</div>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Home</a>
+                    <a href="#about" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">About</a>
+                    <a href="#services" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Services</a>
+                    <a href="#team" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Team</a>
+                    <a href="#contact" class="text-brand-navy hover:text-brand-orange font-medium transition duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-brand-navy focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-brand-white border-t">
+            <a href="#home" class="block text-brand-navy py-3 hover:text-brand-orange transition">Home</a>
+            <a href="#about" class="block text-brand-navy py-3 hover:text-brand-orange transition">About</a>
+            <a href="#services" class="block text-brand-navy py-3 hover:text-brand-orange transition">Services</a>
+            <a href="#team" class="block text-brand-navy py-3 hover:text-brand-orange transition">Team</a>
+            <a href="#contact" class="block text-brand-navy py-3 hover:text-brand-orange transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-br from-brand-navy via-brand-purple to-brand-navy py-20 text-brand-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-6">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                    The <span class="text-brand-orange">SEAL</span> of Professional Growth
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200">
+                    Unlocking Human Potential & Driving Sustainable Development
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#services" class="bg-brand-orange text-brand-white px-8 py-4 rounded-full hover:bg-opacity-90 transition font-semibold">
+                    Explore Our Services
+                </a>
+                <a href="#contact" class="border-2 border-brand-orange text-brand-orange px-8 py-4 rounded-full hover:bg-brand-orange hover:text-brand-white transition font-semibold">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-brand-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-navy mb-6">About SifaSkills (EA) Ltd</h2>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    SifaSkills (EA) Ltd (SEAL) is a forward-thinking company committed to unlocking human potential and driving sustainable development through skills enhancement, innovative solutions, and impactful partnerships.
+                </p>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold text-brand-purple mb-6">Our Vision</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-700">To build a future-ready East Africa where youth are empowered with practical, employable skills and businesses thrive through expert guidance, innovation, and sustainable growth.</p>
+                        <p class="text-gray-700">To be East Africa's leading catalyst for personal and enterprise transformation — connecting talent with opportunity and enabling communities, institutions, and businesses to achieve their fullest potential.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold text-brand-purple mb-6">Our Mission</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span>Equip individuals with job-ready skills and support SMEs in achieving sustainable growth</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span>Bridge the gap between education and employability</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span>Design impactful programs that foster entrepreneurship</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span>Collaborate with partners to build a skilled workforce</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="bg-brand-navy text-brand-white p-8 rounded-xl">
+                <h3 class="text-3xl font-bold text-center mb-12">Core Values - <span class="text-brand-orange">SEAL</span></h3>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-brand-orange mb-4">S</div>
+                        <h4 class="font-bold mb-2">Strengthening Communities</h4>
+                        <p class="text-sm text-gray-300">Empowering communities, organizations and individuals with tools for growth and resilience</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-brand-orange mb-4">E</div>
+                        <h4 class="font-bold mb-2">Empowering Entrepreneurs</h4>
+                        <p class="text-sm text-gray-300">Working with entrepreneurs to build sustainable businesses and enhance leadership capabilities</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-brand-orange mb-4">A</div>
+                        <h4 class="font-bold mb-2">Advancing Education</h4>
+                        <p class="text-sm text-gray-300">Bridging the gap between formal education and practical employability</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-brand-orange mb-4">L</div>
+                        <h4 class="font-bold mb-2">Leading Innovation</h4>
+                        <p class="text-sm text-gray-300">Forward-thinking solutions with modern tools and creative ideas for lasting impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-navy mb-6">Our Services</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    SEAL operates through two synergistic streams ensuring a continuous cycle of empowerment
+                </p>
+            </div>
+
+            <!-- Service Streams -->
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <!-- Student Training -->
+                <div class="bg-brand-white p-8 rounded-xl shadow-lg">
+                    <div class="bg-brand-purple text-brand-white p-4 rounded-lg mb-6">
+                        <h3 class="text-2xl font-bold">Student Skills Training & Empowerment</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">A. Career Development & Job Readiness</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Resume & Cover Letter Writing</li>
+                                <li>• LinkedIn & Personal Branding</li>
+                                <li>• Interview Skills & Workplace Communication</li>
+                                <li>• Time Management & Productivity</li>
+                                <li>• Career Planning & Goal Setting</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">B. Business, Finance & Digital Skills</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Basic Accounting & Financial Modeling</li>
+                                <li>• Tax Literacy & Compliance</li>
+                                <li>• Digital Marketing & Entrepreneurship</li>
+                                <li>• Excel & Financial Reporting</li>
+                                <li>• Cyber Services & E-Citizen Platforms</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">C. Tech & Creative Skills</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Graphic Design & Presentation Design</li>
+                                <li>• Computer Literacy & Digital Tools</li>
+                                <li>• Introduction to Coding & Web Tools</li>
+                                <li>• Video Editing & Content Creation</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">D. Life Skills & Personal Development</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Emotional Intelligence & Critical Thinking</li>
+                                <li>• Public Speaking & Leadership</li>
+                                <li>• Health & Wellness Awareness</li>
+                                <li>• Financial Responsibility & Ethics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SME Services -->
+                <div class="bg-brand-white p-8 rounded-xl shadow-lg">
+                    <div class="bg-brand-orange text-brand-white p-4 rounded-lg mb-6">
+                        <h3 class="text-2xl font-bold">SME & Startup Consultancy Services</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">A. Strategy & Growth Advisory</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Business Visioning & Goal-Setting</li>
+                                <li>• Market Research & Analysis</li>
+                                <li>• Growth & Expansion Planning</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">B. Financial & Accounting Advisory</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Bookkeeping Setup & Cash Flow Management</li>
+                                <li>• Statutory Compliance & Tax Filing</li>
+                                <li>• Financial Reporting & Analysis</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">C. Human Resource Solutions</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Talent Acquisition & Recruitment</li>
+                                <li>• HR Policies & Employee Handbooks</li>
+                                <li>• Payroll Management & Performance Systems</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">D. Marketing & Digital Optimization</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Brand Identity Development</li>
+                                <li>• Digital Marketing Strategy</li>
+                                <li>• Customer Experience Improvement</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-brand-navy mb-3">E. Logistics & Trade Facilitation</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Customs Clearance & Compliance</li>
+                                <li>• System Training (Simba, KenTrade, RECTS)</li>
+                                <li>• Supply Chain Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="bg-brand-navy text-brand-white p-8 rounded-xl">
+                <h3 class="text-3xl font-bold text-center mb-12">Why Choose SifaSkills?</h3>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-brand-orange text-4xl mb-4">💰</div>
+                        <h4 class="font-bold mb-2">Affordable Expertise</h4>
+                        <p class="text-sm text-gray-300">Top-tier consultancy at a fraction of full-time staff costs</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-brand-orange text-4xl mb-4">🎯</div>
+                        <h4 class="font-bold mb-2">Customized Solutions</h4>
+                        <p class="text-sm text-gray-300">Tailored solutions that fit your unique context and goals</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-brand-orange text-4xl mb-4">🌍</div>
+                        <h4 class="font-bold mb-2">Local Context, Global Standards</h4>
+                        <p class="text-sm text-gray-300">Deep local understanding with international best practices</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-brand-orange text-4xl mb-4">📈</div>
+                        <h4 class="font-bold mb-2">Commitment to Impact</h4>
+                        <p class="text-sm text-gray-300">Long-term sustainable improvements in businesses and lives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-brand-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-navy mb-6">Our Expert Team</h2>
+                <p class="text-xl text-gray-700">
+                    Meet the passionate professionals driving transformation across East Africa
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Emmanuel Mkare -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-20 h-20 bg-brand-purple text-brand-white rounded-full flex items-center justify-center text-2xl font-bold">EM</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy">Emmanuel Mkare</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Accounts Consultant | Audit & Tax Expert | Strategic Financial Management</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">CPA-K</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">BCom Accounting</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">8+ Years</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">ICPAK Rep</span>
+                            </div>
+                            <p class="text-gray-700 text-sm">Certified Public Accountant with extensive experience in financial reporting, tax compliance, and strategic financial management. Currently serves as ICPAK Mombasa County Representative.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stella Zawadi -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-20 h-20 bg-brand-purple text-brand-white rounded-full flex items-center justify-center text-2xl font-bold">SZ</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy">Stella Zawadi</h3>
+                            <p class="text-brand-orange font-semibold mb-4">HR Specialist | Talent & Systems Strategist</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">CHRPK</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">HR Management</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">HRIS Implementation</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">6+ Years</span>
+                            </div>
+                            <p class="text-gray-700 text-sm">Certified HR Professional with experience managing HR operations for 900+ staff organizations. Expert in digital HR systems, recruitment, and labor law compliance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Francis Muyekho -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-20 h-20 bg-brand-purple text-brand-white rounded-full flex items-center justify-center text-2xl font-bold">FM</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy">Francis Muyekho</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Marketing & Business Development Consultant</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">CIM Diploma</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">15+ Years</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">Brand Positioning</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">Digital Marketing</span>
+                            </div>
+                            <p class="text-gray-700 text-sm">Dynamic marketing professional with expertise in brand positioning, corporate communications, and strategic outreach across healthcare, logistics, and agro-business sectors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harold Yaa -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-20 h-20 bg-brand-purple text-brand-white rounded-full flex items-center justify-center text-2xl font-bold">HY</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy">Harold Yaa</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Finance Professional | Entrepreneur | Creative Strategist</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">BCom Finance</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">Graphic Design</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">Video Editing</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">Entrepreneurship</span>
+                            </div>
+                            <p class="text-gray-700 text-sm">Finance graduate with entrepreneurial insight and creative skills. Specializes in financial operations, business strategy, and brand development for startups and SMEs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joseph Zia -->
+                <div class="bg-gray-50 p-8 rounded-xl lg:col-span-2">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-20 h-20 bg-brand-purple text-brand-white rounded-full flex items-center justify-center text-2xl font-bold">JZ</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy">Joseph Zia</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Logistics & Trade Facilitation Specialist</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">10+ Years</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">Simba 2005</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">KenTrade</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">RECTS</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">EACCMA</span>
+                                <span class="bg-brand-navy text-brand-white px-3 py-1 rounded-full text-sm">HS Classification</span>
+                            </div>
+                            <p class="text-gray-700 text-sm">Seasoned logistics professional with deep expertise in customs clearance, regional freight operations, and trade facilitation systems. Specializes in translating industry knowledge into practical training programs for SMEs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-brand-navy text-brand-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-300">
+                    Ready to unlock your potential? Let's start the conversation.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-brand-orange">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-orange text-2xl">📍</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Office Location</h4>
+                                <p class="text-gray-300">1st Floor, The Palm Hub<br>Bamburi Old Naivas<br>Mombasa, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-orange text-2xl">📞</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p class="text-gray-300">0787941241</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-orange text-2xl">✉</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-300">seal.infoea@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-orange text-2xl">🌐</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Website</h4>
+                                <p class="text-gray-300">www.sifaskillseal.co.ke</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-brand-orange">Send us a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="w-full px-4 py-3 bg-brand-white text-brand-navy rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="w-full px-4 py-3 bg-brand-white text-brand-navy rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="email">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-brand-white text-brand-navy rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="service">Service Interest</label>
+                            <select id="service" class="w-full px-4 py-3 bg-brand-white text-brand-navy rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange">
+                                <option>Student Skills Training</option>
+                                <option>SME Consultancy</option>
+                                <option>Financial Advisory</option>
+                                <option>HR Solutions</option>
+                                <option>Marketing & Branding</option>
+                                <option>Logistics & Trade Facilitation</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="message">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-brand-white text-brand-navy rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange" placeholder="Tell us about your needs and how we can help..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-orange text-brand-white py-4 rounded-lg hover:bg-opacity-90 transition font-semibold text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-brand-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl font-bold text-brand-orange">SifaSkills</div>
+                        <div class="ml-2 text-brand-purple font-medium">(EA) Ltd</div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The SEAL of Professional Growth - Unlocking human potential and driving sustainable development across East Africa.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-brand-orange hover:text-brand-white transition">📧</a>
+                        <a href="#" class="text-brand-orange hover:text-brand-white transition">📱</a>
+                        <a href="#" class="text-brand-orange hover:text-brand-white transition">💼</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-brand-orange mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-brand-white transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-white transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-brand-white transition">Services</a></li>
+                        <li><a href="#team" class="hover:text-brand-white transition">Our Team</a></li>
+                        <li><a href="#contact" class="hover:text-brand-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-bold text-brand-orange mb-4">Our Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Student Skills Training</li>
+                        <li>SME Consultancy</li>
+                        <li>Financial Advisory</li>
+                        <li>HR Solutions</li>
+                        <li>Marketing & Branding</li>
+                        <li>Logistics & Trade</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 SifaSkills (EA) Ltd. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-brand-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-white transition">Terms of Service</a>
+                    <a href="#" class="hover:text-brand-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.remove('opacity-0', 'invisible');
+                scrollToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                scrollToTopButton.classList.add('opacity-0', 'invisible');
+                scrollToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission (you can replace this with actual form handling)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+
+        // Navbar background change on scroll
+        const navbar = document.querySelector('nav');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('bg-opacity-95', 'backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('bg-opacity-95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
