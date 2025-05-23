@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sifaskill - Book Your Session</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'orange-flame': '#f48a32',
+                        'royal-amethyst': '#8c18a9',
+                        'deep-navy': '#1b265d',
+                        'pure-white': '#ffffff'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f48a32 0%, #8c18a9 50%, #1b265d 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .service-card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 24, 169, 0.2);
+        }
+        
+        .animate-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .animate-shimmer:hover::before {
+            left: 100%;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(244, 138, 50, 0.5);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(244, 138, 50, 0.8);
+                transform: scale(1.02);
+            }
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-category {
+            margin-bottom: 2rem;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #f48a32, #8c18a9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-pure-white mb-4 floating-animation">
+                Sifaskill
+            </h1>
+            <p class="text-xl text-pure-white/90 font-medium">
+                Book your personalized skill development session
+            </p>
+            <div class="w-24 h-1 bg-orange-flame mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Main Booking Container -->
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Service Selection -->
+            <div class="glass-effect rounded-3xl p-8 border border-white/20 max-h-[80vh] overflow-y-auto">
+                <h2 class="text-3xl font-bold text-deep-navy mb-8 pb-4 border-b-4 border-orange-flame">
+                    Choose Your Service
+                </h2>
+                
+                <!-- Student Skills Training Services -->
+                <div class="service-category">
+                    <h3 class="text-2xl font-bold category-header mb-6">Student Skills Training</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="career-development" data-price="65" data-duration="60">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Career Development & Job Readiness</h4>
+                                <span class="text-xl font-bold text-orange-flame">$65</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">60 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Resume writing, LinkedIn optimization, interview skills, workplace communication, and career planning.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="business-finance" data-price="70" data-duration="75">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Business, Finance & Digital Skills</h4>
+                                <span class="text-xl font-bold text-orange-flame">$70</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">75 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Accounting principles, budgeting, Excel modeling, digital marketing, and entrepreneurship fundamentals.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="tech-creative" data-price="60" data-duration="60">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Tech & Creative Skills</h4>
+                                <span class="text-xl font-bold text-orange-flame">$60</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">60 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Graphic design, presentation design, coding basics, video editing, and digital tools mastery.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="life-skills" data-price="55" data-duration="50">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Life Skills & Personal Development</h4>
+                                <span class="text-xl font-bold text-orange-flame">$55</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">50 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Emotional intelligence, critical thinking, public speaking, leadership, and wellness awareness.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="practical-exposure" data-price="80" data-duration="90">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Practical Exposure & Experience</h4>
+                                <span class="text-xl font-bold text-orange-flame">$80</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">90 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Business simulations, live projects, internship guidance, and personalized mentorship.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SME & Startup Services -->
+                <div class="service-category">
+                    <h3 class="text-2xl font-bold category-header mb-6">SME & Startup Services</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="strategy-advisory" data-price="120" data-duration="90">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Strategy & Growth Advisory</h4>
+                                <span class="text-xl font-bold text-orange-flame">$120</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">90 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Business visioning, market research, growth planning, and expansion strategies for SMEs.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="financial-advisory" data-price="100" data-duration="75">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Financial & Accounting Advisory</h4>
+                                <span class="text-xl font-bold text-orange-flame">$100</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">75 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bookkeeping setup, cash flow management, statutory compliance, and financial reporting.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="hr-solutions" data-price="90" data-duration="60">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Human Resource Solutions</h4>
+                                <span class="text-xl font-bold text-orange-flame">$90</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">60 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Talent acquisition, HR policies, payroll management, and performance systems.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="operations" data-price="85" data-duration="60">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Operational Excellence</h4>
+                                <span class="text-xl font-bold text-orange-flame">$85</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">60 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Process improvement, technology integration, and supply chain optimization.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="marketing" data-price="75" data-duration="60">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Marketing & Customer Engagement</h4>
+                                <span class="text-xl font-bold text-orange-flame">$75</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">60 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Brand identity development, digital marketing strategy, and customer experience improvement.
+                            </p>
+                        </div>
+
+                        <div class="service-card bg-pure-white border-2 border-gray-200 rounded-2xl p-6 cursor-pointer transition-all duration-300 relative overflow-hidden animate-shimmer service-card-hover" 
+                             data-service="legal-support" data-price="110" data-duration="75">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-lg font-bold text-deep-navy">Legal & Administrative Support</h4>
+                                <span class="text-xl font-bold text-orange-flame">$110</span>
+                            </div>
+                            <p class="text-royal-amethyst font-medium mb-2">75 minutes</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Business registration, contract drafting, risk management, and compliance guidance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="glass-effect rounded-3xl p-8 border border-white/20">
+                <h2 class="text-3xl font-bold text-deep-navy mb-8 pb-4 border-b-4 border-royal-amethyst">
+                    Book Your Session
+                </h2>
+                
+                <!-- Booking Summary -->
+                <div id="booking-summary" class="hidden bg-gradient-to-r from-orange-flame/10 to-royal-amethyst/10 rounded-2xl p-6 mb-8 border-l-4 border-orange-flame">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-deep-navy font-medium">Service:</span>
+                        <span id="selected-service" class="font-bold text-deep-navy text-right">-</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-deep-navy font-medium">Duration:</span>
+                        <span id="selected-duration" class="font-bold text-deep-navy">-</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t-2 border-gray-200">
+                        <span class="text-xl font-bold text-deep-navy">Total:</span>
+                        <span id="selected-price" class="text-2xl font-bold text-orange-flame">$0</span>
+                    </div>
+                </div>
+
+                <!-- Form Fields -->
+                <div class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-deep-navy font-semibold mb-2">Full Name *</label>
+                        <input type="text" id="name" required 
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-deep-navy font-semibold mb-2">Email Address *</label>
+                        <input type="email" id="email" required 
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white">
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-deep-navy font-semibold mb-2">Phone Number</label>
+                        <input type="tel" id="phone" 
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white">
+                    </div>
+
+                    <div>
+                        <label for="experience" class="block text-deep-navy font-semibold mb-2">Experience Level</label>
+                        <select id="experience" 
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white">
+                            <option value="">Select your level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="date" class="block text-deep-navy font-semibold mb-2">Preferred Date *</label>
+                            <input type="date" id="date" required 
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white">
+                        </div>
+
+                        <div>
+                            <label for="time" class="block text-deep-navy font-semibold mb-2">Preferred Time *</label>
+                            <select id="time" required 
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white">
+                                <option value="">Select time</option>
+                                <option value="09:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="goals" class="block text-deep-navy font-semibold mb-2">Session Goals & Questions</label>
+                        <textarea id="goals" rows="4" 
+                                  placeholder="What would you like to focus on during your session? Any specific questions or topics?"
+                                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-flame focus:ring-4 focus:ring-orange-flame/20 transition-all duration-300 bg-pure-white resize-none"></textarea>
+                    </div>
+
+                    <button type="button" id="book-btn" disabled
+                            class="w-full bg-gray-400 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 cursor-not-allowed">
+                        Select a Service to Continue
+                    </button>
+
+                    <!-- Success Message -->
+                    <div id="success-message" class="hidden bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center">
+                        <h3 class="text-2xl font-bold mb-2">🎉 Booking Confirmed!</h3>
+                        <p class="text-lg">Thank you for booking with Sifaskill. You'll receive a confirmation email shortly with session details and preparation materials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedService = null;
+        let bookingData = {};
+
+        // Set minimum date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+        // Service selection
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove previous selection
+                document.querySelectorAll('.service-card').forEach(c => {
+                    c.classList.remove('border-orange-flame', 'bg-gradient-to-br', 'from-orange-flame/5', 'to-royal-amethyst/5', 'transform', 'scale-105');
+                    c.classList.add('border-gray-200');
+                });
+                
+                // Add selection to clicked card
+                this.classList.remove('border-gray-200');
+                this.classList.add('border-orange-flame', 'bg-gradient-to-br', 'from-orange-flame/5', 'to-royal-amethyst/5', 'transform', 'scale-105');
+                
+                // Store selected service data
+                selectedService = {
+                    name: this.querySelector('h4').textContent,
+                    price: parseInt(this.dataset.price),
+                    duration: this.dataset.duration,
+                    service: this.dataset.service
+                };
+
+                // Update booking summary
+                updateBookingSummary();
+                
+                // Enable booking button
+                const bookBtn = document.getElementById('book-btn');
+                bookBtn.disabled = false;
+                bookBtn.textContent = 'Book Your Session';
+                bookBtn.className = 'w-full bg-gradient-to-r from-orange-flame to-royal-amethyst hover:from-royal-amethyst hover:to-deep-navy text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 pulse-glow cursor-pointer';
+            });
+        });
+
+        function updateBookingSummary() {
+            if (selectedService) {
+                document.getElementById('booking-summary').classList.remove('hidden');
+                document.getElementById('selected-service').textContent = selectedService.name;
+                document.getElementById('selected-duration').textContent = selectedService.duration + ' minutes';
+                document.getElementById('selected-price').textContent = '$' + selectedService.price;
+            }
+        }
+
+        // Booking submission
+        document.getElementById('book-btn').addEventListener('click', function() {
+            if (validateForm()) {
+                processBooking();
+            }
+        });
+
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (!selectedService) {
+                alert('Please select a service');
+                return false;
+            }
+
+            if (!name) {
+                alert('Please enter your full name');
+                document.getElementById('name').focus();
+                return false;
+            }
+
+            if (!email || !isValidEmail(email)) {
+                alert('Please enter a valid email address');
+                document.getElementById('email').focus();
+                return false;
+            }
+
+            if (!date) {
+                alert('Please select a preferred date');
+                document.getElementById('date').focus();
+                return false;
+            }
+
+            if (!time) {
+                alert('Please select a preferred time');
+                document.getElementById('time').focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function processBooking() {
+            // Collect all form data
+            bookingData = {
+                service: selectedService,
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                experience: document.getElementById('experience').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                goals: document.getElementById('goals').value.trim(),
+                bookingId: 'SIF-' + Date.now(),
+                timestamp: new Date().toISOString()
+            };
+
+            // Disable button and show loading
+            const bookBtn = document.getElementById('book-btn');
+            bookBtn.disabled = true;
+            bookBtn.textContent = 'Processing Booking...';
+            bookBtn.className = 'w-full bg-gray-400 text-white font-bold py-4 px-8 rounded-xl text-lg cursor-not-allowed';
+
+            // Simulate booking process
+            setTimeout(() => {
+                // Show success message
+                document.getElementById('success-message').classList.remove('hidden');
+                
+                // Reset button
+                bookBtn.textContent = 'Booking Confirmed!';
+                bookBtn.className = 'w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-8 rounded-xl text-lg';
+                
+                // Log booking data (in real implementation, send to server)
+                console.log('Booking Data:', bookingData);
+                
+                // Scroll to success message
+                document.getElementById('success-message').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+
+                // Send confirmation email (placeholder)
+                sendConfirmationEmail(bookingData);
+                
+            }, 2000);
+        }
+
+        function sendConfirmationEmail(data) {
+            // In a real implementation, this would make an API call to your backend
+            console.log('Sending confirmation email to:', data.email);
+            console.log('Booking details:', {
+                service: data.service.name,
+                date: data.date,
+                time: data.time,
+                duration: data.service.duration + ' minutes',
+                price: '$' + data.service.price,
+                bookingId: data.bookingId
+            });
+        }
+
+        // Add focus animations
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.parentElement.classList.add('transform', '-translate-y-1');
+            });
+            
+            element.addEventListener('blur', function() {
+                this.parentElement.classList.remove('transform', '-translate-y-1');
+            });
+        });
+    </script>
+</body>
+</html>
