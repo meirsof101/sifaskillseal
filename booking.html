@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sifaskill - Book Your Session</title>
+    <!--to load icons like whatsapp-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Book A Session - SifaSkills (EA) Ltd</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,7 +15,11 @@
                         'orange-flame': '#f48a32',
                         'royal-amethyst': '#8c18a9',
                         'deep-navy': '#1b265d',
-                        'pure-white': '#ffffff'
+                        'pure-white': '#ffffff',
+                        'brand-orange': '#f48a32',
+                        'brand-purple': '#8c18a9',
+                        'brand-navy': '#1b265d',
+                        'brand-white': '#ffffff'
                     }
                 }
             }
@@ -85,6 +91,8 @@
         }
     </style>
 </head>
+<!--load the navbar-->
+<div id="navbar-placeholder"></div>
 <body class="min-h-screen gradient-bg">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
         <!-- Header -->
@@ -351,7 +359,10 @@
             </div>
         </div>
     </div>
-
+     <!--load the footer-->
+    <div id="footer-placeholder"></div>
+    <!--load partials js-->
+    <script src="js/loadpartials.js"></script>
     <script>
         let selectedService = null;
         let bookingData = {};
@@ -519,5 +530,14 @@
             });
         });
     </script>
+
+<!--whatsapp icon-->
+        <a
+            href="https://wa.me/254787941241" target="_blank"
+            class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
+            aria-label="Chat on WhatsApp"
+            >
+            <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
 </body>
 </html>
