@@ -66,6 +66,18 @@
         .card-hover:hover .feature-icon {
             transform: scale(1.2) rotate(5deg);
         }
+        
+        /* Add fadeInUp animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -325,13 +337,8 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="booking.html">
-                    <button class="bg-white text-deep-navy px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl">
-                        Start Your Journey
-                    </button>
-                </a>
-                <a href="booking.html">
                     <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-deep-navy transition-all duration-300 transform hover:scale-105">
-                        Schedule Free Consultation
+                        Book a session
                     </button>
                 </a>
             </div>
@@ -362,28 +369,6 @@
     <!--load partials js-->
     <script src="js/loadpartials.js"></script>
     <script>
-        //load navbar and footer script
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("partials/navbar.html")
-                .then(res => res.text())
-                .then(data => {
-                document.getElementById("navbar-placeholder").innerHTML = data;
-                });
-
-            fetch("partials/footer.html")
-                .then(res => res.text())
-                .then(data => {
-                document.getElementById("footer-placeholder").innerHTML = data;
-                });
-            });
-
-        //end of load navbar and footer script
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
         // Add smooth scrolling and interactive elements
         document.addEventListener('DOMContentLoaded', function() {
             // Animate cards on scroll
@@ -422,13 +407,21 @@
             const featureCards = document.querySelectorAll('.card-hover');
             featureCards.forEach((card, index) => {
                 card.style.animation = `fadeInUp 0.5s ease forwards`;
-                 card.style.animationDelay = `${index * 0.2}s`;
+                card.style.animationDelay = `${index * 0.2}s`;
             }); 
         });
     </script>
+        <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+            <!-- Scroll to top functionality -->
+    <script src="js/scroll-to-top.js"></script>
     <!--whatsapp icon-->
         <a
-            href="https://wa.me/254787941241" target="_blank"
+            href="https://wa.me/254768080749" target="_blank"
             class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
             aria-label="Chat on WhatsApp"
             >
