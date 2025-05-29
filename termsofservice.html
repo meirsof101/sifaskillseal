@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--fav icon-->
+    <link rel="icon" type="image/png" href="Images/sifaslogo.png">
+    <!--to load icons like whatsapp-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Terms of Service - SifaSkills (EA) Ltd</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -10,117 +14,247 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-blue': '#1e40af',
-                        'brand-gray': '#64748b',
+                        'orange-flame': '#f48a32',
+                        'royal-amethyst': '#8c18a9',
+                        'deep-navy': '#1b265d',
+                        'pure-white': '#ffffff',
+                        'brand-orange': '#f48a32'
                     }
                 }
             }
         }
     </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f48a32 0%, #8c18a9 50%, #1b265d 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 24, 169, 0.15);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(244, 138, 50, 0.1) 0%, rgba(139, 24, 169, 0.1) 100%);
+            border-left: 4px solid #f48a32;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <!--load the navbar--> 
-    <div id="navbar-placeholder"></div>
-
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-6 py-12">
-        <!-- Title Section -->
+<body class="min-h-screen gradient-bg">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
         <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                By accessing or using the SifaSkills website, you agree to the following terms and conditions.
+            <h1 class="text-5xl md:text-6xl font-bold text-pure-white mb-4 floating-animation">
+                Sifaskill
+            </h1>
+            <div class="w-24 h-1 bg-orange-flame mx-auto mb-6 rounded-full"></div>
+            <h2 class="text-3xl md:text-4xl font-bold text-pure-white mb-4">
+                Terms of Service
+            </h2>
+            <p class="text-lg text-pure-white/90 max-w-2xl mx-auto">
+                By accessing or using the SifaSkills website, you agree to the following terms and conditions:
             </p>
         </div>
 
-        <!-- Terms Content -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-            <div class="space-y-10">
-                <!-- Term 1 -->
-                <div class="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">1. Acceptable Use</h2>
-                    <p class="text-gray-700 mb-4">You agree not to:</p>
+        <!-- Main Content -->
+        <div class="glass-effect rounded-3xl p-8 md:p-12 border border-white/20 mb-8">
+
+            <!-- Term 1  -->
+            <div class="section-card rounded-2xl p-8 mb-8 border border-gray-200">
+                <h3 class="text-2xl font-bold text-deep-navy mb-6 pb-3 border-b-2 border-orange-flame">
+                    1. Acceptable Use
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                    <h4 class="text-xl font-semibold text-royal-amethyst mb-3">You agree not to:</h4>
                     <ul class="space-y-2 ml-6">
                         <li class="text-gray-700">• Violate any laws or regulations of Kenya</li>
                         <li class="text-gray-700">• Interfere with website functionality or security</li>
                         <li class="text-gray-700">• Reproduce or distribute our content without permission</li>
                     </ul>
-                </div>
-
-                <!-- Term 2 -->
-                <div class="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">2. Intellectual Property</h2>
-                    <p class="text-gray-700">
-                        All website content (logos, text, images, training materials) is owned by SifaSkills and protected under Kenyan intellectual property laws. Unauthorized use is prohibited.
-                    </p>
-                </div>
-
-                <!-- Term 3 -->
-                <div class="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">3. Limitation of Liability</h2>
-                    <p class="text-gray-700">
-                        SifaSkills is not liable for any damages arising from the use or inability to use our website or materials.
-                    </p>
-                </div>
-
-                <!-- Term 4 -->
-                <div class="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">4. External Links</h2>
-                    <p class="text-gray-700">
-                        We may provide links to third-party websites. We are not responsible for the content or privacy practices of those sites.
-                    </p>
-                </div>
-
-                <!-- Term 5 -->
-                <div class="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">5. Changes to Terms</h2>
-                    <p class="text-gray-700">
-                        We reserve the right to amend these Terms at any time. Continued use of the site means you accept the updated terms.
-                    </p>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- Term 2 -->
+            <div class="section-card rounded-2xl p-8 mb-8 border border-gray-200">
+                <h3 class="text-2xl font-bold text-deep-navy mb-6 pb-3 border-b-2 border-orange-flame">
+                    2. Intellectual Property
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                    <h4 class="text-xl font-semibold text-royal-amethyst mb-3">All website content (logos, text, images, training materials) is owned by SifaSkills and protected under Kenyan intellectual property laws. Unauthorized use is prohibited.</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Term 3 -->
+            <div class="section-card rounded-2xl p-8 mb-8 border border-gray-200">
+                <h3 class="text-2xl font-bold text-deep-navy mb-6 pb-3 border-b-2 border-orange-flame">
+                    3. Limitation of Liability
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                    <h4 class="text-xl font-semibold text-royal-amethyst mb-3">SifaSkills is not liable for any damages arising from the use or inability to use our website or materials.
+                    </p></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Term 4 -->
+            <div class="section-card rounded-2xl p-8 mb-8 border border-gray-200">
+                <h3 class="text-2xl font-bold text-deep-navy mb-6 pb-3 border-b-2 border-orange-flame">
+                    4. External Links
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                    <h4 class="text-xl font-semibold text-royal-amethyst mb-3">We may provide links to third-party websites. We are not responsible for the content or privacy practices of those sites.
+                    </p></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Term 5 -->
+            <div class="section-card rounded-2xl p-8 mb-8 border border-gray-200">
+                <h3 class="text-2xl font-bold text-deep-navy mb-6 pb-3 border-b-2 border-orange-flame">
+                    5. Changes to Terms
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                    <h4 class="text-xl font-semibold text-royal-amethyst mb-3">We reserve the right to amend these Terms at any time. Continued use of the site means you accept the updated terms.
+                    </p></h4>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="highlight-box rounded-2xl p-8 mt-12">
+                <h3 class="text-2xl font-bold text-deep-navy mb-4">
+                    Ready to Get Started?
+                </h3>
+                <p class="text-deep-navy leading-relaxed mb-4">
+                    By continuing to use SifaSkills, you accept these terms and join our community. Email us for any questions or support.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <a href="contact.html" 
+                       class="bg-gradient-to-r from-orange-flame to-royal-amethyst text-white font-bold py-3 px-6 rounded-xl hover:from-royal-amethyst hover:to-deep-navy transition-all duration-300 text-center">
+                        Email Us
+                    </a>
+                    
+                </div>
+            </div>
 
-        <!-- Call to Action -->
-        <div class="bg-brand-blue rounded-lg p-8 text-white text-center mb-8">
-            <h3 class="text-xl font-semibold mb-3">Ready to Get Started?</h3>
-            <p class="mb-6 opacity-90">
-                By continuing to use SifaSkills, you accept these terms and join our community.
-            </p>
-            <button class="bg-white text-brand-blue px-6 py-3 rounded-md font-medium hover:bg-gray-50 transition-colors duration-200">
-                Explore Our Services
-            </button>
+            <!-- Last Updated -->
+            <div class="text-center mt-12 pt-8 border-t border-gray-200">
+                <p class="text-gray-600">
+                    Last updated: <span class="font-semibold text-deep-navy">December 2024</span>
+                </p>
+                <p class="text-sm text-gray-500 mt-2">
+                    This policy is compliant with the Kenya Data Protection Act, 2019
+                </p>
+            </div>
         </div>
 
         <!-- Back to Home Button -->
         <div class="text-center">
             <a href="index.html" onclick="history.back()" 
-               class="inline-block bg-gray-900 text-white font-medium py-3 px-6 rounded-md hover:bg-gray-800 transition-colors duration-200">
-                ← Back to SifaSkills
+               class="inline-block bg-gradient-to-r from-deep-navy to-royal-amethyst text-white font-bold py-4 px-8 rounded-xl hover:from-royal-amethyst hover:to-orange-flame transition-all duration-300 transform hover:scale-105">
+                ← Back to Sifaskill
             </a>
         </div>
-    </main>
+    </div>
 
-    <!--load the footer-->
-    <div id="footer-placeholder"></div>
     <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
+    <button id="scrollToTop" 
+            class="fixed bottom-8 right-8 bg-orange-flame hover:bg-royal-amethyst text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 opacity-0 invisible"
+            onclick="scrollToTop()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
     </button>
-    <!--load partials js-->
-    <script src="js/loadpartials.js"></script>
-    <script src="js/scroll-to-top.js"></script>
-    
+
+    <script>
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.remove('opacity-0', 'invisible');
+                scrollButton.classList.add('opacity-100', 'visible');
+            } else {
+                scrollButton.classList.add('opacity-0', 'invisible');
+                scrollButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scrolling animation for section cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all section cards
+        document.querySelectorAll('.section-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add CSS animation class
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-fade-in {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
     <!--whatsapp icon-->
-    <a
-        href="https://wa.me/254768080749" target="_blank"
-        class="fixed bottom-6 left-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
-        aria-label="Chat on WhatsApp"
-        >
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.690"/>
-        </svg>
-    </a>
+        <a
+            href="https://wa.me/254768080749" target="_blank"
+            class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
+            aria-label="Chat on WhatsApp"
+            >
+            <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
 </body>
 </html>
