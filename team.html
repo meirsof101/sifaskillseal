@@ -3,360 +3,672 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--to load icons like whatsapp-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Our Team - SifaSkills (EA) Ltd</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'orange-flame': '#f48a32',
-                        'royal-amethyst': '#8c18a9',
-                        'deep-navy': '#1b265d',
-                        'brand-orange': '#f48a32',
-                        'brand-purple': '#8c18a9',
-                        'brand-navy': '#1b265d',
+                        'brand-navy': '#1e3a8a',
+                        'brand-purple': '#7c3aed',
+                        'brand-orange': '#ea580c',
                         'brand-white': '#ffffff'
                     }
                 }
             }
         }
-        
     </script>
+    <title>Our Expert Team </title>
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #1b265d 0%, #8c18a9 50%, #f48a32 100%);
+        .team-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .card-hover {
+        .team-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .view-details-btn {
+            background: linear-gradient(135deg, #ea580c, #dc2626);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .view-details-btn:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transform: translateX(4px);
         }
-        .blob {
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation: morph 8s ease-in-out infinite;
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.6);
         }
-        @keyframes morph {
-            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        .modal-content {
+            animation: modalSlide 0.3s ease-out;
         }
-        .pulse-border {
-            animation: pulse-border 2s infinite;
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
-        @keyframes pulse-border {
-            0%, 100% { border-color: #f48a32; }
-            50% { border-color: #8c18a9; }
+        .skill-badge {
+            background: linear-gradient(135deg, #1e3a8a, #3730a3);
+            transition: all 0.2s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #3730a3, #4338ca);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-<!--load the navbar-->
+<body class="font-sans">
+    <!--load the navbar-->
 <div id="navbar-placeholder"></div>
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-brand-white">
+              <!-- Page Header -->
+    <section class="bg-gradient-to-r from-brand-navy to-brand-purple py-16 text-brand-white">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Expert Team</h1>
+            <p class="text-xl text-gray-200">Discover the passionate professionals driving transformation and empowering businesses across East Africa</p>
+        </div>
+    </section>
 
-    <!-- Header Section -->
-    <div class="gradient-bg py-16 relative overflow-hidden mt-16">
-        <div class="absolute inset-0 opacity-10">
-            <div class="blob absolute top-10 left-10 w-64 h-64 bg-white"></div>
-            <div class="blob absolute bottom-10 right-10 w-48 h-48 bg-orange-flame opacity-30"></div>
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center">
-                <h1 class="text-5xl font-bold text-white mb-4">Meet Our Team</h1>
-                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
-                    Discover the passionate professionals driving transformation and empowering businesses across East Africa
-                </p>
+            <div class="team-grid">
+                <!-- Emmanuel Mkare -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/mlewa2.jpg" 
+                                 alt="Emmanuel Mkare" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Emmanuel Mkare</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Accounts Consultant | Tax Expert | Strategic Financial Management</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CPA-K</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">BCom Accounting</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">8+ Years</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">ICPAK Rep</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">Certified Public Accountant with extensive experience in financial reporting, tax compliance, and strategic financial management.</p>
+                            <button onclick="openModal('emmanuel')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stella Zawadi -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/stella.jpg" 
+                                 alt="Stella Zawadi" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Stella Zawadi</h3>
+                            <p class="text-brand-orange font-semibold mb-4">HR Specialist | Talent & Systems Strategist</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CHRPK</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">HR Management</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">HRIS Implementation</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">6+ Years</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Certified HR Professional with experience managing HR operations for 900+ staff organizations.</p>
+                            <button onclick="openModal('stella')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Francis Muyekho -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/francis.jpg" 
+                                 alt="Francis Muyekho" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Francis Muyekho</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Marketing & Business Development Consultant</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CIM Diploma</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">15+ Years</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Brand Positioning</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Digital Marketing</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Dynamic marketing professional with expertise in brand positioning and corporate communications.</p>
+                            <button onclick="openModal('francis')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harold -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/harold1.jpg" 
+                                 alt="Harold" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Harold</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Finance Specialist | Entrepreneurial Advisor | Creative Strategist</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Financial Strategy</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Startup Advisory</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Creative Design</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">B.Com (Finance)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Harold fuses finance, strategy, and design to uplift startups and SMEs across East Africa.</p>
+                            <button onclick="openModal('harold')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anthony Thoya Baya -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/anthony.jpg" 
+                                 alt="Anthony Thoya Baya" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Anthony Thoya Baya</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Accountant | Financial Administrator | Community Trainer</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CPA III</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">QuickBooks</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Payroll</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Donor Funds</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Finance expert with 5+ years in reporting, payroll, and compliance—ensuring transparency in budgeting and audits.</p>
+                            <button onclick="openModal('anthony')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kevin O. Oduol -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/kelvin1.jpg" 
+                                 alt="Kevin O. Oduol" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Kevin O. Oduol</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Education Leader | Youth Mentor | Professional Trainer</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">14+ Years</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">TSC Registered</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Mentorship</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Curriculum Delivery</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">With 14+ years in education, Kevin blends teaching, mentorship, and leadership to empower learners and educators.</p>
+                            <button onclick="openModal('kevin')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joseph Zia -->
+                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
+                    <div class="flex items-start space-x-6">
+                        <div class="relative">
+                            <img src="Images/joseph.jpg" 
+                                 alt="Joseph Zia" 
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Joseph Zia</h3>
+                            <p class="text-brand-orange font-semibold mb-4">Logistics & Trade Facilitation Specialist</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">10+ Years</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Simba 2005</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">KenTrade</span>
+                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">RECTS</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Seasoned logistics professional with deep expertise in customs clearance and regional freight operations.</p>
+                            <button onclick="openModal('joseph')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
+                                <span>View Details</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+  
+    </section>
+
+    <!-- Modal -->
+    <div id="teamModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-3xl">
+                <h3 id="modalTitle" class="text-3xl font-bold text-brand-navy"></h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 transition-colors p-2 hover:bg-gray-100 rounded-full">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6">
+                <!-- Dynamic content will be inserted here -->
+
+            </div>
+        </div>                
+    </div> 
+   <!-- Combined Stats & Values Section -->
+<section class="bg-gradient-to-r from-[#1b265d] to-[#6C4F9E] py-10">
+  <div class="max-w-7xl mx-auto px-6 space-y-12 text-white">
+
+    <!-- Statistics -->
+    <div class="grid md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="text-3xl font-bold text-[#ff6b35] mb-1">25+</div>
+        <div class="text-base">Years Combined Experience</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-[#ff6b35] mb-1">500+</div>
+        <div class="text-base">Clients Served</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-[#ff6b35] mb-1">15+</div>
+        <div class="text-base">Training Programs</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-[#ff6b35] mb-1">100%</div>
+        <div class="text-base">Client Satisfaction</div>
+      </div>
     </div>
 
-    <!-- Statistics Section -->
-    <div class="bg-gradient-to-r from-deep-navy to-royal-amethyst py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 text-center text-white">
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-4xl font-bold text-orange-flame mb-2">25+</div>
-                    <div class="text-lg">Years Combined Experience</div>
-                </div>
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-4xl font-bold text-orange-flame mb-2">500+</div>
-                    <div class="text-lg">Clients Served</div>
-                </div>
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-4xl font-bold text-orange-flame mb-2">15+</div>
-                    <div class="text-lg">Training Programs</div>
-                </div>
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-4xl font-bold text-orange-flame mb-2">100%</div>
-                    <div class="text-lg">Client Satisfaction</div>
-                </div>
-            </div>
+    <!-- Core Values -->
+    <div>
+      <div class="text-center mb-6">
+        <h2 class="text-3xl font-bold mb-2">Our Core Values</h2>
+        <p class="text-lg text-gray-200">The principles that guide everything we do</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-[#ff6b35] transition">
+          <div class="w-12 h-12 bg-[#ff6b35] rounded-full flex items-center justify-center mx-auto mb-3 text-white text-xl">💡</div>
+          <h3 class="text-lg font-semibold mb-2">Innovation</h3>
+          <p class="text-sm">Creative solutions for tomorrow’s challenges.</p>
         </div>
-    </div>
-    <!-- Values Section -->
-    <div class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-deep-navy mb-4">Our Core Values</h2>
-                <p class="text-xl text-gray-600">The principles that guide everything we do</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-6 rounded-2xl bg-gray-50 hover:bg-orange-flame hover:text-white transition-all duration-300 transform hover:scale-105">
-                    <div class="w-16 h-16 bg-orange-flame rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
-                        💡
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Innovation</h3>
-                    <p>Continuously evolving our methods to deliver cutting-edge solutions that meet tomorrow's challenges today.</p>
-                </div>
-                <div class="text-center p-6 rounded-2xl bg-gray-50 hover:bg-royal-amethyst hover:text-white transition-all duration-300 transform hover:scale-105">
-                    <div class="w-16 h-16 bg-royal-amethyst rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
-                        🤝
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Integrity</h3>
-                    <p>Building trust through transparent, ethical practices and honest communication in all our professional relationships.</p>
-                </div>
-                <div class="text-center p-6 rounded-2xl bg-gray-50 hover:bg-deep-navy hover:text-white transition-all duration-300 transform hover:scale-105">
-                    <div class="w-16 h-16 bg-deep-navy rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
-                        🎯
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Excellence</h3>
-                    <p>Delivering exceptional results through meticulous attention to detail and unwavering commitment to quality.</p>
-                </div>
-            </div>
+        <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-[#6C4F9E] transition">
+          <div class="w-12 h-12 bg-[#6C4F9E] rounded-full flex items-center justify-center mx-auto mb-3 text-white text-xl">🤝</div>
+          <h3 class="text-lg font-semibold mb-2">Integrity</h3>
+          <p class="text-sm">Ethical and transparent in all we do.</p>
         </div>
-    </div>
-    </div>
-
-    <!-- Team Members Section -->
-    <div class="container mx-auto px-6 py-16" id="team">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-deep-navy mb-4">Our Expert Team</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Meet the professionals who drive transformation and empower businesses across East Africa
-            </p>
+        <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-[#1b265d] transition">
+          <div class="w-12 h-12 bg-[#1b265d] rounded-full flex items-center justify-center mx-auto mb-3 text-white text-xl">🎯</div>
+          <h3 class="text-lg font-semibold mb-2">Excellence</h3>
+          <p class="text-sm">Pushing for the highest standards always.</p>
         </div>
-        <div class="grid gap-12">
-            
-            <!-- Joseph Zia -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-orange-flame">
-                <div class="flex flex-col lg:flex-row items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-32 h-32 rounded-full overflow-hidden pulse-border border-4 border-orange-flame">
-                            <img src="path-to-image.jpg" alt="Joseph Zia" class="w-full h-full object-cover" />
-                        </div>
-
-                    </div>
-                    <div class="flex-1">
-                        <h2 class="text-3xl font-bold text-deep-navy mb-2">Joseph Zia</h2>
-                        <p class="text-lg text-royal-amethyst font-semibold mb-4">Logistics & Trade Facilitation Expert</p>
-                        <div class="text-gray-700 space-y-4">
-                            <p>Joseph Zia is a seasoned logistics and trade facilitation professional with over 10 years of experience in customs clearance, regional freight operations, and supply chain management. He has overseen a broad spectrum of responsibilities across import, export, and transit procedures, including bonded cargo handling, customs documentation, valuation, classification, warehousing, and fleet coordination.</p>
-                            
-                            <p>With deep expertise in key trade systems such as Simba 2005, KenTrade, RECTS, and the URA Help Tool, Joseph is well-versed in the East African Community Customs Management Act (EACCMA), the East African Common External Tariff (EAC-CET), and Harmonized System (HS) code classification. His hands-on knowledge of trade systems and regulatory frameworks allows him to offer practical solutions to cross-border trade and compliance challenges.</p>
-                            
-                            <p>At SifaSkills Consultancy, Joseph plays a pivotal role in translating industry knowledge into impactful training. He develops and delivers hands-on programs that equip individuals and small businesses with practical logistics and trade skills. These programs focus on customs processes, documentation, freight forwarding, and system navigation—essential competencies for operating in East Africa's dynamic business environment.</p>
-                            
-                            <p>In addition to training, Joseph provides advisory support to SMEs, guiding them toward improved operational efficiency, regulatory compliance, and trade readiness. His combination of strategic insight and real-world experience positions him as a key resource in advancing SifaSkills' mission of workforce development and regional SME empowerment.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Emmanuel Mkare -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-royal-amethyst">
-                <div class="flex flex-col lg:flex-row items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-32 h-32 rounded-full overflow-hidden pulse-border border-4 border-orange-flame">
-                            <img src="path-to-image.jpg" alt="Emmanuel Mkare" class="w-full h-full object-cover" />
-                        </div>
-
-                    </div>
-                    <div class="flex-1">
-                        <h2 class="text-3xl font-bold text-deep-navy mb-2">Emmanuel Mkare</h2>
-                        <p class="text-lg text-royal-amethyst font-semibold mb-4">Accounts Consultant | Tax Expert | Strategic Financial Management</p>
-                        <div class="text-gray-700 space-y-4">
-                            <p>Emmanuel Mlewa is a Certified Public Accountant (CPA-K) with a BCom in Accounting from the University of Nairobi and over 8 years' experience in finance and accounting across sectors like energy, healthcare, and audit. He currently serves as the ICPAK Mombasa County Representative, championing professional development, mentorship, and ethical leadership.</p>
-                            
-                            <p>His expertise includes financial reporting, tax compliance (PAYE, VAT, Corporation Tax), budgeting, and audit readiness. Emmanuel is highly skilled in aligning financial strategies with organizational goals, ensuring compliance with Kenyan regulatory standards, and optimizing systems using tools like Microsoft Dynamics 365, QuickBooks, and Opera.</p>
-                            
-                            <p>He has also earned certifications in financial modeling, forensic investigations, and anti-money laundering, enhancing his ability to provide strategic, transparent, and risk-aware financial solutions.</p>
-                            
-                            <p>As a leader, Emmanuel is known for promoting inclusive initiatives that empower young professionals and bridge the skills gap through mentorship and partnerships. His contributions continue to strengthen the Mombasa professional community and position it as a hub of excellence within ICPAK.</p>
-                            
-                            <p>At SifaSkills, Emmanuel offers practical, real-world insights to entrepreneurs and professionals looking to build strong, compliant, and sustainable financial systems. His calm leadership, ethical approach, and focus on continuous learning make him a trusted guide in today's evolving business landscape.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stella Zawadi -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-orange-flame">
-                <div class="flex flex-col lg:flex-row items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-32 h-32 rounded-full overflow-hidden pulse-border border-4 border-orange-flame">
-                            <img src="Images/stella.jpg" alt="Stella Zawadi" class="w-full h-full object-cover" />
-                        </div>
-
-                    </div>
-                    <div class="flex-1">
-                        <h2 class="text-3xl font-bold text-deep-navy mb-2">Stella Zawadi</h2>
-                        <p class="text-lg text-royal-amethyst font-semibold mb-4">HR Specialist | Talent & Systems Strategist | Workforce Development Advocate</p>
-                        <div class="text-gray-700 space-y-4">
-                            <p>Stella is a Certified Human Resource Professional Kenya (CHRPK) with a Bachelor of Commerce in HR Management from JKUAT and over six years of experience in human capital development, organizational growth, and compliance. Her career spans managing HR operations for organizations with 900+ staff, focusing on recruitment, performance management, employee relations, and labor law compliance.</p>
-                            
-                            <p>She brings deep expertise in modern HR practices, having led the successful implementation of digital HR Information Systems (HRIS) including Odoo, BambooHR, and SAGE 300, enabling efficient payroll, records management, and strategic HR reporting.</p>
-                            
-                            <p>Stella is passionate about building inclusive, high-performing workplaces. She has spearheaded gender sensitivity training and engagement programs that have significantly improved morale and reduced workplace conflict. Her knowledge of both Kenyan labor regulations and global HR standards positions her as a trusted advisor for diverse organizations.</p>
-                            
-                            <p>She has also worked across borders in remote HR consulting and international recruitment, providing services in payroll processing, talent sourcing, and compliance monitoring.</p>
-                            
-                            <p>At SifaSkills, Stella's blend of digital HR know-how, strategic leadership, and commitment to equity is key in supporting young professionals, institutions, and entrepreneurs to build resilient, future-ready teams.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Francis Muyekho -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-deep-navy">
-                <div class="flex flex-col lg:flex-row items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-32 h-32 rounded-full overflow-hidden pulse-border border-4 border-orange-flame">
-                            <img src="Images/francis.jpg" alt="Francis Muyekho" class="w-full h-full object-cover" />
-                        </div>
-
-                    </div>
-                    <div class="flex-1">
-                        <h2 class="text-3xl font-bold text-deep-navy mb-2">Francis Muyekho</h2>
-                        <p class="text-lg text-royal-amethyst font-semibold mb-4">Marketing & Business Development Consultant</p>
-                        <div class="text-gray-700 space-y-4">
-                            <p>At SifaSkills (EA) Ltd (SEAL), we believe transformation begins with people — and Francis Muyekho exemplifies this through over 15 years of experience in marketing, business development, and institutional growth across healthcare, diagnostics, agro business, logistics, and medical equipment sectors.</p>
-                            
-                            <p>Francis Muyekho is a dynamic marketing and business development professional. His career reflects a strong commitment to institutional growth, market expansion, and client engagement — all central to the mission of SifaSkills in empowering entrepreneurs, strengthening SMEs, and advancing a future-ready workforce in East Africa. Francis brings deep expertise in brand positioning, corporate communications, product development, and strategic outreach.</p>
-                            
-                            <p>He has successfully led marketing campaigns, driven client acquisition, and established impactful partnerships with both corporate and community stakeholders. His ability to translate market insights into growth strategies has resulted in improved visibility, increased revenue, and operational excellence for the organizations he has served.</p>
-                            
-                            <p>Holding a Diploma in Sales & Marketing (CIM), Francis is well-versed in both digital and traditional marketing channels, and excels at creating inclusive, results-oriented campaigns that resonate across diverse audiences.</p>
-                            
-                            <p>At SEAL, Francis contributes a unique blend of strategic thinking and practical execution, supporting businesses to refine their market approach, improve service delivery, and design solutions that meet real-world needs. His work is instrumental in advancing SEAL's mission to foster inclusive growth, equip professionals with practical tools, and build sustainable systems that drive regional economic transformation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Harold Yaa -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-royal-amethyst">
-                <div class="flex flex-col lg:flex-row items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-32 h-32 rounded-full overflow-hidden pulse-border border-4 border-orange-flame">
-                             <img src="Images/harold1.jpg" alt="Harold Yaa" class="w-full h-full object-cover" />
-                        </div>
-
-                    </div>
-                    <div class="flex-1">
-                        <h2 class="text-3xl font-bold text-deep-navy mb-2">Harold Yaa</h2>
-                        <p class="text-lg text-royal-amethyst font-semibold mb-4">Finance Professional | Entrepreneur | Creative Strategist</p>
-                        <div class="text-gray-700 space-y-4">
-                            <p>Harold is a passionate and versatile member of the SifaSkills team, blending financial expertise, entrepreneurial insight, and creative skill to support startups and small businesses across East Africa.</p>
-                            
-                            <p>A Bachelor of Commerce (Finance) graduate from the University of Nairobi, Harold has built a strong foundation in accounting, credit control, vendor payments, debt reconciliation, and financial reporting. His strengths lie in streamlining financial operations and delivering clear, actionable insights for sustainable business growth.</p>
-                            
-                            <p>Beyond finance, Harold is deeply committed to entrepreneurship. He has advised and led multiple small business ventures, offering strategic planning, financial clarity, and practical tools to help entrepreneurs make confident decisions. His ability to connect with people and tailor solutions to their unique challenges makes him a valued member of the SifaSkills network.</p>
-                            
-                            <p>What truly sets Harold apart is his creative edge. As a skilled graphic designer and video editor, he develops branding materials, social media content, and marketing visuals that enhance visibility and storytelling. His work — including the design of SifaSkills' own profile — ensures brands not only look professional but communicate effectively.</p>
-                            
-                            <p>Harold's holistic approach, merging numbers with narrative, supports the mission of SifaSkills: empowering individuals and institutions with the confidence, tools, and innovation they need to thrive in today's dynamic business landscape.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-<!-- Combined Contact CTA Section -->
-<div class="gradient-bg py-16">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
-        <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-            Our expert team is here to empower your growth with practical solutions, strategic insights, and hands-on support that drive real results.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-             <a href="booking.html">
-                    <button class="bg-white text-deep-navy px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Schedule Consultation
-                    </button>
-                </a>
-                <a href="booking.html">
-                    <button class="bg-orange-flame text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Book A Session
-                    </button>
-                </a>
-                 <a href="services.html">
-                    <button class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-deep-navy transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        View Our Services
-                    </button>
-                </a>
-        </div>
-    </div>
-</div>
+  </div>
+</section>
 
-    <!--load the footer-->
-    <div id="footer-placeholder"></div>
-
-    <!--load partials js-->
-    <script src="js/loadpartials.js"></script>
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+        const teamData = {
+            emmanuel: {
+                name: "Emmanuel Mkare",
+                title: "Accounts Consultant | Tax Expert | Strategic Financial Management",
+                image: "Images/mlewa2.jpg",
+                qualifications: ["CPA-K", "BCom Accounting", "8+ Years Experience", "ICPAK Representative"],
+                fullDescription: "Emmanuel Mkare is a distinguished Certified Public Accountant (CPA-K) with over 8 years of comprehensive experience in financial management, tax compliance, and strategic business advisory services. He currently serves as the ICPAK Mombasa County Representative, demonstrating his leadership and commitment to the accounting profession in Kenya.\n\nEmmanuel specializes in complex financial reporting, tax optimization strategies, and regulatory compliance for both SMEs and large corporations. His expertise extends to financial system design, internal controls implementation, and risk management frameworks that ensure businesses operate efficiently and compliantly.\n\nHis educational background includes a Bachelor of Commerce in Accounting, and he continues to stay current with evolving financial regulations and international accounting standards. Emmanuel has successfully guided numerous organizations through financial restructuring, audit preparations, and strategic planning processes.",
+                specializations: [
+                    "Financial Reporting & Analysis",
+                    "Tax Planning & Compliance",
+                    "Strategic Financial Management",
+                    "Regulatory Compliance",
+                    "Internal Controls & Risk Management",
+                    "Business Advisory Services"
+                ],
+                achievements: [
+                    "ICPAK Mombasa County Representative",
+                    "Successfully managed financial operations for 50+ clients",
+                    "Implemented cost-saving measures resulting in 20%+ efficiency gains",
+                    "Expert in KRA compliance and tax optimization"
+                ]
+            },
+            stella: {
+                name: "Stella Zawadi",
+                title: "HR Specialist | Talent & Systems Strategist",
+                image: src="Images/stella.jpg",
+                qualifications: ["CHRPK", "HR Management", "HRIS Implementation", "6+ Years Experience"],
+                fullDescription: "Stella Zawadi is a highly accomplished Certified Human Resources Professional (CHRPK) with over 6 years of extensive experience in managing complex HR operations for large-scale organizations. She has successfully overseen HR functions for organizations with 900+ staff members, demonstrating exceptional capability in large-scale human resource management.\n\nStella's expertise encompasses the full spectrum of HR activities, from strategic workforce planning to day-to-day operations management. She is particularly skilled in digital HR transformation, having led multiple HRIS implementations that have streamlined processes and improved organizational efficiency.\n\nHer comprehensive understanding of Kenyan labor law and employment regulations ensures that organizations remain compliant while creating positive work environments that attract and retain top talent. Stella's approach combines strategic thinking with practical implementation, making her an invaluable asset to any organization.",
+                specializations: [
+                    "Large-Scale HR Operations Management",
+                    "HRIS Implementation & Optimization",
+                    "Talent Acquisition & Retention",
+                    "Labor Law Compliance",
+                    "Performance Management Systems",
+                    "Employee Relations & Engagement",
+                    "HR Policy Development",
+                    "Training & Development Programs"
+                ],
+                achievements: [
+                    "Successfully managed HR for 900+ employee organizations",
+                    "Led 5+ HRIS implementation projects",
+                    "Reduced recruitment time by 40% through process optimization",
+                    "Achieved 85%+ employee satisfaction rates in organizations managed"
+                ]
+            },
+            francis: {
+                name: "Francis Muyekho",
+                title: "Marketing & Business Development Consultant",
+                image: src="Images/francis2.jpg",
+                qualifications: ["CIM Diploma", "15+ Years Experience", "Brand Positioning Expert", "Digital Marketing Specialist"],
+                fullDescription: "Francis Muyekho is a dynamic marketing professional with over 15 years of comprehensive experience in brand positioning, corporate communications, and strategic business development. His expertise spans multiple industries including healthcare, logistics, and agro-business sectors, where he has consistently delivered exceptional results in market expansion and brand growth.\n\nFrancis holds a prestigious Diploma from the Chartered Institute of Marketing (CIM), which provides him with a solid foundation in both traditional and digital marketing strategies. His approach combines data-driven insights with creative storytelling to build compelling brand narratives that resonate with target audiences.\n\nThroughout his career, Francis has been instrumental in launching new products, entering new markets, and repositioning existing brands for growth. His strategic outreach capabilities have helped organizations expand their market presence and achieve sustainable competitive advantages.",
+                specializations: [
+                    "Brand Strategy & Positioning",
+                    "Digital Marketing & Social Media",
+                    "Corporate Communications",
+                    "Market Research & Analysis",
+                    "Product Launch Strategies",
+                    "B2B & B2C Marketing",
+                    "Content Marketing & SEO",
+                    "Strategic Partnerships Development"
+                ],
+                achievements: [
+                    "Successfully repositioned 20+ brands across various industries",
+                    "Achieved 150%+ ROI on digital marketing campaigns",
+                    "Led market entry strategies for 10+ new product launches",
+                    "Built strategic partnerships generating $2M+ in new business"
+                ]
+            },
+            harold: {
+                name: "Harold",
+                title: "Finance Specialist | Entrepreneurial Advisor | Creative Strategist",
+                image: src="Images/harold3.jpg",
+                qualifications: ["B.Com (Finance)", "Financial Strategy", "Startup Advisory", "Creative Design", "Branding Expert"],
+                fullDescription: "Harold is a unique professional who masterfully combines financial expertise with creative strategy to drive business growth across East Africa. With a Bachelor of Commerce in Finance, he brings solid analytical and strategic thinking to every project, while his creative design skills enable him to communicate complex financial concepts through compelling visual narratives.\n\nHis specialization in startup advisory has made him a sought-after consultant for emerging businesses and SMEs looking to establish strong financial foundations while building memorable brand identities. Harold's approach is holistic – he doesn't just solve financial problems; he creates comprehensive solutions that address both the numbers and the story behind them.\n\nHarold's ability to simplify complex financial systems while maintaining accuracy and compliance has helped numerous organizations streamline their operations and improve their bottom line. His creative design skills complement his financial expertise, allowing him to create impactful presentations, brand materials, and visual communications that make financial information accessible and engaging.",
+                specializations: [
+                    "Financial System Design & Implementation",
+                    "Startup Financial Planning & Modeling",
+                    "Brand Development & Visual Identity",
+                    "Creative Design & Visual Communications",
+                    "SME Business Advisory",
+                    "Financial Dashboard Creation",
+                    "Investment Analysis & Planning",
+                    "Process Optimization & Automation"
+                ],
+                achievements: [
+                    "Advised 50+ startups on financial strategy and planning",
+                    "Created brand identities for 30+ SMEs across East Africa",
+                    "Simplified financial systems resulting in 30%+ efficiency gains",
+                    "Designed award-winning financial dashboards and reports"
+                ]
+            },
+            anthony: {
+                name: "Anthony Thoya Baya",
+                title: "Accountant | Financial Administrator | Community Trainer",
+                image: src="Images/anthony.jpg",
+                qualifications: ["CPA III", "QuickBooks Expert", "Payroll Management", "Donor Fund Management", "Community Training"],
+                fullDescription: "Anthony Thoya Baya is a dedicated finance professional with over 5 years of specialized experience in financial reporting, payroll management, and compliance oversight. At SifaSkills, he plays a crucial role in managing donor funds with absolute transparency and accountability, ensuring that every dollar is tracked, reported, and utilized effectively for maximum program impact.\n\nAnthony's expertise in QuickBooks and various financial management systems enables him to maintain accurate records while streamlining financial processes for improved efficiency. His commitment to transparency in budgeting and audits has earned him recognition as a trusted financial administrator in the non-profit sector.\n\nBeyond his technical skills, Anthony is passionate about financial literacy and community empowerment. He regularly conducts training sessions that help individuals and small businesses understand financial management principles, contributing to broader economic development in the communities he serves.",
+                specializations: [
+                    "Financial Reporting & Analysis",
+                    "Donor Fund Management & Compliance",
+                    "QuickBooks & Financial Software",
+                    "Payroll Processing & Management",
+                    "Budget Preparation & Monitoring",
+                    "Audit Preparation & Support",
+                    "Financial Literacy Training",
+                    "Community Development Finance"
+                ],
+                achievements: [
+                    "Successfully managed $500K+ in donor funds with 100% compliance",
+                    "Streamlined payroll processes reducing processing time by 50%",
+                    "Conducted 25+ financial literacy training sessions",
+                    "Maintained zero audit findings across all managed programs"
+                ]
+            },
+            kevin: {
+                name: "Kevin O. Oduol",
+                title: "Education Leader | Youth Mentor | Professional Trainer",
+                image: src="Images/kelvin1.jpg",
+                qualifications: ["14+ Years Experience", "TSC Registered", "Mentorship Expert", "Curriculum Delivery", "Staff Training"],
+                fullDescription: "Kevin O. Oduol brings over 14 years of comprehensive experience in education leadership, youth mentorship, and professional development. As a TSC (Teachers Service Commission) registered educator, he combines deep pedagogical knowledge with innovative training methodologies to empower both learners and fellow educators.\n\nKevin's approach to education goes beyond traditional classroom teaching. He specializes in co-curricular development, helping students discover and develop their talents while building essential life skills. His mentorship programs have guided hundreds of young people toward successful career paths and personal development.\n\nAt SEAL (Skills for East Africa Learning), Kevin leads staff development initiatives that ensure educational programs remain current, effective, and aligned with future workforce needs. His ability to bridge the gap between traditional education and modern skill requirements makes him an invaluable asset in preparing learners for tomorrow's challenges.",
+                specializations: [
+                    "Educational Leadership & Management",
+                    "Youth Mentorship & Guidance",
+                    "Curriculum Development & Delivery",
+                    "Professional Staff Training",
+                    "Co-curricular Program Development",
+                    "Career Guidance & Counseling",
+                    "Educational Technology Integration",
+                    "Learning Assessment & Evaluation"
+                ],
+                achievements: [
+                    "Mentored 200+ students to successful career transitions",
+                    "Led curriculum development for 5+ professional programs",
+                    "Improved student engagement rates by 60% through innovative methods",
+                    "Trained 100+ educators in modern teaching methodologies"
+                ]
+            },
+            joseph: {
+                name: "Joseph Zia",
+                title: "Logistics & Trade Facilitation Specialist",
+                image: src="Images/joseph2.jpg",
+                qualifications: ["10+ Years Experience", "Simba 2005 Expert", "KenTrade Certified", "RECTS Specialist", "EACCMA Member", "HS Classification Expert"],
+                fullDescription: "Joseph Zia is a seasoned logistics and trade facilitation professional with over 10 years of deep expertise in customs clearance, regional freight operations, and international trade systems. His comprehensive knowledge of East African trade corridors and regulations makes him an invaluable resource for businesses looking to expand their operations across regional markets.\n\nJoseph's expertise spans multiple trade facilitation systems including Simba 2005, KenTrade, and RECTS, giving him unique insights into the complexities of cross-border trade in the East African region. His membership in EACCMA (East African Clearing and Customs Management Association) keeps him at the forefront of regional trade developments and best practices.\n\nWhat sets Joseph apart is his ability to translate complex industry knowledge into practical, actionable training programs for SMEs. He understands that many small and medium enterprises struggle with trade procedures and documentation, and he specializes in demystifying these processes to help businesses access regional and international markets more effectively.",
+                specializations: [
+                    "Customs Clearance & Documentation",
+                    "Regional Freight & Logistics Management",
+                    "Trade Facilitation Systems (Simba 2005, KenTrade, RECTS)",
+                    "HS Code Classification & Tariff Management",
+                    "Cross-border Trade Compliance",
+                    "Supply Chain Optimization",
+                    "SME Trade Capacity Building",
+                    "Regional Market Access Strategies"
+                ],
+                achievements: [
+                    "Facilitated $10M+ in cross-border trade transactions",
+                    "Trained 150+ SMEs in trade procedures and documentation",
+                    "Reduced average customs clearance time by 40% for clients",
+                    "Expert consultant for East African trade corridor development"
+                ]
+            }
+        };
+
+        function openModal(memberId) {
+            const member = teamData[memberId];
+            const modal = document.getElementById('teamModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            modalTitle.textContent = member.name;
+            
+            modalContent.innerHTML = `
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-1/3">
+                        <img src="${member.image}" alt="${member.name}" class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        <div class="mt-6">
+                            <h4 class="text-lg font-semibold text-brand-navy mb-3">Qualifications</h4>
+                            <div class="flex flex-wrap gap-2">
+                                ${member.qualifications.map(qual => `
+                                    <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">${qual}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3">
+                        <h4 class="text-xl font-semibold text-brand-orange mb-4">${member.title}</h4>
+                        <div class="prose prose-gray max-w-none">
+                            ${member.fullDescription.split('\n\n').map(paragraph => `<p class="mb-4 text-gray-700 leading-relaxed">${paragraph}</p>`).join('')}
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-brand-navy mb-4">Core Specializations</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                ${member.specializations.map(spec => `
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="w-5 h-5 text-brand-purple flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">${spec}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-brand-navy mb-4">Key Achievements</h4>
+                            <div class="space-y-3">
+                                ${member.achievements.map(achievement => `
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-brand-orange rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-gray-700">${achievement}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('teamModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('teamModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
-        // Add smooth scrolling and interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate cards on scroll
-            const cards = document.querySelectorAll('.card-hover');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
-        <!-- Scroll to Top Button -->
+        <!--load the footer-->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
     </button>
-            <!-- Scroll to top functionality -->
+    <!--load partials js-->
+    <script src="js/loadpartials.js"></script>
+    <script>
+   
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+
+        // Form submission (you can replace this with actual form handling)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+        <!-- Scroll to top functionality -->
     <script src="js/scroll-to-top.js"></script>
 <!--whatsapp icon-->
         <a
@@ -367,4 +679,4 @@
             <i class="fab fa-whatsapp fa-lg"></i>
         </a>
 </body>
-</html> 
+</html>
