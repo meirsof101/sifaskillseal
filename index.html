@@ -6,8 +6,8 @@
   <title>Home - SifaSkills (EA) Ltd</title>
 
   <!-- Fav Icon -->
-  <link rel="icon" type="image/png" href="Images/sifaslogo.png" />
-
+  <link rel="icon" type="image/png" href="Images/logo.jpg" />
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -33,6 +33,38 @@
       background-color: rgba(27, 38, 93, 0.6);
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
+    }
+    
+    /* Scroll to top button styles */
+    #scrollToTop {
+      position: fixed;
+      bottom: 80px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--brand-orange);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #scrollToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #scrollToTop:hover {
+      background-color: var(--brand-purple);
+      transform: translateY(-3px);
     }
   </style>
 </head>
@@ -69,8 +101,8 @@
         <div class="col-md-6">
           <div class="bg-light p-4 rounded">
             <h3 class="h4 fw-bold text-brand-purple mb-3">Our Vision</h3>
-            <p>To build a future-ready East Africa where youth are empowered with practical, employable skills and businesses thrive through expert guidance, innovation, and sustainable growth.</p>
-            <p>To be East Africa's leading catalyst for personal and enterprise transformation — connecting talent with opportunity and enabling communities, institutions, and businesses to achieve their fullest potential.</p>
+            <p><i class="fas fa-circle text-brand-orange me-2"></i>To build a future-ready East Africa where youth are empowered with practical, employable skills and businesses thrive through expert guidance, innovation, and sustainable growth.</p>
+            <p><i class="fas fa-circle text-brand-orange me-2"></i>To be East Africa's leading catalyst for personal and enterprise transformation — connecting talent with opportunity and enabling communities, institutions, and businesses to achieve their fullest potential.</p>
           </div>
         </div>
         <div class="col-md-6">
@@ -115,15 +147,242 @@
     </div>
   </section>
 
-  
 
+  <!-- Services Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-brand-navy mb-3">Our Services</h2>
+      </div>
+      <div class="row g-4">
+        <!-- Left Column -->
+        <div class="col-md-6">
+          <div class="p-4 rounded-3 shadow bg-white h-100">
+            <h4 class="fw-bold text-white p-2 px-3 rounded bg-brand-purple mb-4">Student Skills Training & Empowerment</h4>
+            <div>
+              <h6 class="fw-bold">A. Career Development & Job Readiness</h6>
+              <ul class="list-unstyled">
+                <li>• Resume & Cover Letter Writing</li>
+                <li>• LinkedIn & Personal Branding</li>
+                <li>• Interview Skills & Workplace Communication</li>
+                <li>• Time Management & Productivity</li>
+                <li>• Career Planning & Goal Setting</li>
+              </ul>
+              <h6 class="fw-bold mt-3">B. Business, Finance & Digital Skills</h6>
+              <ul class="list-unstyled">
+                <li>• Basic Accounting & Financial Modeling</li>
+                <li>• Tax Literacy & Compliance</li>
+                <li>• Digital Marketing & Entrepreneurship</li>
+                <li>• Excel & Financial Reporting</li>
+                <li>• Cyber Services & E-Citizen Platforms</li>
+              </ul>
+              <h6 class="fw-bold mt-3">C. Tech & Creative Skills</h6>
+              <ul class="list-unstyled">
+                <li>• Graphic Design & Presentation Design</li>
+                <li>• Computer Literacy & Digital Tools</li>
+                <li>• Introduction to Coding & Web Tools</li>
+                <li>• Video Editing & Content Creation</li>
+              </ul>
+              <h6 class="fw-bold mt-3">D. Life Skills & Personal Development</h6>
+              <ul class="list-unstyled">
+                <li>• Emotional Intelligence & Critical Thinking</li>
+                <li>• Public Speaking & Leadership</li>
+                <li>• Health & Wellness Awareness</li>
+                <li>• Financial Responsibility & Ethics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-6">
+          <div class="p-4 rounded-3 shadow bg-white h-100">
+            <h4 class="fw-bold text-white p-2 px-3 rounded bg-brand-orange mb-4">SME & Startup Consultancy Services</h4>
+            <div>
+              <h6 class="fw-bold">A. Strategy & Growth Advisory</h6>
+              <ul class="list-unstyled">
+                <li>• Business Visioning & Goal-Setting</li>
+                <li>• Market Research & Analysis</li>
+                <li>• Growth & Expansion Planning</li>
+              </ul>
+              <h6 class="fw-bold mt-3">B. Financial & Accounting Advisory</h6>
+              <ul class="list-unstyled">
+                <li>• Bookkeeping Setup & Cash Flow Management</li>
+                <li>• Statutory Compliance & Tax Filing</li>
+                <li>• Financial Reporting & Analysis</li>
+              </ul>
+              <h6 class="fw-bold mt-3">C. Human Resource Solutions</h6>
+              <ul class="list-unstyled">
+                <li>• Talent Acquisition & Recruitment</li>
+                <li>• HR Policies & Employee Handbooks</li>
+                <li>• Payroll Management & Performance Systems</li>
+              </ul>
+              <h6 class="fw-bold mt-3">D. Marketing & Digital Optimization</h6>
+              <ul class="list-unstyled">
+                <li>• Brand Identity Development</li>
+                <li>• Digital Marketing Strategy</li>
+                <li>• Customer Experience Improvement</li>
+              </ul>
+              <h6 class="fw-bold mt-3">E. Logistics & Trade Facilitation</h6>
+              <ul class="list-unstyled">
+                <li>• Customs Clearance & Compliance</li>
+                <li>• System Training (Simba, KenTrade, RECTS)</li>
+                <li>• Supply Chain Management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column flex-md-row gap-3">
+    <a href="services.html" class="btn btn-lg text-white" style="background-color: var(--brand-orange);">
+      More About Our Services
+    </a>
+    </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+
+      <!-- Main Features Section -->
+    <section class="py-5" id="why-choose-us">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold text-brand-navy mb-3">Four Pillars of Excellence</h2>
+                    <p class="lead text-muted">
+                        Our unique approach combines affordability, customization, local expertise, and lasting impact to deliver exceptional value for your business.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="row g-4">
+                <!-- Feature 1: Affordable Expertise -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-1 relative-container">
+                        <div class="corner-decoration corner-orange"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">01</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">💰</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Affordable Expertise</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Customized Solutions -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-2 relative-container">
+                        <div class="corner-decoration corner-purple"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">02</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">🎯</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Customized Solutions</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Local Context, Global Standards -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-3 relative-container">
+                        <div class="corner-decoration corner-navy"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">03</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">🌍</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Local Context, Global Standards</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Commitment to Impact -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-4 relative-container">
+                        <div class="corner-decoration corner-orange"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">04</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">💎</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Commitment to Impact</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+           <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column flex-md-row gap-3">
+    <a href="whyus.html" class="btn btn-lg text-white" style="background-color: var(--brand-orange);">
+      More On Our Pillars of Excellence
+    </a>
+    </div>
+    </div>
+    </section>
+
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/254768080749" target="_blank" 
+       class="position-fixed bottom-0 start-0 m-4 btn btn-success rounded-circle shadow"
+       style="z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;"
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+      <!-- Scroll to Top Button -->
+    <button id="scrollToTop" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
   <!-- Add Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Footer Placeholder -->
-<div id="footer-placeholder"></div>
-    <!-- Load partials Js at the end -->
+  <div id="footer-placeholder"></div>
+  <!-- Load partials Js at the end -->
   <script src="js/loadpartials.js"></script>
-
+  
+  <!-- Scroll to Top Functionality -->
+  <script>
+    // Get the scroll-to-top button
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+    
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add("show");
+      } else {
+        scrollToTopBtn.classList.remove("show");
+      }
+    });
+    
+    // Scroll to top when button is clicked
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
 </body>
 </html>
