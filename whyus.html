@@ -3,73 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--fav icon-->
-    <link rel="icon" type="image/png" href="Images/sifaslogo.png">
-     <!--to load icons like whatsapp-->
+    <!--fav icon-->
+    <link rel="icon" type="image/png" href="Images/logo.png">
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Font Awesome for icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Why Choose Us - SifaSkills Consultancy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'orange-flame': '#f48a32',
-                        'royal-amethyst': '#8c18a9',
-                        'deep-navy': '#1b265d',
-                        'brand-orange': '#f48a32',
-                        'brand-purple': '#8c18a9',
-                        'brand-navy': '#1b265d',
-                        'brand-white': '#ffffff'
-                    }
-                }
-            }
-        }
-    </script>
+    
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #1b265d 0%, #8c18a9 50%, #f48a32 100%);
+        :root {
+            --orange-flame: #f48a32;
+            --royal-amethyst: #8c18a9;
+            --deep-navy: #1b265d;
+            --brand-orange: #f48a32;
+            --brand-purple: #8c18a9;
+            --brand-navy: #1b265d;
+            --brand-white: #ffffff;
         }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--royal-amethyst) 50%, var(--orange-flame) 100%);
+        }
+
         .card-hover {
             transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+
         .card-hover:hover {
             transform: translateY(-12px);
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
+
         .blob {
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             animation: morph 8s ease-in-out infinite;
+            position: absolute;
         }
+
         @keyframes morph {
             0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
             25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
             50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
             75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
         }
+
         .pulse-glow {
             animation: pulse-glow 3s infinite;
         }
+
         @keyframes pulse-glow {
             0%, 100% { box-shadow: 0 0 20px rgba(244, 138, 50, 0.3); }
             50% { box-shadow: 0 0 40px rgba(244, 138, 50, 0.6); }
         }
+
         .number-circle {
-            background: linear-gradient(135deg, #f48a32, #8c18a9);
+            background: linear-gradient(135deg, var(--orange-flame), var(--royal-amethyst));
             animation: rotate-gradient 4s ease-in-out infinite;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
+
         @keyframes rotate-gradient {
             0%, 100% { transform: rotate(0deg); }
             50% { transform: rotate(360deg); }
         }
+
         .feature-icon {
             transition: all 0.3s ease;
+            font-size: 2.5rem;
         }
+
         .card-hover:hover .feature-icon {
             transform: scale(1.2) rotate(5deg);
         }
-        
-        /* Add fadeInUp animation */
+
+        .hero-section {
+            padding: 5rem 0;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-blobs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero-blobs .blob:nth-child(1) {
+            top: 2.5rem;
+            left: 2.5rem;
+            width: 16rem;
+            height: 16rem;
+            background: white;
+        }
+
+        .hero-blobs .blob:nth-child(2) {
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 12rem;
+            height: 12rem;
+            background: var(--orange-flame);
+            opacity: 0.3;
+        }
+
+        .hero-blobs .blob:nth-child(3) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18rem;
+            height: 18rem;
+            background: var(--royal-amethyst);
+            opacity: 0.2;
+        }
+
+        .border-accent-1 { border-left: 6px solid var(--orange-flame) !important; }
+        .border-accent-2 { border-left: 6px solid var(--royal-amethyst) !important; }
+        .border-accent-3 { border-left: 6px solid var(--deep-navy) !important; }
+        .border-accent-4 { border-left: 6px solid var(--orange-flame) !important; }
+
+        .badge-orange { 
+            background-color: rgba(244, 138, 50, 0.1); 
+            color: var(--orange-flame); 
+        }
+        .badge-purple { 
+            background-color: rgba(140, 24, 169, 0.1); 
+            color: var(--royal-amethyst); 
+        }
+        .badge-navy { 
+            background-color: rgba(27, 38, 93, 0.1); 
+            color: var(--deep-navy); 
+        }
+
+        .btn-primary-custom {
+            background-color: var(--orange-flame);
+            border-color: var(--orange-flame);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--orange-flame);
+            border-color: var(--orange-flame);
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: var(--deep-navy);
+            transform: scale(1.05);
+        }
+
+        .stats-card {
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .avatar-orange { background-color: var(--orange-flame); }
+        .avatar-purple { background-color: var(--royal-amethyst); }
+        .avatar-navy { background-color: var(--deep-navy); }
+
+        .value-prop-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.875rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .icon-gradient-1 { background: linear-gradient(135deg, var(--orange-flame), var(--royal-amethyst)); }
+        .icon-gradient-2 { background: linear-gradient(135deg, var(--royal-amethyst), var(--deep-navy)); }
+        .icon-gradient-3 { background: linear-gradient(135deg, var(--deep-navy), var(--orange-flame)); }
+
+        .hero-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-orange { color: var(--orange-flame) !important; }
+        .text-purple { color: var(--royal-amethyst) !important; }
+        .text-navy { color: var(--deep-navy) !important; }
+
+        .bg-light-gray { background-color: #f8f9fa; }
+
+        .relative-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .corner-decoration {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            opacity: 0.05;
+            transform: translate(2rem, -2rem);
+        }
+
+        .corner-orange { background-color: var(--orange-flame); }
+        .corner-purple { background-color: var(--royal-amethyst); }
+        .corner-navy { background-color: var(--deep-navy); }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -80,298 +270,400 @@
                 transform: translateY(0);
             }
         }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 1050;
+            background-color: var(--orange-flame);
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .whatsapp-float:hover {
+            background-color: var(--royal-amethyst);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1050;
+            background-color: var(--orange-flame);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--royal-amethyst);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
-<body class="bg-gray-50">
-<!--load the navbar-->
-<div id="navbar-placeholder"></div>
+<body>
+    <!--load the navbar-->
+    <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
-    <div class="gradient-bg py-20 relative overflow-hidden mt-16">
-        <div class="absolute inset-0 opacity-10">
-            <div class="blob absolute top-10 left-10 w-64 h-64 bg-white"></div>
-            <div class="blob absolute bottom-10 right-10 w-48 h-48 bg-orange-flame opacity-30"></div>
-            <div class="blob absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-royal-amethyst opacity-20"></div>
+    <section class="gradient-bg hero-section">
+        <div class="hero-blobs">
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
         </div>
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-block bg-white bg-opacity-20 px-6 py-2 rounded-full mb-6">
-                    <span class="text-white font-semibold">✨ The SEAL of Professional Growth</span>
-                </div>
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                    Why Choose <span class="text-orange-flame">SifaSkills?</span>
-                </h1>
-                <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    Discover what sets us apart as East Africa's premier consultancy for empowering businesses, developing talent, and driving sustainable growth.
-                </p>
-                <a href="#why-choose-us">
-                    <button class="bg-orange-flame text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-xl pulse-glow">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-badge">
+                        ✨ The SEAL of Professional Growth
+                    </div>
+                    <h1 class="display-3 fw-bold text-white mb-4 lh-sm">
+                        Why Choose <span class="text-orange">SifaSkills?</span>
+                    </h1>
+                    <p class="lead text-white-50 mb-5 fs-4">
+                        Discover what sets us apart as East Africa's premier consultancy for empowering businesses, developing talent, and driving sustainable growth.
+                    </p>
+                    <a href="#why-choose-us" class="btn btn-primary-custom pulse-glow">
                         Explore Our Advantages
-                    </button>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Main Features Section -->
-    <div class="container mx-auto px-6 py-20" id="why-choose-us">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-deep-navy mb-4">Four Pillars of Excellence</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our unique approach combines affordability, customization, local expertise, and lasting impact to deliver exceptional value for your business.
-            </p>
+    <section class="py-5" id="why-choose-us">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 fw-bold text-navy mb-4">Four Pillars of Excellence</h2>
+                    <p class="lead text-muted">
+                        Our unique approach combines affordability, customization, local expertise, and lasting impact to deliver exceptional value for your business.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="row g-4">
+                <!-- Feature 1: Affordable Expertise -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-1 relative-container">
+                        <div class="corner-decoration corner-orange"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">01</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">💰</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Affordable Expertise</h3>
+                                    </div>
+                                    <p class="text-muted fs-5 lh-base">
+                                        We provide top-tier consultancy services at a fraction of the cost of hiring full-time staff. This allows startups and SMEs to access specialized knowledge and professional support without straining their budgets.
+                                    </p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-orange rounded-pill me-2 mb-2">Cost-Effective</span>
+                                        <span class="badge badge-orange rounded-pill me-2 mb-2">Budget-Friendly</span>
+                                        <span class="badge badge-orange rounded-pill me-2 mb-2">High ROI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Customized Solutions -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-2 relative-container">
+                        <div class="corner-decoration corner-purple"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">02</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">🎯</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Customized Solutions</h3>
+                                    </div>
+                                    <p class="text-muted fs-5 lh-base">
+                                        We understand that every business is unique. We take time to listen, analyze, and design solutions tailored specifically to your goals, challenges, and industry dynamics — ensuring recommendations that truly fit your context.
+                                    </p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-purple rounded-pill me-2 mb-2">Tailored Approach</span>
+                                        <span class="badge badge-purple rounded-pill me-2 mb-2">Industry-Specific</span>
+                                        <span class="badge badge-purple rounded-pill me-2 mb-2">Goal-Oriented</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Local Context, Global Standards -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-3 relative-container">
+                        <div class="corner-decoration corner-navy"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">03</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">🌍</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Local Context, Global Standards</h3>
+                                    </div>
+                                    <p class="text-muted fs-5 lh-base">
+                                        Operating from East Africa, we bring deep understanding of local markets, regulations, and customer behaviors. At the same time, we benchmark our services against international best practices to deliver world-class results.
+                                    </p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-navy rounded-pill me-2 mb-2">Local Expertise</span>
+                                        <span class="badge badge-navy rounded-pill me-2 mb-2">Global Standards</span>
+                                        <span class="badge badge-navy rounded-pill me-2 mb-2">Best Practices</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Commitment to Impact -->
+                <div class="col-lg-6">
+                    <div class="card card-hover h-100 border-accent-4 relative-container">
+                        <div class="corner-decoration corner-orange"></div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="number-circle">04</div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature-icon me-3">💎</div>
+                                        <h3 class="h4 fw-bold text-navy mb-0">Commitment to Impact</h3>
+                                    </div>
+                                    <p class="text-muted fs-5 lh-base">
+                                        At SEAL, we go beyond quick fixes. Our success is measured not just by increased revenues or streamlined operations, but by the long-term, sustainable improvements we help create in businesses, communities, and lives.
+                                    </p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-orange rounded-pill me-2 mb-2">Sustainable Growth</span>
+                                        <span class="badge badge-orange rounded-pill me-2 mb-2">Long-term Impact</span>
+                                        <span class="badge badge-orange rounded-pill me-2 mb-2">Community Focus</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Features Grid -->
-        <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            
-            <!-- Feature 1: Affordable Expertise -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-orange-flame relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-flame opacity-5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                <div class="flex items-start gap-6">
-                    <div class="flex-shrink-0">
-                        <div class="number-circle w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            01
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center mb-4">
-                            <div class="feature-icon text-4xl mr-4">💰</div>
-                            <h3 class="text-2xl font-bold text-deep-navy">Affordable Expertise</h3>
-                        </div>
-                        <p class="text-gray-700 text-lg leading-relaxed">
-                            We provide top-tier consultancy services at a fraction of the cost of hiring full-time staff. This allows startups and SMEs to access specialized knowledge and professional support without straining their budgets.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="bg-orange-flame bg-opacity-10 text-orange-flame px-3 py-1 rounded-full text-sm font-medium">Cost-Effective</span>
-                            <span class="bg-orange-flame bg-opacity-10 text-orange-flame px-3 py-1 rounded-full text-sm font-medium">Budget-Friendly</span>
-                            <span class="bg-orange-flame bg-opacity-10 text-orange-flame px-3 py-1 rounded-full text-sm font-medium">High ROI</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 2: Customized Solutions -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-royal-amethyst relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-royal-amethyst opacity-5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                <div class="flex items-start gap-6">
-                    <div class="flex-shrink-0">
-                        <div class="number-circle w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            02
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center mb-4">
-                            <div class="feature-icon text-4xl mr-4">🎯</div>
-                            <h3 class="text-2xl font-bold text-deep-navy">Customized Solutions</h3>
-                        </div>
-                        <p class="text-gray-700 text-lg leading-relaxed">
-                            We understand that every business is unique. We take time to listen, analyze, and design solutions tailored specifically to your goals, challenges, and industry dynamics — ensuring recommendations that truly fit your context.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="bg-royal-amethyst bg-opacity-10 text-royal-amethyst px-3 py-1 rounded-full text-sm font-medium">Tailored Approach</span>
-                            <span class="bg-royal-amethyst bg-opacity-10 text-royal-amethyst px-3 py-1 rounded-full text-sm font-medium">Industry-Specific</span>
-                            <span class="bg-royal-amethyst bg-opacity-10 text-royal-amethyst px-3 py-1 rounded-full text-sm font-medium">Goal-Oriented</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 3: Local Context, Global Standards -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-deep-navy relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-deep-navy opacity-5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                <div class="flex items-start gap-6">
-                    <div class="flex-shrink-0">
-                        <div class="number-circle w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            03
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center mb-4">
-                            <div class="feature-icon text-4xl mr-4">🌍</div>
-                            <h3 class="text-2xl font-bold text-deep-navy">Local Context, Global Standards</h3>
-                        </div>
-                        <p class="text-gray-700 text-lg leading-relaxed">
-                            Operating from East Africa, we bring deep understanding of local markets, regulations, and customer behaviors. At the same time, we benchmark our services against international best practices to deliver world-class results.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="bg-deep-navy bg-opacity-10 text-deep-navy px-3 py-1 rounded-full text-sm font-medium">Local Expertise</span>
-                            <span class="bg-deep-navy bg-opacity-10 text-deep-navy px-3 py-1 rounded-full text-sm font-medium">Global Standards</span>
-                            <span class="bg-deep-navy bg-opacity-10 text-deep-navy px-3 py-1 rounded-full text-sm font-medium">Best Practices</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 4: Commitment to Impact -->
-            <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border-l-6 border-orange-flame relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-flame opacity-5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                <div class="flex items-start gap-6">
-                    <div class="flex-shrink-0">
-                        <div class="number-circle w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            04
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center mb-4">
-                            <div class="feature-icon text-4xl mr-4">💎</div>
-                            <h3 class="text-2xl font-bold text-deep-navy">Commitment to Impact</h3>
-                        </div>
-                        <p class="text-gray-700 text-lg leading-relaxed">
-                            At SEAL, we go beyond quick fixes. Our success is measured not just by increased revenues or streamlined operations, but by the long-term, sustainable improvements we help create in businesses, communities, and lives.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="bg-orange-flame bg-opacity-10 text-orange-flame px-3 py-1 rounded-full text-sm font-medium">Sustainable Growth</span>
-                            <span class="bg-orange-flame bg-opacity-10 text-orange-flame px-3 py-1 rounded-full text-sm font-medium">Long-term Impact</span>
-                            <span class="bg-orange-flame bg-opacity-10 text-orange-flame px-3 py-1 rounded-full text-sm font-medium">Community Focus</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
 
     <!-- Value Proposition Section -->
-    <div class="bg-gradient-to-r from-gray-50 to-white py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-deep-navy mb-4">The SifaSkills Difference</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Experience the transformation that comes from working with consultants who truly understand your journey.
-                </p>
+    <section class="py-5 bg-light-gray">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 fw-bold text-navy mb-4">The SifaSkills Difference</h2>
+                    <p class="lead text-muted">
+                        Experience the transformation that comes from working with consultants who truly understand your journey.
+                    </p>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="text-center p-8 bg-white rounded-2xl shadow-lg card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-orange-flame to-royal-amethyst rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl">
-                        ⚡
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-hover h-100 text-center border-0">
+                        <div class="card-body p-4">
+                            <div class="value-prop-icon icon-gradient-1">⚡</div>
+                            <h3 class="h5 fw-bold text-navy mb-3">Rapid Implementation</h3>
+                            <p class="text-muted">Quick deployment of solutions with measurable results in weeks, not months.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-deep-navy mb-4">Rapid Implementation</h3>
-                    <p class="text-gray-600">Quick deployment of solutions with measurable results in weeks, not months.</p>
                 </div>
                 
-                <div class="text-center p-8 bg-white rounded-2xl shadow-lg card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-royal-amethyst to-deep-navy rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl">
-                        🧠
+                <div class="col-md-4">
+                    <div class="card card-hover h-100 text-center border-0">
+                        <div class="card-body p-4">
+                            <div class="value-prop-icon icon-gradient-2">🧠</div>
+                            <h3 class="h5 fw-bold text-navy mb-3">Knowledge Transfer</h3>
+                            <p class="text-muted">We don't just solve problems - we empower your team with skills for future success.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-deep-navy mb-4">Knowledge Transfer</h3>
-                    <p class="text-gray-600">We don't just solve problems - we empower your team with skills for future success.</p>
                 </div>
                 
-                <div class="text-center p-8 bg-white rounded-2xl shadow-lg card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-deep-navy to-orange-flame rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl">
-                        📈
+                <div class="col-md-4">
+                    <div class="card card-hover h-100 text-center border-0">
+                        <div class="card-body p-4">
+                            <div class="value-prop-icon icon-gradient-3">📈</div>
+                            <h3 class="h5 fw-bold text-navy mb-3">Scalable Growth</h3>
+                            <p class="text-muted">Solutions designed to grow with your business, from startup to enterprise level.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-deep-navy mb-4">Scalable Growth</h3>
-                    <p class="text-gray-600">Solutions designed to grow with your business, from startup to enterprise level.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Testimonials Section -->
-    <div class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-deep-navy mb-4">What Our Clients Say</h2>
-                <p class="text-xl text-gray-600">Real stories from businesses we've helped transform</p>
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 fw-bold text-navy mb-4">What Our Clients Say</h2>
+                    <p class="lead text-muted">Real stories from businesses we've helped transform</p>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <div class="bg-gray-50 p-8 rounded-2xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-orange-flame rounded-full flex items-center justify-center text-white font-bold">
-                            A
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card card-hover h-100 bg-light-gray border-0">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="testimonial-avatar avatar-orange me-3">A</div>
+                                <div>
+                                    <h5 class="fw-bold text-navy mb-0">Agnes Wanjiku</h5>
+                                    <p class="text-muted mb-0">CEO, TechStart Kenya</p>
+                                </div>
+                            </div>
+                            <p class="text-muted fst-italic">"SifaSkills helped us streamline our operations and reduce costs by 40%. Their local understanding combined with global expertise is unmatched."</p>
+                            <div class="text-warning">
+                                ⭐⭐⭐⭐⭐
+                            </div>
                         </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-deep-navy">Agnes Wanjiku</h4>
-                            <p class="text-gray-600">CEO, TechStart Kenya</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">"SifaSkills helped us streamline our operations and reduce costs by 40%. Their local understanding combined with global expertise is unmatched."</p>
-                    <div class="flex text-orange-flame mt-4">
-                        ⭐⭐⭐⭐⭐
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-8 rounded-2xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-royal-amethyst rounded-full flex items-center justify-center text-white font-bold">
-                            M
+                <div class="col-lg-4">
+                    <div class="card card-hover h-100 bg-light-gray border-0">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="testimonial-avatar avatar-purple me-3">M</div>
+                                <div>
+                                    <h5 class="fw-bold text-navy mb-0">Michael Ochieng</h5>
+                                    <p class="text-muted mb-0">Founder, GreenFarms Ltd</p>
+                                </div>
+                            </div>
+                            <p class="text-muted fst-italic">"The customized training programs transformed our team's capabilities. We've seen a 60% improvement in productivity since working with them."</p>
+                            <div class="text-warning">
+                                ⭐⭐⭐⭐⭐
+                            </div>
                         </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-deep-navy">Michael Ochieng</h4>
-                            <p class="text-gray-600">Founder, GreenFarms Ltd</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">"The customized training programs transformed our team's capabilities. We've seen a 60% improvement in productivity since working with them."</p>
-                    <div class="flex text-orange-flame mt-4">
-                        ⭐⭐⭐⭐⭐
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-8 rounded-2xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-deep-navy rounded-full flex items-center justify-center text-white font-bold">
-                            S
+                <div class="col-lg-4">
+                    <div class="card card-hover h-100 bg-light-gray border-0">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="testimonial-avatar avatar-navy me-3">S</div>
+                                <div>
+                                    <h5 class="fw-bold text-navy mb-0">Sarah Mutindi</h5>
+                                    <p class="text-muted mb-0">Director, EastAfrica Logistics</p>
+                                </div>
+                            </div>
+                            <p class="text-muted fst-italic">"Their commitment to long-term impact is genuine. Three years later, we're still benefiting from the systems they helped us implement."</p>
+                            <div class="text-warning">
+                                ⭐⭐⭐⭐⭐
+                            </div>
                         </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-deep-navy">Sarah Mutindi</h4>
-                            <p class="text-gray-600">Director, EastAfrica Logistics</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">"Their commitment to long-term impact is genuine. Three years later, we're still benefiting from the systems they helped us implement."</p>
-                    <div class="flex text-orange-flame mt-4">
-                        ⭐⭐⭐⭐⭐
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Call to Action Section -->
-    <div class="gradient-bg py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6">Ready to Experience the Difference?</h2>
-            <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                Join hundreds of successful businesses that have chosen SifaSkills as their trusted partner for growth and transformation.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="booking.html">
-                    <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-deep-navy transition-all duration-300 transform hover:scale-105">
-                        Book a session
-                    </button>
-                </a>
+    <section class="gradient-bg py-5">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-4 fw-bold text-white mb-4">Ready to Experience the Difference?</h2>
+                    <p class="lead text-white-50 mb-5">
+                        Join hundreds of successful businesses that have chosen SifaSkills as their trusted partner for growth and transformation.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mb-5">
+                        <a href="booking.html" class="btn btn-outline-custom">
+                            Book a session
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="mt-12 grid md:grid-cols-4 gap-8 text-white">
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-3xl font-bold text-orange-flame mb-2">500+</div>
-                    <div class="text-lg">Businesses Transformed</div>
+            
+            <div class="row g-4 text-white">
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="h2 fw-bold text-orange mb-2">500+</div>
+                        <div class="fs-5">Businesses Transformed</div>
+                    </div>
                 </div>
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-3xl font-bold text-orange-flame mb-2">95%</div>
-                    <div class="text-lg">Client Retention Rate</div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="h2 fw-bold text-orange mb-2">95%</div>
+                        <div class="fs-5">Client Retention Rate</div>
+                    </div>
                 </div>
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-3xl font-bold text-orange-flame mb-2">25+</div>
-                    <div class="text-lg">Years Experience</div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="h2 fw-bold text-orange mb-2">25+</div>
+                        <div class="fs-5">Years Experience</div>
+                    </div>
                 </div>
-                <div class="transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-3xl font-bold text-orange-flame mb-2">100%</div>
-                    <div class="text-lg">Satisfaction Guarantee</div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="h2 fw-bold text-orange mb-2">100%</div>
+                        <div class="fs-5">Satisfaction Guarantee</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!--load the footer-->
     <div id="footer-placeholder"></div>
 
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254768080749" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!--load partials js-->
     <script src="js/loadpartials.js"></script>
+    
     <script>
-        // Add smooth scrolling and interactive elements
         document.addEventListener('DOMContentLoaded', function() {
             // Animate cards on scroll
             const cards = document.querySelectorAll('.card-hover');
@@ -384,10 +676,11 @@
                 });
             }, { threshold: 0.1 });
 
-            cards.forEach(card => {
+            cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.animationDelay = `${index * 0.2}s`;
                 observer.observe(card);
             });
 
@@ -405,29 +698,32 @@
                 });
             });
 
+            // Scroll to top functionality
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
             // Add stagger animation to feature cards
             const featureCards = document.querySelectorAll('.card-hover');
             featureCards.forEach((card, index) => {
-                card.style.animation = `fadeInUp 0.5s ease forwards`;
-                card.style.animationDelay = `${index * 0.2}s`;
-            }); 
+                setTimeout(() => {
+                    card.classList.add('fade-in-up');
+                }, index * 200);
+            });
         });
     </script>
-        <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-            <!-- Scroll to top functionality -->
-    <script src="js/scroll-to-top.js"></script>
-    <!--whatsapp icon-->
-        <a
-            href="https://wa.me/254768080749" target="_blank"
-            class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
-            aria-label="Chat on WhatsApp"
-            >
-            <i class="fab fa-whatsapp fa-lg"></i>
-        </a>
 </body>
 </html>

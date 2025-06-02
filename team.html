@@ -3,48 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--to load icons like whatsapp-->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-navy': '#1e3a8a',
-                        'brand-purple': '#7c3aed',
-                        'brand-orange': '#ea580c',
-                        'brand-white': '#ffffff'
-                    }
-                }
-            }
-        }
-    </script>
-    <title>Our Expert Team </title>
+    <title>Our Expert Team</title>
     <style>
+        :root {
+            --brand-navy: #1e3a8a;
+            --brand-purple: #7c3aed;
+            --brand-orange: #ea580c;
+            --brand-white: #ffffff;
+        }
+        
+        .bg-brand-navy { background-color: var(--brand-navy); }
+        .bg-brand-purple { background-color: var(--brand-purple); }
+        .bg-brand-orange { background-color: var(--brand-orange); }
+        .bg-brand-white { background-color: var(--brand-white); }
+        .text-brand-navy { color: var(--brand-navy); }
+        .text-brand-purple { color: var(--brand-purple); }
+        .text-brand-orange { color: var(--brand-orange); }
+        .text-brand-white { color: var(--brand-white); }
+
         .team-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            height: 400px; /* or any fixed height */
+            border-radius: 1rem;
+            overflow: hidden;
+            color: white;
+
         }
+        
+        .team-card .team-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            height: 50%; /* show content on bottom half */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            }
+        .team-card h3, 
+        .team-card p, 
+        .team-card .skill-badge, 
+        .team-card button {
+            color: var(--brand-navy);
+            }
         .team-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: rgba(124, 58, 237, 0.3);
         }
+        
         .view-details-btn {
             background: linear-gradient(135deg, #ea580c, #dc2626);
             transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
+            width: fit-content;           
         }
+        
         .view-details-btn:hover {
             background: linear-gradient(135deg, #dc2626, #b91c1c);
             transform: translateX(4px);
         }
-        .modal-backdrop {
+        
+        .modal-backdrop-custom {
             backdrop-filter: blur(8px);
             background: rgba(0, 0, 0, 0.6);
         }
-        .modal-content {
+        
+        .modal-content-custom {
             animation: modalSlide 0.3s ease-out;
         }
+        
         @keyframes modalSlide {
             from {
                 opacity: 0;
@@ -55,374 +95,351 @@
                 transform: translateY(0) scale(1);
             }
         }
+        
         .skill-badge {
             background: linear-gradient(135deg, #1e3a8a, #3730a3);
             transition: all 0.2s ease;
         }
+        
         .skill-badge:hover {
             transform: scale(1.05);
             background: linear-gradient(135deg, #3730a3, #4338ca);
         }
+        
+        .gradient-header {
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-purple));
+        }
+        
+        .gradient-stats {
+            background: linear-gradient(135deg, #1b265d, #6C4F9E);
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            background: var(--brand-orange);
+        }
+        
+        .value-card:nth-child(2):hover {
+            background: var(--brand-purple);
+        }
+        
+        .value-card:nth-child(3):hover {
+            background: #1b265d;
+        }
+        
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            border: 4px solid var(--brand-purple);
+        }
+        
+        .status-dot {
+            width: 24px;
+            height: 24px;
+            background-color: #10b981;
+            border: 2px solid white;
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             align-items: start;
         }
-        @media (max-width: 768px) {
+        
+      
+        @media (min-width: 768px) {
             .team-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        @media(min-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .bg-emmanuel {
+            background-image: url('/Images/mlewa2.jpg');
+        }
+        .bg-anthony {
+            background-image: url('/Images/anthony.jpg');
+        }
+        .bg-francis {
+            background-image: url('/Images/francis2.jpg');
+        }
+        .bg-kelvin {
+            background-image: url('/Images/kelvin1.jpg');
+        }
+        .bg-stella {
+            background-image: url('/Images/stella.jpg');
+        }
+       .bg-harold {
+            background-image: url('/Images/harold1.jpg');
+        }
+        .bg-fidel {
+            background-image: url('/Images/fidel.jpg');
+        }
+        .bg-phanice {
+            background-image: url('/Images/phanice1.jpg');
+        }
+        .bg-joseph {
+            background-image: url('/Images/joseph2.jpg');
+        }
+        .team-card {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .team-card-content {
+            margin-top: auto;
+            z-index: 1;
         }
     </style>
 </head>
-<body class="font-sans">
-    <!--load the navbar-->
-<div id="navbar-placeholder"></div>
-    <!-- Team Section -->
-    <section id="team" class="py-20 bg-brand-white">
-              <!-- Page Header -->
-    <section class="bg-gradient-to-r from-brand-navy to-brand-purple py-16 text-brand-white">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Expert Team</h1>
-            <p class="text-xl text-gray-200">Discover the passionate professionals driving transformation and empowering businesses across East Africa</p>
+<body>
+    <!-- Navbar placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="gradient-header py-5 text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold mb-3">Our Expert Team</h1>
+                    <p class="lead text-light">Discover the passionate professionals driving transformation and empowering businesses across East Africa</p>
+                </div>
+            </div>
         </div>
     </section>
 
-            <div class="team-grid">
-                <div class="team-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 mt-12 items-stretch">
-
+    <!-- Team Section -->
+    <section id="team" class="py-5 bg-white">
+        <div class="container">
+            <div class="team-card-content">
+            <div class="team-grid mt-5">
                 <!-- Emmanuel Mkare -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/mlewa2.jpg" 
-                                 alt="Emmanuel Mkare" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Emmanuel Mkare</h3>
+                <div class="team-card bg-emmanuel p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">                   
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Emmanuel Mkare</h3>
                             <p class="text-brand-orange font-semibold mb-4"> Ethical Leader | Tax Expert | Finance & Accounting Professional</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CPA-K</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">BCom Accounting</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">8+ Years</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">ICPAK Rep</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">Certified Public Accountant with extensive experience in financial reporting, tax compliance, and strategic financial management.</p>
-                            <button onclick="openModal('emmanuel')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                            <button onclick="openModal('emmanuel')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
+            
 
                 <!-- Stella Zawadi -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/stella.jpg" 
-                                 alt="Stella Zawadi" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Stella Zawadi</h3>
-                            <p class="text-brand-orange font-semibold mb-4">HR Specialist | Talent & Systems Strategist</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CHRPK</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">HR Management</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">HRIS Implementation</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">6+ Years</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Certified HR Professional with experience managing HR operations for 900+ staff organizations.</p>
-                            <button onclick="openModal('stella')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                <div class="team-card bg-stella p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Stella Zawadi</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">HR Specialist | Talent & Systems Strategist</p>
+                            <button onclick="openModal('stella')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Francis Muyekho -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/francis.jpg" 
-                                 alt="Francis Muyekho" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Francis Muyekho</h3>
-                            <p class="text-brand-orange font-semibold mb-4">Marketing & Business Development Consultant</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CIM Diploma</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">15+ Years</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Brand Positioning</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Digital Marketing</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Dynamic marketing professional with expertise in brand positioning and corporate communications.</p>
-                            <button onclick="openModal('francis')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                <div class="team-card bg-francis p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Francis Muyekho</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Marketing & Business Development Consultant</p>
+                            <button onclick="openModal('francis')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Harold -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/harold1.jpg" 
-                                 alt="Harold" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Harold Yaa</h3>
-                            <p class="text-brand-orange font-semibold mb-4">Finance Specialist | Entrepreneurial Advisor | Creative Strategist</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Finance</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Entrepreneurship</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Creative Design</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium"> Start-up Advisory</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Harold fuses finance, strategy, and design to uplift startups and SMEs across East Africa.</p>
-                            <button onclick="openModal('harold')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                <div class="team-card bg-harold p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Harold Yaa</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Finance Specialist | Entrepreneurial Advisor | Creative Strategist</p>
+                            <button onclick="openModal('harold')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Anthony Thoya Baya -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/anthony.jpg" 
-                                 alt="Anthony Thoya Baya" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Anthony Thoya Baya</h3>
-                            <p class="text-brand-orange font-semibold mb-4">Accountant | Financial Administrator | Community Trainer</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">CPA III</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">QuickBooks</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Payroll</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Donor Funds</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Finance expert with 5+ years in reporting, payroll, and compliance—ensuring transparency in budgeting and audits.</p>
-                            <button onclick="openModal('anthony')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                <div class="team-card bg-anthony p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Anthony Thoya Baya</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Accountant | Financial Administrator | Community Trainer</p>
+                            <button onclick="openModal('anthony')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Kevin O. Oduol -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/kelvin1.jpg" 
-                                 alt="Kevin O. Oduol" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Kevin O. Oduol</h3>
-                            <p class="text-brand-orange font-semibold mb-4">Education Leader | Youth Mentor | Professional Trainer</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">14+ Years</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">TSC Registered</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Mentorship</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Curriculum Delivery</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">With 14+ years in education, Kevin blends teaching, mentorship, and leadership to empower learners and educators.</p>
-                            <button onclick="openModal('kevin')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                <div class="team-card bg-kelvin p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Kevin O. Oduol</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Education Leader | Youth Mentor | Professional Trainer</p>
+                            <button onclick="openModal('kevin')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Fidel Mwaro -->
-<div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-    <div class="flex items-start space-x-6">
-        <div class="relative">
-            <img src="/Images/fidel.jpg" 
-                 alt="Fidel Mwaro" 
-                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-        </div>
-        <div class="flex-1">
-            <h3 class="text-2xl font-bold text-brand-navy mb-2">Fidel Mwaro</h3>
-            <p class="text-brand-orange font-semibold mb-4">Agri-Tech Innovator | Agriculturalist | Web Designer | Software Developer</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">MERN Stack</span>
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Agriculture & Marketing</span>
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium"> GIS & Data</span>
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Climate-Smart</span>
-            </div>
-            <p class="text-gray-600 text-sm mb-4">Dedicated agriculturalist bridging traditional farming knowledge with modern digital tools and scalable solutions for communities.</p>
-            <button onclick="openModal('fidel')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                <span>View Details</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-</div>
 
-<!-- Bishop Phanice -->
-<div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-    <div class="flex items-start space-x-6">
-        <div class="relative">
-            <img src="/Images/phanice2.jpg" 
-                 alt="Bishop Phanice Oduol Achieng'" 
-                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-        </div>
-        <div class="flex-1">
-            <h3 class="text-2xl font-bold text-brand-navy mb-2">Bishop Phanice Oduol Achieng'</h3>
-            <p class="text-brand-orange font-semibold mb-4">Distinguished Education Leader, Counseling Psychologist, and Ordained Minister</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">20+ Years</span>
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Bishop 2024</span>
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">KAPIC</span>
-                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Author</span>
-            </div>
-            <p class="text-gray-600 text-sm mb-4">Award-winning education leader and gospel singer fostering holistic growth across education, ministry, and community development.</p>
-            <button onclick="openModal('phanice')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                <span>View Details</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-</div>
-                <!-- Joseph Zia -->
-                <div class="team-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand-purple/30 cursor-pointer">
-                    <div class="flex items-start space-x-6">
-                        <div class="relative">
-                            <img src="/Images/joseph.jpg" 
-                                 alt="Joseph Zia" 
-                                 class="w-24 h-24 rounded-full object-cover border-4 border-brand-purple shadow-lg">
-                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Joseph Zia</h3>
-                            <p class="text-brand-orange font-semibold mb-4">Logistics & Trade Facilitation Specialist</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">10+ Years</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">Simba 2005</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">KenTrade</span>
-                                <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">RECTS</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Seasoned logistics & facilitstion professional with over 10 years experience in customs clearance and regional freight operations, supply chain management across East African trade system and regulatory frameworks.</p>
-                            <button onclick="openModal('joseph')" class="view-details-btn text-white px-6 py-2 rounded-full font-semibold inline-flex items-center space-x-2 shadow-lg">
-                                <span>View Details</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                <!-- Fidel Mwaro -->
+                <div class="team-card bg-fidel p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Fidel Mwaro</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Agri-Tech Innovator | Agriculturalist | Web Designer | Software Developer</p>
+                            <button onclick="openModal('fidel')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-  
+
+                <!-- Bishop Phanice -->
+                <div class="team-card bg-phanice p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Bishop Phanice Achieng'</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Distinguished Education Leader | Counseling Psychologist | Ordained Minister</p>
+                            <button onclick="openModal('phanice')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joseph Zia -->
+                <div class="team-card bg-joseph p-4 rounded-4 shadow">
+                    <div class="d-flex align-items-start">
+                        <div class="team-content">
+                            <h3 class="h4 fw-bold text-brand-navy mb-2">Joseph Zia</h3>
+                            <p class="text-brand-orange fw-semibold mb-3">Logistics & Trade Facilitation Specialist</p>
+                            <button onclick="openModal('joseph')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
+                                <span class="me-2">View Details</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
     </section>
 
-    <!-- Modal -->
-    <div id="teamModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4">
-        <div class="modal-content bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div class="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-3xl">
-                <h3 id="modalTitle" class="text-3xl font-bold text-brand-navy"></h3>
-                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 transition-colors p-2 hover:bg-gray-100 rounded-full">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+    <!-- Combined Stats & Values Section -->
+    <section class="gradient-stats py-5 text-white">
+        <div class="container">
+            <!-- Statistics -->
+            <div class="row text-center mb-5">
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="h2 fw-bold text-brand-orange mb-1">35+</div>
+                    <div>Years Combined Experience</div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="h2 fw-bold text-brand-orange mb-1">500+</div>
+                    <div>Clients Served</div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="h2 fw-bold text-brand-orange mb-1">15+</div>
+                    <div>Training Programs</div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="h2 fw-bold text-brand-orange mb-1">100%</div>
+                    <div>Client Satisfaction</div>
+                </div>
             </div>
-            <div id="modalContent" class="p-6">
-                <!-- Dynamic content will be inserted here -->
 
+            <!-- Core Values -->
+            <div class="text-center mb-4">
+                <h2 class="h2 fw-bold mb-3">Our Core Values</h2>
+                <p class="lead text-light">The principles that guide everything we do</p>
             </div>
-        </div>                
-    </div> 
-   <!-- Combined Stats & Values Section -->
-<section class="bg-gradient-to-r from-[#1b265d] to-[#6C4F9E] py-10">
-  <div class="max-w-7xl mx-auto px-6 space-y-12 text-white">
 
-    <!-- Statistics -->
-    <div class="grid md:grid-cols-4 gap-6 text-center">
-      <div>
-        <div class="text-3xl font-bold text-[#ff6b35] mb-1">35+</div>
-        <div class="text-base">Years Combined Experience</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-[#ff6b35] mb-1">500+</div>
-        <div class="text-base">Clients Served</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-[#ff6b35] mb-1">15+</div>
-        <div class="text-base">Training Programs</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-[#ff6b35] mb-1">100%</div>
-        <div class="text-base">Client Satisfaction</div>
-      </div>
-    </div>
-
-    <!-- Core Values -->
-    <div>
-      <div class="text-center mb-6">
-        <h2 class="text-3xl font-bold mb-2">Our Core Values</h2>
-        <p class="text-lg text-gray-200">The principles that guide everything we do</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-[#ff6b35] transition">
-          <div class="w-12 h-12 bg-[#ff6b35] rounded-full flex items-center justify-center mx-auto mb-3 text-white text-xl">💡</div>
-          <h3 class="text-lg font-semibold mb-2">Innovation</h3>
-          <p class="text-sm">Creative solutions for tomorrow’s challenges.</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="value-card p-4 rounded-3 text-center">
+                        <div class="bg-brand-orange rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 48px; height: 48px;">
+                            <span class="fs-4">💡</span>
+                        </div>
+                        <h3 class="h5 fw-semibold mb-2">Innovation</h3>
+                        <p class="small mb-0">Creative solutions for tomorrow's challenges.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value-card p-4 rounded-3 text-center">
+                        <div class="bg-brand-purple rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 48px; height: 48px;">
+                            <span class="fs-4">🤝</span>
+                        </div>
+                        <h3 class="h5 fw-semibold mb-2">Integrity</h3>
+                        <p class="small mb-0">Ethical and transparent in all we do.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value-card p-4 rounded-3 text-center" style="background-color: rgba(255, 255, 255, 0.1);">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 48px; height: 48px; background-color: #1b265d;">
+                            <span class="fs-4">🎯</span>
+                        </div>
+                        <h3 class="h5 fw-semibold mb-2">Excellence</h3>
+                        <p class="small mb-0">Pushing for the highest standards always.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-[#6C4F9E] transition">
-          <div class="w-12 h-12 bg-[#6C4F9E] rounded-full flex items-center justify-center mx-auto mb-3 text-white text-xl">🤝</div>
-          <h3 class="text-lg font-semibold mb-2">Integrity</h3>
-          <p class="text-sm">Ethical and transparent in all we do.</p>
-        </div>
-        <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-[#1b265d] transition">
-          <div class="w-12 h-12 bg-[#1b265d] rounded-full flex items-center justify-center mx-auto mb-3 text-white text-xl">🎯</div>
-          <h3 class="text-lg font-semibold mb-2">Excellence</h3>
-          <p class="text-sm">Pushing for the highest standards always.</p>
-        </div>
+    </section>
+ <!-- Bootstrap Modal -->
+<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow">
+      
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalTitle">Modal Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      
+      <div class="modal-body" id="modalContent">
+        <!-- Dynamic content goes here -->
+      </div>
+      
     </div>
   </div>
-</section>
-
+</div>
     <script>
         const teamData = {
             emmanuel: {
@@ -666,149 +683,88 @@
             ]
 }
         };
+        // To make your View Details buttons work
 
-        function openModal(memberId) {
-            const member = teamData[memberId];
-            const modal = document.getElementById('teamModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-
-            modalTitle.textContent = member.name;
-            
-            modalContent.innerHTML = `
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <div class="lg:w-1/3">
-                        <img src="${member.image}" alt="${member.name}" class="w-full h-80 object-cover rounded-2xl shadow-lg">
-                        <div class="mt-6">
-                            <h4 class="text-lg font-semibold text-brand-navy mb-3">Qualifications</h4>
-                            <div class="flex flex-wrap gap-2">
-                                ${member.qualifications.map(qual => `
-                                    <span class="skill-badge text-white px-3 py-1 rounded-full text-sm font-medium">${qual}</span>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:w-2/3">
-                        <h4 class="text-xl font-semibold text-brand-orange mb-4">${member.title}</h4>
-                        <div class="prose prose-gray max-w-none">
-                            ${member.fullDescription.split('\n\n').map(paragraph => `<p class="mb-4 text-gray-700 leading-relaxed">${paragraph}</p>`).join('')}
-                        </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="text-lg font-semibold text-brand-navy mb-4">Core Specializations</h4>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                ${member.specializations.map(spec => `
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-brand-purple flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="text-gray-700">${spec}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="text-lg font-semibold text-brand-navy mb-4">Key Achievements</h4>
-                            <div class="space-y-3">
-                                ${member.achievements.map(achievement => `
-                                    <div class="flex items-start space-x-3">
-                                        <div class="w-2 h-2 bg-brand-orange rounded-full mt-2 flex-shrink-0"></div>
-                                        <span class="text-gray-700">${achievement}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
+function openModal(memberKey) {
+    const member = teamData[memberKey];
+    if (!member) return;
+    
+    // Set modal title
+    document.getElementById('modalTitle').textContent = member.name;
+    
+    // Create modal content
+    const modalContent = `
+ <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <img src="${member.image}" alt="${member.name}" 
+                     class="img-fluid rounded-3 shadow mb-3" style="max-width: 200px;">
+                <h4 class="text-brand-navy fw-bold">${member.name}</h4>
+                <p class="text-brand-orange fw-semibold">${member.title}</p>
+            </div>
+            <div class="col-md-8">
+                <div class="mb-4">
+                    <h5 class="text-brand-navy fw-bold mb-3">Qualifications</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        ${member.qualifications.map(qual => 
+                            `<span class="badge bg-brand-purple text-white px-3 py-2">${qual}</span>`
+                        ).join('')}
                     </div>
                 </div>
-            `;
-
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('teamModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('teamModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
-        <!--load the footer-->
-    <div id="footer-placeholder"></div>
+                
+                <div class="mb-4">
+                    <h5 class="text-brand-navy fw-bold mb-3">About</h5>
+                    <p class="text-muted">${member.fullDescription}</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h5 class="text-brand-navy fw-bold mb-3">Specializations</h5>
+                    <ul class="list-unstyled">
+                        ${member.specializations.map(spec => 
+                            `<li class="mb-2"><i class="fas fa-check-circle text-brand-orange me-2"></i>${spec}</li>`
+                        ).join('')}
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-brand-navy fw-bold mb-3">Key Achievements</h5>
+                    <ul class="list-unstyled">
+                        ${member.achievements.map(achievement => 
+                            `<li class="mb-2"><i class="fas fa-star text-brand-orange me-2"></i>${achievement}</li>`
+                        ).join('')}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+    // Set modal content
+    document.getElementById('modalContent').innerHTML = modalContent;
     
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('teamModal'));
+    modal.show();
+}
+</script>
+    <!-- Footer placeholder -->
+     <div id="footer-placeholder"></div>
     <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
+    <button id="scrollToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle" style="display: none; z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange);">
+        <i class="fas fa-arrow-up"></i>
     </button>
-    <!--load partials js-->
+
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/254768080749" target="_blank" 
+       class="position-fixed bottom-0 start-0 m-4 btn btn-success rounded-circle shadow"
+       style="z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange);"
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Load partials JS -->
     <script src="js/loadpartials.js"></script>
-    <script>
-   
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-8');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('section > div').forEach(el => {
-            el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
-            observer.observe(el);
-        });
-    </script>
-        <!-- Scroll to top functionality -->
+    <!-- Scroll to top JS -->
     <script src="js/scroll-to-top.js"></script>
-<!--whatsapp icon-->
-        <a
-            href="https://wa.me/254768080749" target="_blank"
-            class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
-            aria-label="Chat on WhatsApp"
-            >
-            <i class="fab fa-whatsapp fa-lg"></i>
-        </a>
+
 </body>
 </html>
