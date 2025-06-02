@@ -1,253 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--fav icon-->
-    <link rel="icon" type="image/png" href="Images/sifaslogo.png">
-     <!--to load icons like whatsapp-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-orange': '#f48a32',
-                        'brand-purple': '#8c18a9',
-                        'brand-navy': '#1b265d',
-                        'brand-white': '#ffffff',
-                    }
-                }
-            }
-        }
-    </script>
-    <title>About Us - SifaSkills (EA) Ltd</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - SifaSkills (EA) Ltd</title>
+  <link rel="icon" type="image/png" href="Images/sifaslogo.png" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-orange: #f48a32;
+      --brand-purple: #8c18a9;
+      --brand-navy: #1b265d;
+      --brand-white: #ffffff;
+    }
+    .bg-brand-navy { background-color: var(--brand-navy); }
+    .bg-brand-purple { background-color: var(--brand-purple); }
+    .bg-brand-orange { background-color: var(--brand-orange); }
+    .text-brand-white { color: var(--brand-white); }
+    .text-brand-orange { color: var(--brand-orange); }
+  </style>
 </head>
-<body class="font-sans">
-<!--load the navbar-->
+<body>
+
+<!-- Navbar placeholder -->
 <div id="navbar-placeholder"></div>
 
-    <!-- Page Header -->
-    <section class="bg-gradient-to-r from-brand-navy to-brand-purple py-16 text-brand-white">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">About SifaSkills</h1>
-            <p class="text-xl text-gray-200">The SEAL of Professional Growth</p>
+<!-- Page Header -->
+<section class="bg-gradient text-white py-5 text-center" style="background: linear-gradient(to right, var(--brand-navy), var(--brand-purple));">
+  <div class="container">
+    <h1 class="display-5 fw-bold">About SifaSkills</h1>
+    <p class="lead text-light">The SEAL of Professional Growth</p>
+  </div>
+</section>
+
+<!-- Founding Story -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="h3 text-brand-navy fw-bold mb-3">Our Founding Story</h2>
+        <p>
+          SifaSkills (EA) Ltd (SEAL) was born from a shared vision and a deep understanding of the challenges facing youth and businesses across East Africa...
+        </p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fa fa-check text-brand-orange me-2"></i>Students graduating with academic qualifications but lacking practical, employable skills</li>
+          <li><i class="fa fa-check text-brand-orange me-2"></i>Startups and small businesses struggling to grow due to limited access to expert guidance</li>
+        </ul>
+        <p>
+          To break this cycle, we established SEAL with a clear mission: to equip students and recent graduates with job-ready skills...
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-brand-orange text-white p-4 rounded shadow">
+          <h3 class="h5 fw-bold">Why SEAL?</h3>
+          <p>The name SEAL represents our core purpose:</p>
+          <ul class="list-unstyled">
+            <li><strong>S</strong>trengthening Communities</li>
+            <li><strong>E</strong>mpowering Entrepreneurs</li>
+            <li><strong>A</strong>dvancing Education & Skills</li>
+            <li><strong>L</strong>eading Innovation</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Founding Story -->
-    <section class="py-16 bg-brand-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-brand-navy mb-6">Our Founding Story</h2>
-                    <p class="text-gray-700 mb-4 leading-relaxed">
-                        SifaSkills (EA) Ltd (SEAL) was born from a shared vision and a deep understanding of the challenges facing youth and businesses across East Africa. Our founders — seasoned experts in finance, human resources, and business development — consistently observed two critical gaps:
-                    </p>
-                    <ul class="text-gray-700 space-y-2 mb-6">
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span>Students graduating with academic qualifications but lacking practical, employable skills</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span>Startups and small businesses struggling to grow due to limited access to expert guidance</li>
-                    </ul>
-                    <p class="text-gray-700 leading-relaxed">
-                        To break this cycle, we established SEAL with a clear mission: to equip students and recent graduates with job-ready skills and provide SMEs with tailored consultancy services. The name SEAL reflects our commitment to "sealing success" — connecting talent with opportunity.
-                    </p>
-                </div>
-                <div class="bg-brand-orange p-8 rounded-xl text-brand-white">
-                    <h3 class="text-2xl font-bold mb-4">Why SEAL?</h3>
-                    <p class="mb-4">The name SEAL represents our core purpose:</p>
-                    <ul class="space-y-2">
-                        <li><strong>S</strong>trengthening Communities</li>
-                        <li><strong>E</strong>mpowering Entrepreneurs</li>
-                        <li><strong>A</strong>dvancing Education & Skills</li>
-                        <li><strong>L</strong>eading Innovation</li>
-                    </ul>
-                </div>
+<!-- Mission & Vision -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h3 text-brand-navy fw-bold">Our Mission & Vision</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card border-0 shadow h-100">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <div class="bg-brand-purple text-white rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+                👁
+              </div>
             </div>
+            <h5 class="card-title text-brand-navy fw-bold">Our Vision</h5>
+            <p><strong>01.</strong> To build a future-ready East Africa...</p>
+            <p><strong>02.</strong> To be East Africa's leading catalyst...</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Mission & Vision -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-navy mb-4">Our Mission & Vision</h2>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-0 shadow h-100">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <div class="bg-brand-orange text-white rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+                🎯
+              </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Vision -->
-                <div class="bg-brand-white p-8 rounded-xl shadow-lg">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-brand-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-brand-white text-2xl">👁</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-navy">Our Vision</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-gray-700">
-                            <strong>01.</strong> To build a future-ready East Africa where youth are empowered with practical, employable skills and businesses thrive through expert guidance, innovation, and sustainable growth.
-                        </p>
-                        <p class="text-gray-700">
-                            <strong>02.</strong> To be East Africa's leading catalyst for personal and enterprise transformation — connecting talent with opportunity and enabling communities, institutions, and businesses to achieve their fullest potential.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mission -->
-                <div class="bg-brand-white p-8 rounded-xl shadow-lg">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-brand-white text-2xl">🎯</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-navy">Our Mission</h3>
-                    </div>
-                    <ul class="space-y-3 text-gray-700">
-                        <li><strong>01.</strong> To equip individuals with job-ready skills and support SMEs in achieving sustainable growth.</li>
-                        <li><strong>02.</strong> To bridge the gap between education and employability, empowering individuals and businesses to thrive.</li>
-                        <li><strong>03.</strong> To design impactful programs that foster entrepreneurship, strengthen institutions, and promote sustainable livelihoods.</li>
-                        <li><strong>04.</strong> To collaborate with partners to build a skilled workforce and drive economic progress in East Africa.</li>
-                    </ul>
-                </div>
-            </div>
+            <h5 class="card-title text-brand-navy fw-bold">Our Mission</h5>
+            <ul class="list-unstyled text-start">
+              <li><strong>01.</strong> To equip individuals with job-ready skills...</li>
+              <li><strong>02.</strong> To bridge the gap between education and employability...</li>
+              <li><strong>03.</strong> To design impactful programs...</li>
+              <li><strong>04.</strong> To collaborate with partners...</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Core Values -->
-    <section class="py-16 bg-brand-navy text-brand-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Core Values - <span class="text-brand-orange">SEAL</span></h2>
-                <p class="text-gray-300">Our values guide everything we do</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Strengthening -->
-                <div class="text-center bg-brand-white bg-opacity-5 p-6 rounded-xl">
-                    <div class="text-5xl font-bold text-brand-orange mb-4">S</div>
-                    <h3 class="text-xl font-bold mb-4">Strengthening Communities</h3>
-                    <p class="text-gray-300 text-sm">
-                        We focus on empowering communities, organizations and individuals by providing the tools, skills, and resources necessary for growth and resilience.
-                    </p>
-                </div>
-
-                <!-- Empowering -->
-                <div class="text-center bg-brand-white bg-opacity-5 p-6 rounded-xl">
-                    <div class="text-5xl font-bold text-brand-orange mb-4">E</div>
-                    <h3 class="text-xl font-bold mb-4">Empowering Entrepreneurs</h3>
-                    <p class="text-gray-300 text-sm">
-                        We work directly with entrepreneurs, especially within SMEs, to help them build sustainable businesses and enhance their leadership capabilities.
-                    </p>
-                </div>
-
-                <!-- Advancing -->
-                <div class="text-center bg-brand-white bg-opacity-5 p-6 rounded-xl">
-                    <div class="text-5xl font-bold text-brand-orange mb-4">A</div>
-                    <h3 class="text-xl font-bold mb-4">Advancing Education</h3>
-                    <p class="text-gray-300 text-sm">
-                        We bridge the gap between formal education and practical employability, offering training that's hands-on and immediately applicable.
-                    </p>
-                </div>
-
-                <!-- Leading -->
-                <div class="text-center bg-brand-white bg-opacity-5 p-6 rounded-xl">
-                    <div class="text-5xl font-bold text-brand-orange mb-4">L</div>
-                    <h3 class="text-xl font-bold mb-4">Leading Innovation</h3>
-                    <p class="text-gray-300 text-sm">
-                        We lead with forward-thinking solutions, integrating modern tools and creative ideas to ensure our impact is both relevant and lasting.
-                    </p>
-                </div>
-            </div>
+<!-- Core Values -->
+<section class="py-5 bg-brand-navy text-white">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h3 fw-bold">Core Values - <span class="text-brand-orange">SEAL</span></h2>
+      <p class="text-light">Our values guide everything we do</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="bg-white bg-opacity-10 p-3 rounded text-center">
+          <div class="display-5 text-brand-orange">S</div>
+          <h5>Strengthening Communities</h5>
+          <p class="small text-light">Empowering communities with skills and resources...</p>
         </div>
-    </section>
-
-    <!-- Our Approach -->
-    <section class="py-16 bg-brand-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-navy mb-4">Our Approach</h2>
-                <p class="text-xl text-gray-700">A dual model ensuring continuous cycle of empowerment</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Student Training -->
-                <div class="bg-brand-purple bg-opacity-5 p-8 rounded-xl border-l-4 border-brand-purple">
-                    <h3 class="text-2xl font-bold text-brand-navy mb-4">🎓 Student Skills Training & Empowerment</h3>
-                    <p class="text-gray-700 mb-4">
-                        We empower learners to confidently enter the job market by building strong application, communication, and workplace skills.
-                    </p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• Career Development & Job Readiness</li>
-                        <li>• Business, Finance & Digital Skills</li>
-                        <li>• Tech & Creative Skills</li>
-                        <li>• Life Skills & Personal Development</li>
-                        <li>• Practical Exposure & Experience</li>
-                    </ul>
-                </div>
-
-                <!-- SME Services -->
-                <div class="bg-brand-orange bg-opacity-5 p-8 rounded-xl border-l-4 border-brand-orange">
-                    <h3 class="text-2xl font-bold text-brand-navy mb-4">🏢 SME & Startup Consultancy Services</h3>
-                    <p class="text-gray-700 mb-4">
-                        We help businesses define their vision, sharpen their focus, and seize market opportunities through expert consultancy.
-                    </p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• Strategy & Growth Advisory</li>
-                        <li>• Financial & Accounting Advisory</li>
-                        <li>• Human Resource Solutions</li>
-                        <li>• Marketing & Digital Optimization</li>
-                        <li>• Logistics & Trade Facilitation</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <p class="text-lg text-gray-700 mb-6">
-                    This dual model ensures a continuous cycle of empowerment — youth gain employment-ready capabilities while businesses gain access to trained talent and expert support.
-                </p>
-                <a href="services.html" class="bg-brand-orange text-brand-white px-8 py-3 rounded-full hover:bg-opacity-90 transition font-semibold">
-                    Explore Our Services
-                </a>
-            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="bg-white bg-opacity-10 p-3 rounded text-center">
+          <div class="display-5 text-brand-orange">E</div>
+          <h5>Empowering Entrepreneurs</h5>
+          <p class="small text-light">Supporting SMEs and startups to lead with confidence...</p>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-brand-orange to-brand-purple text-brand-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Future?</h2>
-            <p class="text-xl mb-8 text-gray-200">
-                Join thousands who have unlocked their potential with SifaSkills
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="contact.html" class="bg-brand-white text-brand-navy px-8 py-3 rounded-full hover:bg-gray-100 transition font-semibold">
-                    Get Started Today
-                </a>
-                <a href="team.html" class="border-2 border-brand-white text-brand-white px-8 py-3 rounded-full hover:bg-brand-white hover:text-brand-navy transition font-semibold">
-                    Meet Our Team
-                </a>
-            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="bg-white bg-opacity-10 p-3 rounded text-center">
+          <div class="display-5 text-brand-orange">A</div>
+          <h5>Advancing Education</h5>
+          <p class="small text-light">Making learning relevant, practical, and future-proof...</p>
         </div>
-    </section>
+      </div>
+      <div class="col-md-3">
+        <div class="bg-white bg-opacity-10 p-3 rounded text-center">
+          <div class="display-5 text-brand-orange">L</div>
+          <h5>Leading Innovation</h5>
+          <p class="small text-light">Innovating for long-term solutions and social impact...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!--load the footer-->
-    <div id="footer-placeholder"></div>
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-     <!--load partials js-->
-    <script src="js/loadpartials.js"></script>
-            <!-- Scroll to top functionality -->
-    <script src="js/scroll-to-top.js"></script>
-<!--whatsapp icon-->
-        <a
-            href="https://wa.me/254768080749" target="_blank"
-            class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
-            aria-label="Chat on WhatsApp"
-            >
-            <i class="fab fa-whatsapp fa-lg"></i>
-        </a>
+<!-- Our Approach -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h3 text-brand-navy fw-bold">Our Approach</h2>
+      <p class="lead text-muted">A dual model ensuring continuous cycle of empowerment</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="p-4 border-start border-4 border-brand-purple bg-light rounded h-100">
+          <h5 class="text-brand-navy fw-bold mb-3">🎓 Student Skills Training & Empowerment</h5>
+          <p>We empower learners to confidently enter the job market by building practical skills.</p>
+          <ul>
+            <li>Career Development & Job Readiness</li>
+            <li>Business, Finance & Digital Skills</li>
+            <li>Tech & Creative Skills</li>
+            <li>Life Skills & Personal Development</li>
+            <li>Practical Exposure & Experience</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-4 border-start border-4 border-brand-orange bg-light rounded h-100">
+          <h5 class="text-brand-navy fw-bold mb-3">🏢 SME & Startup Consultancy Services</h5>
+          <p>We help businesses grow sustainably through professional guidance.</p>
+          <ul>
+            <li>Strategy & Growth Advisory</li>
+            <li>Financial & Accounting Advisory</li>
+            <li>Human Resource Solutions</li>
+            <li>Marketing & Digital Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

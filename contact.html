@@ -3,82 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--fav icon-->
-    <link rel="icon" type="image/png" href="Images/sifaslogo.png">
-     <!--to load icons like whatsapp-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-orange': '#f48a32',
-                        'brand-purple': '#8c18a9',
-                        'brand-navy': '#1b265d',
-                        'brand-white': '#ffffff',
-                    }
-                }
-            }
-        }
-    </script>
     <title>Contact Us - SifaSkills (EA) Ltd</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/png" href="Images/sifaslogo.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg-brand-orange { background-color: #f48a32; }
+        .bg-brand-purple { background-color: #8c18a9; }
+        .bg-brand-navy { background-color: #1b265d; }
+        .text-brand-white { color: #ffffff; }
+        .text-brand-orange { color: #f48a32; }
+        .text-brand-navy { color: #1b265d; }
+        .rounded-xl { border-radius: 1rem; }
+    </style>
 </head>
-<body class="font-sans">
-    <!--load the navbar-->
+<body>
+    <!-- Navbar -->
     <div id="navbar-placeholder"></div>
 
     <!-- Page Header -->
-    <section class="bg-gradient-to-r from-brand-navy to-brand-purple py-16 text-brand-white">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p class="text-xl text-gray-200">Let's start your transformation journey today</p>
+    <section class="bg-brand-navy text-brand-white py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Contact Us</h1>
+            <p class="lead">Let's start your transformation journey today</p>
         </div>
     </section>
 
     <!-- Contact Information -->
-    <section class="py-16 bg-brand-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-navy mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-700">We're here to help you unlock your potential</p>
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-brand-navy">Get In Touch</h2>
+                <p class="text-muted">We're here to help you unlock your potential</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                <!-- Office Location -->
-                <div class="text-center bg-gray-50 p-8 rounded-xl">
-                    <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-brand-white text-2xl">📍</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-navy mb-4">Office Location</h3>
-                    <div class="text-gray-700">
-                        <p class="font-semibold">1st Floor, The Palm Hub</p>
-                        <p>Bamburi Old Naivas</p>
+            <div class="row g-4 text-center">
+                <div class="col-lg-4">
+                    <div class="bg-light p-4 rounded-xl">
+                        <div class="bg-brand-orange rounded-circle d-flex justify-content-center align-items-center mx-auto mb-3" style="width: 64px; height: 64px;">
+                            <span class="text-white fs-4">📍</span>
+                        </div>
+                        <h5 class="fw-bold text-brand-navy">Office Location</h5>
+                        <p class="mb-0">1st Floor, The Palm Hub</p>
+                        <p class="mb-0">Bamburi Old Naivas</p>
                         <p>Mombasa, Kenya</p>
                     </div>
                 </div>
 
-                <!-- Phone -->
-                <div class="text-center bg-gray-50 p-8 rounded-xl">
-                    <div class="w-16 h-16 bg-brand-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-brand-white text-2xl">📞</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-navy mb-4">Phone</h3>
-                    <div class="text-gray-700">
-                        <p class="font-semibold text-xl">0768 080 749</p>
-                        <p class="text-sm mt-2">Available Mon-Fri, 9AM-6PM</p>
+                <div class="col-lg-4">
+                    <div class="bg-light p-4 rounded-xl">
+                        <div class="bg-brand-purple rounded-circle d-flex justify-content-center align-items-center mx-auto mb-3" style="width: 64px; height: 64px;">
+                            <span class="text-white fs-4">📞</span>
+                        </div>
+                        <h5 class="fw-bold text-brand-navy">Phone</h5>
+                        <p class="fs-5 fw-semibold mb-1">0768 080 749</p>
+                        <small class="text-muted">Mon-Fri, 9AM-6PM</small>
                     </div>
                 </div>
 
-                <!-- Email & Website -->
-                <div class="text-center bg-gray-50 p-8 rounded-xl">
-                    <div class="w-16 h-16 bg-brand-navy rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-brand-white text-2xl">✉</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-navy mb-4">Digital Contact</h3>
-                    <div class="text-gray-700">
-                        <p class="font-semibold">info@sifaskillseal.com</p>
-                        <p class="text-brand-orange font-medium">www.sifaskillseal.com</p>
+                <div class="col-lg-4">
+                    <div class="bg-light p-4 rounded-xl">
+                        <div class="bg-brand-navy rounded-circle d-flex justify-content-center align-items-center mx-auto mb-3" style="width: 64px; height: 64px;">
+                            <span class="text-white fs-4">✉</span>
+                        </div>
+                        <h5 class="fw-bold text-brand-navy">Digital Contact</h5>
+                        <p class="mb-1 fw-semibold">info@sifaskillseal.com</p>
+                        <p class="text-brand-orange mb-0">www.sifaskillseal.com</p>
                     </div>
                 </div>
             </div>
@@ -86,222 +82,90 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-navy mb-4">Send Us a Message</h2>
-                <p class="text-xl text-gray-700">Fill out the form below and we'll get back to you within 24 hours</p>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-brand-navy">Send Us a Message</h2>
+                <p class="text-muted">Fill out the form below and we'll get back to you within 24 hours</p>
             </div>
 
-            <div class="bg-brand-white p-8 rounded-xl shadow-lg">
-                <form id="contactForm" class="space-y-6">
-                    <!-- Personal Information -->
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="firstName" class="block text-sm font-semibold text-brand-navy mb-2">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+            <div class="bg-white p-5 rounded-xl shadow">
+                <form id="contactForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label text-brand-navy fw-semibold">First Name *</label>
+                            <input type="text" class="form-control" id="firstName" required>
                         </div>
-                        <div>
-                            <label for="lastName" class="block text-sm font-semibold text-brand-navy mb-2">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label text-brand-navy fw-semibold">Last Name *</label>
+                            <input type="text" class="form-control" id="lastName" required>
                         </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-brand-navy mb-2">Email Address *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label text-brand-navy fw-semibold">Email Address *</label>
+                            <input type="email" class="form-control" id="email" required>
                         </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-semibold text-brand-navy mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label text-brand-navy fw-semibold">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone">
                         </div>
-                    </div>
-
-                    <!-- Service Interest -->
-                    <div>
-                        <label for="service" class="block text-sm font-semibold text-brand-navy mb-2">Service Interest *</label>
-                        <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                            <option value="">Select a service...</option>
-                            <option value="student-training">Student Skills Training</option>
-                            <option value="sme-consultancy">SME Consultancy</option>
-                            <option value="financial-advisory">Financial Advisory</option>
-                            <option value="hr-solutions">HR Solutions</option>
-                            <option value="marketing-branding">Marketing & Branding</option>
-                            <option value="logistics-trade">Logistics & Trade Facilitation</option>
-                            <option value="general-inquiry">General Inquiry</option>
-                        </select>
-                    </div>
-
-                    <!-- Organization Type -->
-                    <div>
-                        <label for="orgType" class="block text-sm font-semibold text-brand-navy mb-2">Organization Type</label>
-                        <select id="orgType" name="orgType" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                            <option value="">Select organization type...</option>
-                            <option value="individual">Individual</option>
-                            <option value="student">Student</option>
-                            <option value="startup">Startup</option>
-                            <option value="sme">Small/Medium Enterprise</option>
-                            <option value="ngo">NGO/Non-Profit</option>
-                            <option value="government">Government Agency</option>
-                            <option value="educational">Educational Institution</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <!-- Message -->
-                    <div>
-                        <label for="message" class="block text-sm font-semibold text-brand-navy mb-2">Message *</label>
-                        <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
-                    </div>
-
-                    <!-- Preferred Contact Method -->
-                    <div>
-                        <label class="block text-sm font-semibold text-brand-navy mb-3">Preferred Contact Method</label>
-                        <div class="flex flex-wrap gap-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="contactMethod" value="email" checked class="text-brand-orange"> <span class="ml-2 text-gray-700">Email</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="contactMethod" value="phone" class="text-brand-orange"> <span class="ml-2 text-gray-700">Phone Call</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="contactMethod" value="whatsapp" class="text-brand-orange"> <span class="ml-2 text-gray-700">WhatsApp</span>
-                            </label>
+                        <div class="col-12">
+                            <label for="service" class="form-label text-brand-navy fw-semibold">Service Interest *</label>
+                            <select class="form-select" id="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="student-training">Student Skills Training</option>
+                                <option value="sme-consultancy">SME Consultancy</option>
+                                <option value="financial-advisory">Financial Advisory</option>
+                                <option value="hr-solutions">HR Solutions</option>
+                                <option value="marketing-branding">Marketing & Branding</option>
+                                <option value="logistics-trade">Logistics & Trade Facilitation</option>
+                                <option value="general-inquiry">General Inquiry</option>
+                            </select>
                         </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="text-center">
-                        <button type="submit" class="bg-brand-orange text-brand-white px-12 py-4 rounded-full hover:bg-opacity-90 transition font-semibold text-lg shadow-lg">Send Message</button>
-                        <p class="text-sm text-gray-600 mt-4">We'll respond within 24 hours</p>
-                        <p id="formResponse" class="text-sm mt-2 text-center text-green-700 font-medium"></p>
+                        <div class="col-12">
+                            <label for="orgType" class="form-label text-brand-navy fw-semibold">Organization Type</label>
+                            <select class="form-select" id="orgType">
+                                <option value="">Select organization type...</option>
+                                <option value="individual">Individual</option>
+                                <option value="student">Student</option>
+                                <option value="startup">Startup</option>
+                                <option value="sme">Small/Medium Enterprise</option>
+                                <option value="ngo">NGO/Non-Profit</option>
+                                <option value="government">Government Agency</option>
+                                <option value="educational">Educational Institution</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="message" class="form-label text-brand-navy fw-semibold">Message *</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-brand-navy fw-semibold">Preferred Contact Method</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="contactMethod" id="emailMethod" value="email" checked>
+                                <label class="form-check-label" for="emailMethod">Email</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="contactMethod" id="phoneMethod" value="phone">
+                                <label class="form-check-label" for="phoneMethod">Phone Call</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="contactMethod" id="whatsappMethod" value="whatsapp">
+                                <label class="form-check-label" for="whatsappMethod">WhatsApp</label>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn bg-brand-orange text-white px-5 py-2 fw-semibold rounded-pill shadow">Send Message</button>
+                            <p class="small text-muted mt-2">We'll respond within 24 hours</p>
+                            <p id="formResponse" class="text-success mt-2"></p>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Map or Additional Info Section -->
-    <section class="py-16 bg-brand-navy text-brand-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center">
-                <h2 class="text-3xl font-bold mb-8">Visit Our Office</h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-left">
-                        <h3 class="text-2xl font-bold text-brand-orange mb-6">Office Hours</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span>Monday - Friday:</span>
-                                <span class="text-brand-orange">9:00 AM - 6:00 PM</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Saturday:</span>
-                                <span class="text-brand-orange">9:00 AM - 1:00 PM</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Sunday:</span>
-                                <span class="text-gray-400">Closed</span>
-                            </div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-bold text-brand-orange mb-6 mt-8">Emergency Contact</h3>
-                        <p class="text-gray-300 mb-4">For urgent matters outside business hours:</p>
-                        <p class="text-brand-orange font-semibold">0768 080 749</p>
-                    </div>
-                    
-                    <div class="bg-brand-white bg-opacity-10 p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold text-brand-orange mb-6">Getting There</h3>
-                        <div class="space-y-4 text-gray-300">
-                            <p><strong>By Matatu:</strong> Take any matatu heading to Bamburi and alight Bamburi Mwisho. It's a 600m (8 minutes) walk along Old Malindi Road towards Utange</p>
-                            <p><strong>By Private Car:</strong> Ample parking available at The Palm Hub</p>
-                            <p><strong>Landmarks:</strong> Next to Destiny Worship Centre - Kidarajani</p>
-                        </div>
-                        
-                        <div class="mt-6 pt-6 border-t border-gray-600">
-                            <p class="text-sm text-gray-400">
-                                Can't make it to our office? We also offer virtual consultations via Zoom, Google Meet, or phone calls.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-brand-orange to-brand-purple text-brand-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p class="text-xl mb-8 text-gray-200">
-                Don't wait - your transformation journey begins with a single step
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="services.html" class="bg-brand-white text-brand-navy px-8 py-3 rounded-full hover:bg-gray-100 transition font-semibold">
-                    View Our Services
-                </a>
-                <a href="about.html" class="border-2 border-brand-white text-brand-white px-8 py-3 rounded-full hover:bg-brand-white hover:text-brand-navy transition font-semibold">
-                    Learn About Us
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!--load the footer-->
-    <div id="footer-placeholder"></div>
-
-     <!--load partials js-->
-    <script src="js/loadpartials.js"></script>
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        //form submission with php
-       
-        document.getElementById("contactForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const form = e.target;
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch("send_email.php", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const result = await response.text();
-                document.getElementById("formResponse").textContent = result;
-
-                form.reset(); // Optional: clear form after submission
-            } catch (error) {
-                document.getElementById("formResponse").textContent = "There was an error sending your message. Please try again.";
-                console.error("Form submission error:", error);
-            }
-        });
-
-    </script>
-
-        <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-brand-orange text-brand-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition opacity-0 invisible z-50">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-            <!-- Scroll to top functionality -->
-    <script src="js/scroll-to-top.js"></script>
-<!--whatsapp icon-->
-        <a
-            href="https://wa.me/254768080749" target="_blank"
-            class="fixed bottom-6 left-6 z-50 bg-brand-orange hover:bg-brand-purple text-white p-4 rounded-full shadow-lg transition duration-300 ease-in-out"
-            aria-label="Chat on WhatsApp"
-            >
-            <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
-        </a>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
