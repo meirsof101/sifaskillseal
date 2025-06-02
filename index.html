@@ -38,7 +38,7 @@
     /* Scroll to top button styles */
     #scrollToTop {
       position: fixed;
-      bottom: 80px;
+      bottom: 35px;
       right: 30px;
       width: 50px;
       height: 50px;
@@ -72,275 +72,611 @@
 <body class="font-sans">
  <!-- Navbar Placeholder -->
   <div id="navbar-placeholder"></div>
+<!-- Enhanced Hero Section with Sliding Background Images -->
+<section id="home" class="position-relative text-white hero-section" style="height: 75vh; min-height: 500px; overflow: hidden;">
+  
+  <!-- Bootstrap Carousel with Background Images -->
+  <div id="heroCarousel" class="carousel slide carousel-fade h-100 w-100" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner h-100">
+      
+      <!-- Slide 1 -->
+      <div class="carousel-item active h-100 hero-bg-item" 
+           style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Images/logo.jpg'); 
+                  background-position: center center; 
+                  background-size: cover; 
+                  background-repeat: no-repeat;
+                  background-attachment: local;">
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="carousel-item h-100 hero-bg-item" 
+           style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Images/bg2.png'); 
+                  background-position: center center; 
+                  background-size: cover; 
+                  background-repeat: no-repeat;
+                  background-attachment: local;">
+      </div>
+      
+      <!-- Slide 3 -->
+      <div class="carousel-item h-100 hero-bg-item" 
+           style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Images/bg1.png'); 
+                  background-position: center center; 
+                  background-size: cover; 
+                  background-repeat: no-repeat;
+                  background-attachment: local;">
+      </div>
+      
+    </div>
+    
+    <!-- Optional: Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+  </div>
 
-  <!-- Hero Section -->
-  <section id="home" class="position-relative text-white" style="background: url('Images/logo.jpg') center center/cover no-repeat; height: 75vh;">
-    <div class="overlay"></div>
-    <div class="container h-100 position-relative z-1 d-flex flex-column justify-content-center align-items-center text-center">
-      <h1 class="display-4 fw-bold mb-3">
-        The <span class="text-brand-orange">SEAL</span> of Professional Growth
-      </h1>
-      <p class="lead text-light mb-4">Unlocking Human Potential & Driving Sustainable Development</p>
-      <div class="d-flex flex-column flex-md-row gap-3">
-        <a href="services.html" class="btn btn-lg text-white" style="background-color: var(--brand-orange);">Explore Our Services</a>
-        <a href="booking.html" class="btn btn-outline-light btn-lg border-2" style="border-color: var(--brand-orange); color: var(--brand-orange);">Get Started Today</a>
+  <!-- Enhanced Overlay with Gradient -->
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100" 
+       style="background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%); 
+              z-index: 1;">
+  </div>
+
+  <!-- Hero Content - Responsive -->
+  <div class="container-fluid h-100 position-absolute top-0 start-0 d-flex align-items-center justify-content-center" 
+       style="z-index: 2;">
+    <div class="row w-100 justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-8 text-center">
+        
+        <!-- Main Heading - Responsive Typography -->
+        <h1 class="display-5 display-md-4 display-lg-3 fw-bold mb-3 mb-md-4 animate-fade-up">
+          The <span class="text-brand-orange" style="color: var(--brand-orange, #ff6b35);">SEAL</span> of Professional Growth
+        </h1>
+        
+        <!-- Subtitle - Responsive -->
+        <p class="lead fs-4 fs-md-3 text-light mb-4 mb-md-5 px-3 px-md-0 animate-fade-up-delay">
+          Unlocking Human Potential & Driving Sustainable Development
+        </p>
+        
+        <!-- CTA Buttons - Responsive Stack -->
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center animate-fade-up-delay-2">
+          <a href="services.html" 
+             class="btn btn-lg px-4 px-md-5 py-3 text-white fw-semibold rounded-pill shadow-lg" 
+             style="border-color: var(--brand-orange, #ff6b35) !important; 
+                    color: var(--brand-orange, #ff6b35) !important;
+                    background: rgba(255,255,255,0.1);
+                    backdrop-filter: blur(10px);
+                    transition: all 0.3s ease;
+                    transform: translateY(0);"
+             onmouseover="this.style.background='var(--brand-orange, #ff6b35)'; this.style.color='white'; this.style.transform='translateY(-2px)';"
+             onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.color='var(--brand-orange, #ff6b35)'; this.style.transform='translateY(0)';">
+            Book A Session
+          </a>
+          
+          <a href="booking.html" 
+             class="btn btn-lg px-4 px-md-5 py-3 text-white fw-semibold rounded-pill shadow-lg"  
+             style="border-color: var(--brand-orange, #ff6b35) !important; 
+                    color: var(--brand-orange, #ff6b35) !important;
+                    background: rgba(255,255,255,0.1);
+                    backdrop-filter: blur(10px);
+                    transition: all 0.3s ease;
+                    transform: translateY(0);"
+             onmouseover="this.style.background='var(--brand-orange, #ff6b35)'; this.style.color='white'; this.style.transform='translateY(-2px)';"
+             onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.color='var(--brand-orange, #ff6b35)'; this.style.transform='translateY(0)';">
+            Explore Our Services
+          </a>
+        </div>
+        
       </div>
     </div>
-  </section>
+  </div>
+  
+</section>
 
-  <!-- About Section -->
-  <section id="about" class="py-5 bg-brand-white">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold text-brand-navy mb-3">About SifaSkills (EA) Ltd</h2>
-        <p class="lead text-secondary">SifaSkills (EA) Ltd (SEAL) is a forward-thinking company committed to unlocking human potential and driving sustainable development through skills enhancement, innovative solutions, and impactful partnerships.</p>
+<!-- CSS Styles for Enhanced Effects -->
+<style>
+:root {
+  --brand-orange: #ff6b35;
+}
+
+/* Hero Section Base Styles */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure proper image fitting on all devices */
+.hero-bg-item {
+  height: 100% !important;
+  min-height: 75vh;
+  width: 100%;
+}
+
+/* Enhanced carousel fade effect */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+/* Custom carousel indicators */
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--brand-orange);
+  background-color: transparent;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background-color: var(--brand-orange);
+  transform: scale(1.2);
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh !important;
+    min-height: 450px !important;
+  }
+  
+  .display-5 {
+    font-size: 2.5rem !important;
+  }
+  
+  .lead {
+    font-size: 1.1rem !important;
+  }
+  
+  .btn-lg {
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    height: 65vh !important;
+    min-height: 400px !important;
+  }
+  
+  .display-5 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  .lead {
+    font-size: 1rem !important;
+    padding: 0 1rem;
+  }
+}
+
+/* Animation classes for content */
+.animate-fade-up {
+  animation: fadeUp 1s ease-out;
+}
+
+.animate-fade-up-delay {
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fadeUp 1s ease-out 0.6s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure images cover properly on all screen sizes */
+@media (max-width: 768px) {
+  .hero-bg-item {
+    background-size: cover !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-bg-item {
+    background-size: contain !important;
+  }
+}
+</style>
+<!-- About Section -->
+<section id="about" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-brand-navy mb-3">About SifaSkills (EA) Ltd</h2>
+      <p class="lead text-secondary">SifaSkills (EA) Ltd (SEAL) is a forward-thinking company committed to unlocking human potential and driving sustainable development through skills enhancement, innovative solutions, and impactful partnerships.</p>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="bg-white p-4 rounded shadow-sm h-100">
+          <h3 class="h4 fw-bold text-brand-orange mb-3">
+            <i class="fas fa-eye me-2"></i>Our Vision
+          </h3>
+          <p class="mb-3"><i class="fas fa-circle text-brand-orange me-2"></i>To build a future-ready East Africa where youth are empowered with practical, employable skills and businesses thrive through expert guidance, innovation, and sustainable growth.</p>
+          <p><i class="fas fa-circle text-brand-orange me-2"></i>To be East Africa's leading catalyst for personal and enterprise transformation — connecting talent with opportunity and enabling communities, institutions, and businesses to achieve their fullest potential.</p>
+        </div>
       </div>
+      <div class="col-md-6">
+        <div class="bg-white p-4 rounded shadow-sm h-100">
+          <h3 class="h4 fw-bold text-brand-purple mb-3">
+            <i class="fas fa-bullseye me-2"></i>Our Mission
+          </h3>
+          <ul class="list-unstyled text-secondary">
+            <li class="mb-2"><i class="fas fa-check-circle text-brand-orange me-2"></i>Equip individuals with job-ready skills and support SMEs in achieving sustainable growth</li>
+            <li class="mb-2"><i class="fas fa-check-circle text-brand-orange me-2"></i>Bridge the gap between education and employability</li>
+            <li class="mb-2"><i class="fas fa-check-circle text-brand-orange me-2"></i>Design impactful programs that foster entrepreneurship</li>
+            <li class="mb-2"><i class="fas fa-check-circle text-brand-orange me-2"></i>Collaborate with partners to build a skilled workforce</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-      <!-- Mission & Vision -->
-      <div class="row g-4 mb-5">
-        <div class="col-md-6">
-          <div class="bg-light p-4 rounded">
-            <h3 class="h4 fw-bold text-brand-purple mb-3">Our Vision</h3>
-            <p><i class="fas fa-circle text-brand-orange me-2"></i>To build a future-ready East Africa where youth are empowered with practical, employable skills and businesses thrive through expert guidance, innovation, and sustainable growth.</p>
-            <p><i class="fas fa-circle text-brand-orange me-2"></i>To be East Africa's leading catalyst for personal and enterprise transformation — connecting talent with opportunity and enabling communities, institutions, and businesses to achieve their fullest potential.</p>
+    <!-- Core Values -->
+    <div class="bg-brand-navy text-brand-white p-5 rounded shadow">
+      <h3 class="h3 fw-bold text-center mb-4">Core Values - <span class="text-brand-orange">SEAL</span></h3>
+      <div class="row text-center g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="mb-3">
+            <div class="display-4 text-brand-orange fw-bold">S</div>
+            <h5 class="fw-bold mb-2">Strengthening Communities</h5>
+            <p class="small">Empowering communities, organizations and individuals with tools for growth and resilience</p>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="bg-light p-4 rounded">
-            <h3 class="h4 fw-bold text-brand-purple mb-3">Our Mission</h3>
-            <ul class="list-unstyled text-secondary">
-              <li><i class="fas fa-circle text-brand-orange me-2"></i>Equip individuals with job-ready skills and support SMEs in achieving sustainable growth</li>
-              <li><i class="fas fa-circle text-brand-orange me-2"></i>Bridge the gap between education and employability</li>
-              <li><i class="fas fa-circle text-brand-orange me-2"></i>Design impactful programs that foster entrepreneurship</li>
-              <li><i class="fas fa-circle text-brand-orange me-2"></i>Collaborate with partners to build a skilled workforce</li>
-            </ul>
+        <div class="col-md-6 col-lg-3">
+          <div class="mb-3">
+            <div class="display-4 text-brand-orange fw-bold">E</div>
+            <h5 class="fw-bold mb-2">Empowering Entrepreneurs</h5>
+            <p class="small">Working with entrepreneurs to build sustainable businesses and enhance leadership capabilities</p>
           </div>
         </div>
-      </div>
-
-      <!-- Core Values -->
-      <div class="bg-brand-navy text-brand-white p-4 rounded">
-        <h3 class="h3 fw-bold text-center mb-4">Core Values - <span class="text-brand-orange">SEAL</span></h3>
-        <div class="row text-center">
-          <div class="col-md-3">
-            <div class="mb-2 h1 text-brand-orange">S</div>
-            <h5 class="fw-bold">Strengthening Communities</h5>
-            <p class="small text-light">Empowering communities, organizations and individuals with tools for growth and resilience</p>
+        <div class="col-md-6 col-lg-3">
+          <div class="mb-3">
+            <div class="display-4 text-brand-orange fw-bold">A</div>
+            <h5 class="fw-bold mb-2">Advancing Education</h5>
+            <p class="small">Bridging the gap between formal education and practical employability</p>
           </div>
-          <div class="col-md-3">
-            <div class="mb-2 h1 text-brand-orange">E</div>
-            <h5 class="fw-bold">Empowering Entrepreneurs</h5>
-            <p class="small text-light">Working with entrepreneurs to build sustainable businesses and enhance leadership capabilities</p>
-          </div>
-          <div class="col-md-3">
-            <div class="mb-2 h1 text-brand-orange">A</div>
-            <h5 class="fw-bold">Advancing Education</h5>
-            <p class="small text-light">Bridging the gap between formal education and practical employability</p>
-          </div>
-          <div class="col-md-3">
-            <div class="mb-2 h1 text-brand-orange">L</div>
-            <h5 class="fw-bold">Leading Innovation</h5>
-            <p class="small text-light">Forward-thinking solutions with modern tools and creative ideas for lasting impact</p>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="mb-3">
+            <div class="display-4 text-brand-orange fw-bold">L</div>
+            <h5 class="fw-bold mb-2">Leading Innovation</h5>
+            <p class="small">Forward-thinking solutions with modern tools and creative ideas for lasting impact</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<!-- Services Section -->
+<section id="services" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-brand-navy mb-3">Our Services</h2>
+      <p class="lead text-secondary">Comprehensive solutions for individual growth and business success</p>
+    </div>
+    
+    <div class="row g-4">
+      <!-- Student Skills Training -->
+      <div class="col-lg-6">
+        <div class="p-4 rounded-3 shadow-sm bg-light h-100">
+          <div class="bg-brand-orange text-brand-white p-3 rounded mb-4 text-center">
+            <h4 class="fw-bold mb-0">
+              <i class="fas fa-graduation-cap me-2"></i>
+              Student Skills Training & Empowerment
+            </h4>
+          </div>
+          
+          <div class="accordion" id="studentAccordion">
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#career-dev">
+                  <i class="fas fa-briefcase me-2 text-brand-navy"></i>
+                  Career Development & Job Readiness
+                </button>
+              </h2>
+              <div id="career-dev" class="accordion-collapse collapse show" data-bs-parent="#studentAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Resume & Cover Letter Writing</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>LinkedIn & Personal Branding</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Interview Skills & Workplace Communication</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Time Management & Productivity</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Career Planning & Goal Setting</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-  <!-- Services Section -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold text-brand-navy mb-3">Our Services</h2>
-      </div>
-      <div class="row g-4">
-        <!-- Left Column -->
-        <div class="col-md-6">
-          <div class="p-4 rounded-3 shadow bg-white h-100">
-            <h4 class="fw-bold text-white p-2 px-3 rounded bg-brand-purple mb-4">Student Skills Training & Empowerment</h4>
-            <div>
-              <h6 class="fw-bold">A. Career Development & Job Readiness</h6>
-              <ul class="list-unstyled">
-                <li>• Resume & Cover Letter Writing</li>
-                <li>• LinkedIn & Personal Branding</li>
-                <li>• Interview Skills & Workplace Communication</li>
-                <li>• Time Management & Productivity</li>
-                <li>• Career Planning & Goal Setting</li>
-              </ul>
-              <h6 class="fw-bold mt-3">B. Business, Finance & Digital Skills</h6>
-              <ul class="list-unstyled">
-                <li>• Basic Accounting & Financial Modeling</li>
-                <li>• Tax Literacy & Compliance</li>
-                <li>• Digital Marketing & Entrepreneurship</li>
-                <li>• Excel & Financial Reporting</li>
-                <li>• Cyber Services & E-Citizen Platforms</li>
-              </ul>
-              <h6 class="fw-bold mt-3">C. Tech & Creative Skills</h6>
-              <ul class="list-unstyled">
-                <li>• Graphic Design & Presentation Design</li>
-                <li>• Computer Literacy & Digital Tools</li>
-                <li>• Introduction to Coding & Web Tools</li>
-                <li>• Video Editing & Content Creation</li>
-              </ul>
-              <h6 class="fw-bold mt-3">D. Life Skills & Personal Development</h6>
-              <ul class="list-unstyled">
-                <li>• Emotional Intelligence & Critical Thinking</li>
-                <li>• Public Speaking & Leadership</li>
-                <li>• Health & Wellness Awareness</li>
-                <li>• Financial Responsibility & Ethics</li>
-              </ul>
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#business-skills">
+                  <i class="fas fa-chart-line me-2 text-brand-purple"></i>
+                  Business, Finance & Digital Skills
+                </button>
+              </h2>
+              <div id="business-skills" class="accordion-collapse collapse" data-bs-parent="#studentAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Basic Accounting & Financial Modeling</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Tax Literacy & Compliance</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Digital Marketing & Entrepreneurship</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Excel & Financial Reporting</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Cyber Services & E-Citizen Platforms</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#tech-skills">
+                  <i class="fas fa-laptop-code me-2 text-brand-orange"></i>
+                  Tech & Creative Skills
+                </button>
+              </h2>
+              <div id="tech-skills" class="accordion-collapse collapse" data-bs-parent="#studentAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Graphic Design & Presentation Design</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Computer Literacy & Digital Tools</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Introduction to Coding & Web Tools</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Video Editing & Content Creation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#life-skills">
+                  <i class="fas fa-heart me-2 text-brand-purple"></i>
+                  Life Skills & Personal Development
+                </button>
+              </h2>
+              <div id="life-skills" class="accordion-collapse collapse" data-bs-parent="#studentAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Emotional Intelligence & Critical Thinking</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Public Speaking & Leadership</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Health & Wellness Awareness</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Financial Responsibility & Ethics</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Right Column -->
-        <div class="col-md-6">
-          <div class="p-4 rounded-3 shadow bg-white h-100">
-            <h4 class="fw-bold text-white p-2 px-3 rounded bg-brand-orange mb-4">SME & Startup Consultancy Services</h4>
-            <div>
-              <h6 class="fw-bold">A. Strategy & Growth Advisory</h6>
-              <ul class="list-unstyled">
-                <li>• Business Visioning & Goal-Setting</li>
-                <li>• Market Research & Analysis</li>
-                <li>• Growth & Expansion Planning</li>
-              </ul>
-              <h6 class="fw-bold mt-3">B. Financial & Accounting Advisory</h6>
-              <ul class="list-unstyled">
-                <li>• Bookkeeping Setup & Cash Flow Management</li>
-                <li>• Statutory Compliance & Tax Filing</li>
-                <li>• Financial Reporting & Analysis</li>
-              </ul>
-              <h6 class="fw-bold mt-3">C. Human Resource Solutions</h6>
-              <ul class="list-unstyled">
-                <li>• Talent Acquisition & Recruitment</li>
-                <li>• HR Policies & Employee Handbooks</li>
-                <li>• Payroll Management & Performance Systems</li>
-              </ul>
-              <h6 class="fw-bold mt-3">D. Marketing & Digital Optimization</h6>
-              <ul class="list-unstyled">
-                <li>• Brand Identity Development</li>
-                <li>• Digital Marketing Strategy</li>
-                <li>• Customer Experience Improvement</li>
-              </ul>
-              <h6 class="fw-bold mt-3">E. Logistics & Trade Facilitation</h6>
-              <ul class="list-unstyled">
-                <li>• Customs Clearance & Compliance</li>
-                <li>• System Training (Simba, KenTrade, RECTS)</li>
-                <li>• Supply Chain Management</li>
-              </ul>
+      <!-- SME Consultancy Services -->
+      <div class="col-lg-6">
+        <div class="p-4 rounded-3 shadow-sm bg-light h-100">
+          <div class="bg-brand-purple text-brand-white p-3 rounded mb-4 text-center">
+            <h4 class="fw-bold mb-0">
+              <i class="fas fa-building me-2"></i>
+              SME & Startup Consultancy Services
+            </h4>
+          </div>
+          
+          <div class="accordion" id="smeAccordion">
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#strategy">
+                  <i class="fas fa-chess me-2 text-brand-navy"></i>
+                  Strategy & Growth Advisory
+                </button>
+              </h2>
+              <div id="strategy" class="accordion-collapse collapse show" data-bs-parent="#smeAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Business Visioning & Goal-Setting</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Market Research & Analysis</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Growth & Expansion Planning</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#financial">
+                  <i class="fas fa-calculator me-2 text-brand-purple"></i>
+                  Financial & Accounting Advisory
+                </button>
+              </h2>
+              <div id="financial" class="accordion-collapse collapse" data-bs-parent="#smeAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Bookkeeping Setup & Cash Flow Management</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Statutory Compliance & Tax Filing</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Financial Reporting & Analysis</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hr-solutions">
+                  <i class="fas fa-users me-2 text-brand-orange"></i>
+                  Human Resource Solutions
+                </button>
+              </h2>
+              <div id="hr-solutions" class="accordion-collapse collapse" data-bs-parent="#smeAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Talent Acquisition & Recruitment</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>HR Policies & Employee Handbooks</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Payroll Management & Performance Systems</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#marketing">
+                  <i class="fas fa-bullhorn me-2 text-brand-purple"></i>
+                  Marketing & Digital Optimization
+                </button>
+              </h2>
+              <div id="marketing" class="accordion-collapse collapse" data-bs-parent="#smeAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Brand Identity Development</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Digital Marketing Strategy</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Customer Experience Improvement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#logistics">
+                  <i class="fas fa-shipping-fast me-2 text-brand-orange"></i>
+                  Logistics & Trade Facilitation
+                </button>
+              </h2>
+              <div id="logistics" class="accordion-collapse collapse" data-bs-parent="#smeAccordion">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Customs Clearance & Compliance</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>System Training (Simba, KenTrade, RECTS)</li>
+                    <li><i class="fas fa-check text-brand-orange me-2"></i>Supply Chain Management</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-    <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column flex-md-row gap-3">
-    <a href="services.html" class="btn btn-lg text-white" style="background-color: var(--brand-orange);">
-      More About Our Services
-    </a>
-    </div>
-    </div>
       </div>
     </div>
-  </section>
 
+    <!-- Call to Action -->
+    <div class="text-center mt-5">
+      <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+        <a href="services.html" class="btn btn-outline-primary btn-lg px-4" style="border-color: var(--brand-orange); color: var(--brand-orange);" 
+          onmouseover="this.style.backgroundColor='var(--brand-orange)'; this.style.color='white';"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--brand-orange)';">
 
-      <!-- Main Features Section -->
-    <section class="py-5" id="why-choose-us">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h2 class="display-5 fw-bold text-brand-navy mb-3">Four Pillars of Excellence</h2>
-                    <p class="lead text-muted">
-                        Our unique approach combines affordability, customization, local expertise, and lasting impact to deliver exceptional value for your business.
-                    </p>
+          <i class="fas fa-info-circle me-2"></i>Learn More About Our Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Four Pillars of Excellence Section -->
+<section class="py-5" id="why-choose-us">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-5 fw-bold text-brand-navy mb-3">Four Pillars of Excellence</h2>
+        <p class="lead text-muted">
+          Our unique approach combines affordability, customization, local expertise, and lasting impact to deliver exceptional value for your business.
+        </p>
+      </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="row g-4">
+      <!-- Feature 1: Affordable Expertise -->
+      <div class="col-lg-6">
+        <div class="card h-100 border shadow-sm" style="border-color: var(--brand-orange) !important; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid var(--brand-orange);"></div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start gap-4">
+              <div class="d-flex align-items-center justify-content-center"></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="me-3" style="font-size: 2rem;">💰</div>
+                  <h3 class="h4 fw-bold text-brand-navy mb-0">Affordable Expertise</h3>
                 </div>
+                <p class="text-muted">High-quality professional services at competitive rates, making expert guidance accessible to businesses of all sizes.</p>
+              </div>
             </div>
-
-            <!-- Features Grid -->
-            <div class="row g-4">
-                <!-- Feature 1: Affordable Expertise -->
-                <div class="col-lg-6">
-                    <div class="card card-hover h-100 border-accent-1 relative-container">
-                        <div class="corner-decoration corner-orange"></div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-start gap-4">
-                                <div class="number-circle">01</div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="feature-icon me-3">💰</div>
-                                        <h3 class="h4 fw-bold text-navy mb-0">Affordable Expertise</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature 2: Customized Solutions -->
-                <div class="col-lg-6">
-                    <div class="card card-hover h-100 border-accent-2 relative-container">
-                        <div class="corner-decoration corner-purple"></div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-start gap-4">
-                                <div class="number-circle">02</div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="feature-icon me-3">🎯</div>
-                                        <h3 class="h4 fw-bold text-navy mb-0">Customized Solutions</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature 3: Local Context, Global Standards -->
-                <div class="col-lg-6">
-                    <div class="card card-hover h-100 border-accent-3 relative-container">
-                        <div class="corner-decoration corner-navy"></div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-start gap-4">
-                                <div class="number-circle">03</div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="feature-icon me-3">🌍</div>
-                                        <h3 class="h4 fw-bold text-navy mb-0">Local Context, Global Standards</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature 4: Commitment to Impact -->
-                <div class="col-lg-6">
-                    <div class="card card-hover h-100 border-accent-4 relative-container">
-                        <div class="corner-decoration corner-orange"></div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-start gap-4">
-                                <div class="number-circle">04</div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="feature-icon me-3">💎</div>
-                                        <h3 class="h4 fw-bold text-navy mb-0">Commitment to Impact</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <br>
-           <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column flex-md-row gap-3">
-    <a href="whyus.html" class="btn btn-lg text-white" style="background-color: var(--brand-orange);">
-      More On Our Pillars of Excellence
-    </a>
+      </div>
+
+      <!-- Feature 2: Customized Solutions -->
+      <div class="col-lg-6">
+        <div class="card h-100 border shadow-sm" style="border-color: var(--brand-purple) !important; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid var(--brand-purple);"></div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start gap-4">
+              <div class="d-flex align-items-center justify-content-center"></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="me-3" style="font-size: 2rem;">🎯</div>
+                  <h3 class="h4 fw-bold text-brand-navy mb-0">Customized Solutions</h3>
+                </div>
+                <p class="text-muted">Tailored strategies and programs designed specifically for your unique business challenges and goals.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Local Context, Global Standards -->
+      <div class="col-lg-6">
+        <div class="card h-100 border shadow-sm" style="border-color: var(--brand-navy) !important; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid var(--brand-navy);"></div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start gap-4">
+              <div class="d-flex align-items-center justify-content-center"></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="me-3" style="font-size: 2rem;">🌍</div>
+                  <h3 class="h4 fw-bold text-brand-navy mb-0">Local Context, Global Standards</h3>
+                </div>
+                <p class="text-muted">Deep understanding of East African markets combined with international best practices and quality standards.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4: Commitment to Impact -->
+      <div class="col-lg-6">
+        <div class="card h-100 border shadow-sm" style="border-color: var(--brand-orange) !important; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-left: 20px solid transparent; border-top: 20px solid var(--brand-orange);"></div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start gap-4">
+              <div class="d-flex align-items-center"></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="me-3" style="font-size: 2rem;">💎</div>
+                  <h3 class="h4 fw-bold text-brand-navy mb-0">Commitment to Impact</h3>
+                </div>
+                <p class="text-muted">Dedicated to creating measurable, sustainable results that drive long-term growth and positive change.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </section>
+  </div>
+</section>
 
     <!-- WhatsApp Icon -->
     <a href="https://wa.me/254768080749" target="_blank" 
@@ -361,28 +697,12 @@
   <div id="footer-placeholder"></div>
   <!-- Load partials Js at the end -->
   <script src="js/loadpartials.js"></script>
+
+
   
   <!-- Scroll to Top Functionality -->
   <script>
-    // Get the scroll-to-top button
-    const scrollToTopBtn = document.getElementById("scrollToTop");
-    
-    // Show/hide button based on scroll position
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        scrollToTopBtn.classList.add("show");
-      } else {
-        scrollToTopBtn.classList.remove("show");
-      }
-    });
-    
-    // Scroll to top when button is clicked
-    scrollToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
+
   </script>
 </body>
 </html>

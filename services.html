@@ -1,155 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services - SifaSkills (EA) Ltd</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Our Services - SifaSkills (EA) Ltd</title>
+    
+    <style>
+        :root {
+            --deep-navy: #1b265d;
+            --orange-flame: #f48a32;
+            --royal-amethyst: #8c18a9;
+            --brand-orange: #f48a32;
+            --brand-purple: #8c18a9;
+            --brand-navy: #1b265d;
+            --brand-white: #ffffff;
+            --light-gray: #f8f9fa;
+            --shadow-light: rgba(0,0,0,0.08);
+            --shadow-medium: rgba(0,0,0,0.15);
+            --shadow-heavy: rgba(0,0,0,0.25);
+        }
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Fav Icon -->
-  <link rel="icon" type="image/png" href="Images/logo.jpg" />
+        /* Gradient Backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--royal-amethyst) 50%, var(--orange-flame) 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-  <style>
-    .gradient-bg {
-      background: linear-gradient(135deg, #1b265d 0%, #8c18a9 100%);
-    }
-    .service-card {
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    .feature-item {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    .feature-item:nth-child(1) { animation-delay: 0.1s; }
-    .feature-item:nth-child(2) { animation-delay: 0.2s; }
-    .feature-item:nth-child(3) { animation-delay: 0.3s; }
-    .feature-item:nth-child(4) { animation-delay: 0.4s; }
-    .feature-item:nth-child(5) { animation-delay: 0.5s; }
-    .feature-item:nth-child(6) { animation-delay: 0.6s; }
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
 
-    .deep-navy { color: #1b265d; }
-    .orange-flame { color: #f48a32; }
-    .bg-deep-navy { background-color: #1b265d; }
-    .bg-orange-flame { background-color: #f48a32; }
-    .border-orange-flame { border-left: 4px solid #f48a32; }
-    .border-deep-navy { border-left: 4px solid #1b265d; }
-  </style>
+        /* Enhanced Service Cards */
+        .service-card {
+            background: var(--brand-white);
+            border-radius: 20px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange-flame), var(--royal-amethyst));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-medium);
+        }
+
+        .service-card.border-orange::before {
+            background: var(--orange-flame);
+        }
+
+        .service-card.border-navy::before {
+            background: var(--deep-navy);
+        }
+
+        /* Icon Styling */
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.2;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon::after {
+            transform: scale(1.2);
+        }
+
+        .service-icon.bg-orange {
+            background: linear-gradient(135deg, var(--orange-flame), #ff6b35);
+        }
+
+        .service-icon.bg-navy {
+            background: linear-gradient(135deg, var(--deep-navy), var(--royal-amethyst));
+        }
+
+        /* Typography Enhancements */
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--brand-white), rgba(255,255,255,0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange-flame), var(--royal-amethyst));
+            border-radius: 2px;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        /* List Styling */
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            padding: 0.5rem 0;
+            color: #6c757d;
+            font-weight: 500;
+            position: relative;
+            padding-left: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .service-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--orange-flame);
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-list li::before {
+            transform: translateX(5px);
+        }
+
+        .service-card:hover .service-list li {
+            color: var(--deep-navy);
+        }
+
+        /* Button Styling */
+        .btn-custom {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-custom:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-custom {
+            background: var(--brand-white);
+            color: var(--deep-navy);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary-custom:hover {
+            background: #f8f9fa;
+            color: var(--deep-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary-custom {
+            background: var(--orange-flame);
+            color: var(--brand-white);
+            box-shadow: 0 4px 15px rgba(244, 138, 50, 0.3);
+        }
+
+        .btn-secondary-custom:hover {
+            background: #e6792b;
+            color: var(--brand-white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 138, 50, 0.4);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--brand-white);
+            border: 2px solid var(--brand-white);
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--brand-white);
+            color: var(--deep-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            background: var(--orange-flame);
+            color: var(--brand-white);
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(244, 138, 50, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--royal-amethyst);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(140, 24, 169, 0.4);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: var(--orange-flame);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(244, 138, 50, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background: var(--royal-amethyst);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(140, 24, 169, 0.4);
+        }
+
+        /* Background Section */
+        .bg-light-custom {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+            
+            .btn-custom {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover Effects for Better Interaction */
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-element:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body>
+    <!-- Load the navbar -->
+    <div id="navbar-placeholder"></div>
 
-  <!-- Navbar Placeholder -->
-  <div id="navbar-placeholder"></div>
-
-  <!-- Hero Section -->
-  <div class="gradient-bg py-5 text-white text-center">
-    <div class="container">
-      <h1 class="display-4 fw-bold mb-3">Our Services</h1>
-      <p class="lead mx-auto" style="max-width: 800px;">
-        Empowering individuals and businesses with comprehensive training, strategic guidance, and practical solutions for sustainable growth and success.
-      </p>
-    </div>
-  </div>
-
-  <!-- Student Skills Training Section -->
-  <section class="py-5">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold display-6 deep-navy mb-3">Student Skills Training & Empowerment</h2>
-        <p class="lead text-secondary mx-auto" style="max-width: 800px;">
-          Building the foundation for career success through comprehensive skill development and practical training programs.
-        </p>
-      </div>
-
-      <div class="row g-4">
-        <!-- Example Card -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card p-4 bg-white border-orange-flame rounded shadow-sm h-100">
-            <div class="bg-orange-flame rounded-circle d-flex align-items-center justify-content-center mb-4" style="width: 64px; height: 64px;">
-              <i class="fa-solid fa-briefcase text-white fs-4"></i>
+    <!-- Hero Section -->
+    <section class="gradient-bg py-5" style="min-height: 60vh; display: flex; align-items: center;">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title mb-4" data-aos="fade-up">Our Services</h1>
+                    <p class="lead text-light mb-0 fs-4" data-aos="fade-up" data-aos-delay="200">
+                        Empowering individuals and businesses with comprehensive training, strategic guidance, and practical solutions for sustainable growth and success.
+                    </p>
+                </div>
             </div>
-            <h3 class="fs-5 fw-bold deep-navy mb-3">Career Development & Job Readiness</h3>
-            <ul class="text-secondary ps-3">
-              <li>Resume & Cover Letter Writing</li>
-              <li>LinkedIn & Personal Branding</li>
-              <li>Interview Skills Training</li>
-              <li>Workplace Communication</li>
-              <li>Time Management & Productivity</li>
-              <li>Career Planning & Goal Setting</li>
-            </ul>
-          </div>
         </div>
+    </section>
 
-        <!-- Repeat for each service card -->
-        <!-- Replace icons, colors, and headings as needed -->
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SME Services Section -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold display-6 deep-navy mb-3">SME & Startup Services</h2>
-        <p class="lead text-secondary mx-auto" style="max-width: 800px;">
-          Comprehensive business solutions for startups and growing enterprises to streamline operations and drive scalable growth.
-        </p>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card p-4 bg-white border-deep-navy rounded shadow-sm h-100">
-            <div class="bg-deep-navy rounded-circle d-flex align-items-center justify-content-center mb-4" style="width: 64px; height: 64px;">
-              <i class="fa-solid fa-chart-line text-white fs-4"></i>
+    <!-- Student Skills Training Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-10">
+                    <h2 class="section-title" data-aos="fade-up">Student Skills Training & Empowerment</h2>
+                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
+                        Building the foundation for career success through comprehensive skill development and practical training programs.
+                    </p>
+                </div>
             </div>
-            <h3 class="fs-5 fw-bold deep-navy mb-3">Strategy Advisory</h3>
-            <ul class="text-secondary ps-3">
-              <li>Business Planning</li>
-              <li>Market Research & Analysis</li>
-              <li>Feasibility Studies</li>
-              <li>Operations Optimization</li>
-              <li>Go-to-Market Strategy</li>
-            </ul>
-          </div>
+
+            <div class="row g-4">
+                <!-- Career Development -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card border-orange">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-briefcase text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Career Development & Job Readiness</h3>
+                        <ul class="service-list">
+                            <li>Resume & Cover Letter Writing</li>
+                            <li>LinkedIn & Personal Branding</li>
+                            <li>Interview Skills Training</li>
+                            <li>Workplace Communication</li>
+                            <li>Time Management & Productivity</li>
+                            <li>Career Planning & Goal Setting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Business & Finance -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card border-navy">
+                        <div class="service-icon bg-navy">
+                            <i class="fas fa-dollar-sign text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Business, Finance & Digital Skills</h3>
+                        <ul class="service-list">
+                            <li>Basic Accounting Principles</li>
+                            <li>Budgeting & Personal Finance</li>
+                            <li>Tax Literacy & Compliance</li>
+                            <li>Financial Statements & Reporting</li>
+                            <li>Excel & Financial Modelling</li>
+                            <li>Digital Marketing & Branding</li>
+                            <li>Entrepreneurship Fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tech & Creative -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card border-orange">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-desktop text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Tech & Creative Skills</h3>
+                        <ul class="service-list">
+                            <li>Graphic Design Basics</li>
+                            <li>Presentation Design</li>
+                            <li>Computer Literacy & Digital Tools</li>
+                            <li>Introduction to Coding & Web Tools</li>
+                            <li>Video Editing Basics</li>
+                            <li>Cyber Café & Online Services</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Life Skills -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card border-navy">
+                        <div class="service-icon bg-navy">
+                            <i class="fas fa-users text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Life Skills & Personal Development</h3>
+                        <ul class="service-list">
+                            <li>Emotional Intelligence</li>
+                            <li>Critical Thinking & Problem Solving</li>
+                            <li>Public Speaking</li>
+                            <li>Leadership & Teamwork</li>
+                            <li>Health & Wellness Awareness</li>
+                            <li>Financial Responsibility & Ethics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Practical Exposure -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card border-orange">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-bolt text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Practical Exposure & Experience</h3>
+                        <ul class="service-list">
+                            <li>Business Simulations</li>
+                            <li>Live Projects</li>
+                            <li>Internship & Job Placements</li>
+                            <li>Mentorship & Coaching</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Add more SME cards here -->
+    <!-- SME Services Section -->
+    <section class="py-5 bg-light-custom">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-10">
+                    <h2 class="section-title" data-aos="fade-up">SME & Startup Services</h2>
+                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
+                        Comprehensive business solutions for startups and growing enterprises to streamline operations and drive scalable growth.
+                    </p>
+                </div>
+            </div>
 
-      </div>
-    </div>
-  </section>
+            <div class="row g-4">
+                <!-- Strategy Advisory -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card border-navy">
+                        <div class="service-icon bg-navy">
+                            <i class="fas fa-chart-line text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Strategy & Growth Advisory</h3>
+                        <ul class="service-list">
+                            <li>Business Visioning & Goal-Setting</li>
+                            <li>Market Research & Analysis</li>
+                            <li>Growth & Expansion Planning</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <!-- WhatsApp Icon -->
-    <a href="https://wa.me/254768080749" target="_blank" 
-       class="position-fixed bottom-0 start-0 m-4 btn btn-success rounded-circle shadow"
-       style="z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange);"
-       aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp fa-lg"></i>
+                <!-- Financial Advisory -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card border-orange">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-calculator text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Financial & Accounting Advisory</h3>
+                        <ul class="service-list">
+                            <li>Bookkeeping Setup</li>
+                            <li>Cash Flow & Budgeting</li>
+                            <li>Statutory Compliance</li>
+                            <li>Financial Reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- HR Solutions -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card border-navy">
+                        <div class="service-icon bg-navy">
+                            <i class="fas fa-user-friends text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Human Resource Solutions</h3>
+                        <ul class="service-list">
+                            <li>Talent Acquisition & Recruitment</li>
+                            <li>HR Policies & Employee Handbook</li>
+                            <li>Payroll Management</li>
+                            <li>Performance Management Systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Operations -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card border-orange">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-cogs text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Operational Excellence</h3>
+                        <ul class="service-list">
+                            <li>Process Improvement & SOPs</li>
+                            <li>Technology Integration</li>
+                            <li>Supply Chain & Inventory Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Marketing -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card border-navy">
+                        <div class="service-icon bg-navy">
+                            <i class="fas fa-bullhorn text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Marketing & Customer Engagement</h3>
+                        <ul class="service-list">
+                            <li>Brand Identity Development</li>
+                            <li>Digital Marketing Strategy</li>
+                            <li>Customer Experience Improvement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Legal Support -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card border-orange">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-shield-alt text-white fs-3"></i>
+                        </div>
+                        <h3 class="service-title">Legal & Administrative Support</h3>
+                        <ul class="service-list">
+                            <li>Business Registration & Licensing</li>
+                            <li>Contract Drafting & Review</li>
+                            <li>Risk Management & Compliance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <h2 class="display-4 fw-bold text-white mb-4" data-aos="fade-up">Ready to Transform Your Future?</h2>
+                    <p class="lead text-light mb-5" data-aos="fade-up" data-aos-delay="100">
+                        Whether you're looking to develop new skills or grow your business, our expert team is here to provide personalized solutions that drive real results.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <a href="contact.html" class="btn btn-custom btn-primary-custom">
+                            <i class="fas fa-calendar-alt me-2"></i>Schedule Consultation
+                        </a>
+                        <a href="booking.html" class="btn btn-custom btn-secondary-custom">
+                            <i class="fas fa-rocket me-2"></i>Get Started Today
+                        </a>
+                        <a href="services.html" class="btn btn-custom btn-outline-custom">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load the footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254768080749" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp text-success fs-4"></i>
     </a>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Footer Placeholder -->
-<div id="footer-placeholder"></div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Load partials JS -->
     <script src="js/loadpartials.js"></script>
-    <!-- Scroll to top JS -->
+    <!-- Scroll to top functionality -->
     <script src="js/scroll-to-top.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Scroll to Top Functionality
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Enhanced interaction effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add loading animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

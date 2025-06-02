@@ -1,46 +1,168 @@
-<!-- Bootstrap Navbar -->
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow sticky-top border-bottom">
-  <div class="container">
-    <!-- Logo and Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="Images/logo.jpg" alt="SifaSkills Logo" class="rounded shadow-sm me-2" style="height: 40px; width: 40px;">
-      <div>
-        <div class="fw-bold text-primary fs-5">SifaSkills</div>
-        <div class="small text-secondary">(EA) Ltd</div>
-      </div>
-    </a>
+<!-- Fully Transparent Floating Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark mx-4 mx-md-5 mt-md-4">
+<style>
+:root {
+    --brand-orange: #ff6b35;
+}
 
-    <!-- Toggler Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+/* Make navbar completely transparent */
+.navbar {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 1000;
+}
 
-    <!-- Menu Links -->
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="services.html">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="team.html">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="whyus.html">Why Choose Us</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="booking.html">Book a Session</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-primary fw-medium" href="contact.html">Contact Us</a>
-        </li>
-      </ul>
+/* Desktop positioning */
+@media (min-width: 768px) {
+    .navbar {
+        position: absolute !important;
+        top: -20px;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* Mobile positioning - fix content blocking */
+@media (max-width: 767.98px) {
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+        padding: 0.5rem 1rem !important;
+        background: transparent !important;
+        height: 65px;
+    }
+    
+    /* Push content below navbar on mobile */
+    body {
+        padding-top: 65px !important;
+    }
+    
+    /* Mobile logo adjustments */
+    .navbar-brand img {
+        height: 35px !important;
+        width: 35px !important;
+    }
+    
+    .navbar-brand .fw-bold {
+        font-size: 1.1rem !important;
+    }
+    
+    .navbar-brand .small {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Transparent links by default */
+.nav-link {
+    background: transparent !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7) !important;
+    border: 2px solid transparent !important;
+}
+
+/* Hover effects for links */
+.nav-link:hover {
+    background: var(--brand-orange) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255,107,53,0.4) !important;
+    border: 2px solid var(--brand-orange) !important;
+}
+
+/* Mobile dropdown menu styling */
+@media (max-width: 767.98px) {
+    .navbar-collapse {
+        background: rgba(0,0,0,0.95) !important;
+        border-radius: 15px !important;
+        margin-top: 10px !important;
+        padding: 20px !important;
+        backdrop-filter: blur(15px) !important;
+        border: 1px solid rgba(255,107,53,0.3) !important;
+    }
+    
+    .nav-link {
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+}
+
+/* Hamburger button styling */
+.navbar-toggler {
+    border: none !important;
+    padding: 8px 12px !important;
+    background: rgba(255,107,53,0.2) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-toggler:hover {
+    background: rgba(255,107,53,0.8) !important;
+    transform: scale(1.05) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+/* Logo hover effect */
+.navbar-brand {
+    transition: transform 0.3s ease !important;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05) !important;
+}
+</style>
+
+    <div class="container-fluid px-3 px-lg-5">  
+        <!-- Logo and Brand -->
+        <a class="navbar-brand d-flex align-items-center py-2" href="#">
+            <img src="Images/logo.jpg" alt="SifaSkills Logo" 
+                 class="rounded-circle me-3" 
+                 style="height: 45px; width: 45px; object-fit: cover; 
+                        border: 3px solid var(--brand-orange);
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        </a>
+         
+        <!-- Toggler Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+         
+        <!-- Menu Links -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto me-4 me-lg-5 mb-2 mb-lg-0 gap-1 gap-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Our Team</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        
     </div>
-  </div>
 </nav>
