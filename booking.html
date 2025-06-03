@@ -17,6 +17,7 @@
             --royal-amethyst: #8c18a9;
             --deep-navy: #1b265d;
             --pure-white: #ffffff;
+            --success-green: #198754;
         }
         
         body {
@@ -45,8 +46,8 @@
         }
         
         .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(139, 24, 169, 0.2);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(139, 24, 169, 0.15);
             border-color: var(--orange-flame);
         }
         
@@ -63,6 +64,46 @@
         
         .service-card:hover::before {
             left: 100%;
+        }
+        
+        .service-card.selected {
+            border-color: var(--orange-flame);
+            background: linear-gradient(to bottom right, rgba(244, 138, 50, 0.08), rgba(140, 24, 169, 0.08));
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(244, 138, 50, 0.3);
+        }
+        
+        .service-checkbox {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid #dee2e6;
+            border-radius: 0.3rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card.selected .service-checkbox {
+            background: var(--orange-flame);
+            border-color: var(--orange-flame);
+        }
+        
+        .service-checkbox::after {
+            content: '✓';
+            display: block;
+            color: white;
+            text-align: center;
+            line-height: 1.2rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card.selected .service-checkbox::after {
+            opacity: 1;
         }
         
         .pulse-glow {
@@ -90,7 +131,7 @@
         }
 
         .service-category {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .category-header {
@@ -100,6 +141,20 @@
             background-clip: text;
             font-weight: 700;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .category-icon {
+            background: linear-gradient(135deg, var(--orange-flame), var(--royal-amethyst));
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .price-tag {
@@ -129,6 +184,42 @@
             border-left: 4px solid var(--orange-flame);
         }
         
+        .selected-services-list {
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .selected-service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--orange-flame);
+        }
+        
+        .remove-service-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-service-btn:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+        
         .form-control, .form-select {
             border: 2px solid #dee2e6;
             border-radius: 0.75rem;
@@ -154,7 +245,7 @@
         
         .btn-booking:hover {
             background: linear-gradient(to right, var(--royal-amethyst), var(--deep-navy));
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
         
         .btn-disabled {
@@ -163,29 +254,11 @@
         }
         
         .success-message {
-            background: linear-gradient(to right, #198754, #157347);
+            background: linear-gradient(to right, var(--success-green), #157347);
             border-radius: 1rem;
             padding: 1.5rem;
             text-align: center;
             color: white;
-        }
-        
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            z-index: 1000;
-            background-color: var(--orange-flame);
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: all 0.3s;
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: var(--royal-amethyst);
-            transform: scale(1.1);
         }
         
         .scroll-top-btn {
@@ -204,6 +277,8 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         
         .scroll-top-btn.visible {
@@ -215,15 +290,55 @@
             background-color: var(--royal-amethyst);
         }
         
-        .service-card.selected {
-            border-color: var(--orange-flame);
-            background: linear-gradient(to bottom right, rgba(244, 138, 50, 0.05), rgba(140, 24, 169, 0.05));
-            transform: scale(1.05);
-        }
-        
         .text-white-90 {
             color: rgba(255, 255, 255, 0.9);
         }
+        
+        .select-all-btn {
+            background: linear-gradient(45deg, var(--orange-flame), var(--royal-amethyst));
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .select-all-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(244, 138, 50, 0.3);
+        }
+        
+        .clear-all-btn {
+            background: #dc3545;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            margin-left: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .clear-all-btn:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+        form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
     </style>
 </head>
 <body>
@@ -237,7 +352,7 @@
                 Sifaskill
             </h1>
             <p class="fs-5 text-white-90 fw-medium">
-                Book your personalized skill development session
+                Book your services - Select multiple services for comprehensive support
             </p>
             <div class="mx-auto mt-4" style="width: 6rem; height: 0.25rem; background-color: var(--orange-flame); border-radius: 1rem;"></div>
         </div>
@@ -247,29 +362,57 @@
             <!-- Service Selection -->
             <div class="col-lg-6">
                 <div class="glass-effect p-4 p-md-5" style="max-height: 80vh; overflow-y: auto;">
-                    <h2 class="section-header text-deep-navy" style="border-bottom-color: var(--orange-flame);">
-                        Choose Your Service
-                    </h2>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="section-header text-deep-navy mb-0" style="border-bottom-color: var(--orange-flame); border-bottom: none;">
+                            Choose Your Services
+                        </h2>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <button type="button" class="select-all-btn" id="selectAllBtn">
+                            <i class="fas fa-check-double me-2"></i>Select All Services
+                        </button>
+                        <button type="button" class="clear-all-btn" id="clearAllBtn">
+                            <i class="fas fa-times me-2"></i>Clear All
+                        </button>
+                    </div>
                     
                     <!-- Student Skills Training Services -->
                     <div class="service-category">
-                        <h3 class="category-header fs-3">Student Skills Training</h3>
+                        <h3 class="category-header fs-3">
+                            <div class="category-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            Student Skills Training
+                        </h3>
                         
-                        <div class="service-card" data-service="career-development" data-price="65" data-duration="60">
+                        <div class="service-card" data-service="career-development" data-price="" data-duration="60">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Career Development & Job Readiness</h4>
-                                <span class="price-tag">$65</span>
+                                <!-- <span class="price-tag">$65</span> -->
                             </div>
                             <p class="duration-tag">60 minutes</p>
                             <p class="text-muted">
                                 Resume writing, LinkedIn optimization, interview skills, workplace communication, and career planning.
                             </p>
                         </div>
-
-                        <div class="service-card" data-service="business-finance" data-price="70" data-duration="75">
+                        <div class="service-card" data-service="counseling-coaching" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Counseling & Coaching</h4>
+                                <!-- <span class="price-tag">$120</span> -->
+                            </div>
+                            <p class="duration-tag">90 minutes</p>
+                            <p class="text-muted">
+                                Personal and professional guidance for individuals and teams, focusing on mental wellness, career clarity, and leadership growth.
+                            </p>
+                        </div>
+                        <div class="service-card" data-service="business-finance" data-price="" data-duration="75">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Business, Finance & Digital Skills</h4>
-                                <span class="price-tag">$70</span>
+                                <!-- <span class="price-tag">$70</span> -->
                             </div>
                             <p class="duration-tag">75 minutes</p>
                             <p class="text-muted">
@@ -277,10 +420,11 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="tech-creative" data-price="60" data-duration="60">
+                        <div class="service-card" data-service="tech-creative" data-price="" data-duration="60">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Tech & Creative Skills</h4>
-                                <span class="price-tag">$60</span>
+                                <!-- <span class="price-tag">$60</span> -->
                             </div>
                             <p class="duration-tag">60 minutes</p>
                             <p class="text-muted">
@@ -288,10 +432,11 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="life-skills" data-price="55" data-duration="50">
+                        <div class="service-card" data-service="life-skills" data-price="" data-duration="50">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Life Skills & Personal Development</h4>
-                                <span class="price-tag">$55</span>
+                                <!-- <span class="price-tag">$55</span> -->
                             </div>
                             <p class="duration-tag">50 minutes</p>
                             <p class="text-muted">
@@ -299,10 +444,11 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="practical-exposure" data-price="80" data-duration="90">
+                        <div class="service-card" data-service="practical-exposure" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Practical Exposure & Experience</h4>
-                                <span class="price-tag">$80</span>
+                                <!-- <span class="price-tag">$80</span> -->
                             </div>
                             <p class="duration-tag">90 minutes</p>
                             <p class="text-muted">
@@ -313,12 +459,29 @@
 
                     <!-- SME & Startup Services -->
                     <div class="service-category">
-                        <h3 class="category-header fs-3">SME & Startup Services</h3>
-                        
-                        <div class="service-card" data-service="strategy-advisory" data-price="120" data-duration="90">
+                        <h3 class="category-header fs-3">
+                            <div class="category-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            SME & Startup Services
+                        </h3>
+                        <div class="service-card" data-service="project-management" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Project Management</h4>
+                                <!-- <span class="price-tag">$120</span> -->
+                            </div>
+                            <p class="duration-tag">90 minutes</p>
+                            <p class="text-muted">
+                                Planning, executing, and monitoring projects to ensure timely delivery, budget compliance, and measurable impact.
+                            </p>
+                        </div>
+
+                        <div class="service-card" data-service="strategy-advisory" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Strategy & Growth Advisory</h4>
-                                <span class="price-tag">$120</span>
+                                <!-- <span class="price-tag">$120</span> -->
                             </div>
                             <p class="duration-tag">90 minutes</p>
                             <p class="text-muted">
@@ -326,10 +489,23 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="financial-advisory" data-price="100" data-duration="75">
+                        <div class="service-card" data-service="logistics" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Logistics Solutions</h4>
+                                <!-- <span class="price-tag">$120</span> -->
+                            </div>
+                            <p class="duration-tag">90 minutes</p>
+                            <p class="text-muted">
+                                Streamlining supply chains, distribution, and inventory management to enhance operational efficiency and customer satisfaction.
+                            </p>
+                        </div>
+
+                        <div class="service-card" data-service="financial-advisory" data-price="" data-duration="75">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Financial & Accounting Advisory</h4>
-                                <span class="price-tag">$100</span>
+                                <!-- <span class="price-tag">$100</span> -->
                             </div>
                             <p class="duration-tag">75 minutes</p>
                             <p class="text-muted">
@@ -337,10 +513,11 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="hr-solutions" data-price="90" data-duration="60">
+                        <div class="service-card" data-service="hr-solutions" data-price="" data-duration="60">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Human Resource Solutions</h4>
-                                <span class="price-tag">$90</span>
+                                <!-- <span class="price-tag">$90</span> -->
                             </div>
                             <p class="duration-tag">60 minutes</p>
                             <p class="text-muted">
@@ -348,10 +525,11 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="operations" data-price="85" data-duration="60">
+                        <div class="service-card" data-service="operations" data-price="" data-duration="60">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Operational Excellence</h4>
-                                <span class="price-tag">$85</span>
+                                <!-- <span class="price-tag">$85</span> -->
                             </div>
                             <p class="duration-tag">60 minutes</p>
                             <p class="text-muted">
@@ -359,10 +537,11 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="marketing" data-price="75" data-duration="60">
+                        <div class="service-card" data-service="marketing" data-price="" data-duration="60">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Marketing & Customer Engagement</h4>
-                                <span class="price-tag">$75</span>
+                                <!-- <span class="price-tag">$75</span> -->
                             </div>
                             <p class="duration-tag">60 minutes</p>
                             <p class="text-muted">
@@ -370,14 +549,85 @@
                             </p>
                         </div>
 
-                        <div class="service-card" data-service="legal-support" data-price="110" data-duration="75">
+                        <div class="service-card" data-service="legal-support" data-price="" data-duration="75">
+                            <div class="service-checkbox"></div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h4 class="fw-bold text-deep-navy fs-5">Legal & Administrative Support</h4>
-                                <span class="price-tag">$110</span>
+                                <!-- <span class="price-tag">$110</span> -->
                             </div>
                             <p class="duration-tag">75 minutes</p>
                             <p class="text-muted">
                                 Business registration, contract drafting, risk management, and compliance guidance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Agricultural & Agribusiness Services -->
+                    <div class="service-category">
+                        <h3 class="category-header fs-3">
+                            <div class="category-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            Agribusiness Services
+                        </h3>
+                        
+                        <div class="service-card" data-service="farmer-training" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Farmer Training & Capacity Building</h4>
+                                <!-- <span class="price-tag">$85</span> -->
+                            </div>
+                            <p class="duration-tag">90 minutes</p>
+                            <p class="text-muted">
+                                Climate-Smart Agriculture, Livestock Management, Crop Production, Post-Harvest Practices, and Knowledge Transfer.
+                            </p>
+                        </div>
+
+                        <div class="service-card" data-service="farm-management" data-price="" data-duration="75">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Farm Management Advisory</h4>
+                                <!-- <span class="price-tag">$95</span> -->
+                            </div>
+                            <p class="duration-tag">75 minutes</p>
+                            <p class="text-muted">
+                                Crop Planning, Livestock Care, Irrigation Management, Farm Budgeting, and Record-Keeping Systems.
+                            </p>
+                        </div>
+
+                        <div class="service-card" data-service="agri-enterprise" data-price="" data-duration="75">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Agri-Enterprise Development</h4>
+                                <!-- <span class="price-tag">$90</span> -->
+                            </div>
+                            <p class="duration-tag">75 minutes</p>
+                            <p class="text-muted">
+                                Youth & Rural Entrepreneurship, Idea Validation, Market Linkage, Value Chain Development, and Business Planning.
+                            </p>
+                        </div>
+
+                        <div class="service-card" data-service="data-research" data-price="" data-duration="90">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Data Services & Field Research</h4>
+                                <!-- <span class="price-tag">$110</span> -->
+                            </div>
+                            <p class="duration-tag">90 minutes</p>
+                            <p class="text-muted">
+                                Farmer Profiling, GIS Mapping, GPS Services, Surveys, Mobile Data Collection, and M&E Support.
+                            </p>
+                        </div>
+
+                        <div class="service-card" data-service="agri-tech" data-price="" data-duration="75">
+                            <div class="service-checkbox"></div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="fw-bold text-deep-navy fs-5">Digital & Tech Solutions</h4>
+                                <!-- <span class="price-tag">$100</span> -->
+                            </div>
+                            <p class="duration-tag">75 minutes</p>
+                            <p class="text-muted">
+                                Agri-Tech App Development, Website Design, Digital Tools, Online Marketplaces, and Digital Marketing.
                             </p>
                         </div>
                     </div>
@@ -388,22 +638,22 @@
             <div class="col-lg-6">
                 <div class="glass-effect p-4 p-md-5">
                     <h2 class="section-header text-deep-navy" style="border-bottom-color: var(--royal-amethyst);">
-                        Book Your Session
+                        Book Your Sessions
                     </h2>
                     
                     <!-- Booking Summary -->
                     <div id="booking-summary" class="booking-summary d-none">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fw-medium">Service:</span>
-                            <span id="selected-service" class="fw-bold text-end">-</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fw-medium">Duration:</span>
-                            <span id="selected-duration" class="fw-bold">-</span>
+                        <h4 class="fw-bold mb-3">Selected Services:</h4>
+                        <div class="selected-services-list" id="selected-services-list">
+                            <!-- Selected services will be populated here -->
                         </div>
                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
-                            <span class="fs-5 fw-bold">Total:</span>
-                            <span id="selected-price" class="fs-4 fw-bold text-orange-flame">$0</span>
+                            <span class="fs-5 fw-bold">Total Services:</span>
+                            <span id="service-count" class="fs-5 fw-bold" style="color: var(--orange-flame);">0</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- <span class="fs-4 fw-bold">Total Cost:</span> -->
+                            <!-- <span id="total-price" class="fs-3 fw-bold" style="color: var(--orange-flame);">$0</span> -->
                         </div>
                     </div>
 
@@ -449,7 +699,7 @@
                                 <option value="14:00">2:00 PM</option>
                                 <option value="15:00">3:00 PM</option>
                                 <option value="16:00">4:00 PM</option>
-                                <option value="17:00">6:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
                             </select>
                         </div>
                     </div>
@@ -457,28 +707,30 @@
                     <div class="mb-4">
                         <label for="goals" class="form-label fw-semibold">Session Goals & Questions</label>
                         <textarea id="goals" rows="4" class="form-control" 
-                                  placeholder="What would you like to focus on during your session? Any specific questions or topics?"></textarea>
+                                  placeholder="What would you like to focus on during your sessions? Any specific questions or topics for each service?"></textarea>
                     </div>
 
                     <button type="button" id="book-btn" class="btn-booking btn-disabled" disabled>
-                        Select a Service to Continue
+                        Select Services to Continue
                     </button>
 
                     <!-- Success Message -->
                     <div id="success-message" class="success-message mt-4 d-none">
                         <h3 class="fs-2 fw-bold mb-2">🎉 Booking Confirmed!</h3>
-                        <p class="fs-5">Thank you for booking with Sifaskill. You'll receive a confirmation email shortly with session details and preparation materials.</p>
+                        <p class="fs-5">Thank you for booking with Sifaskill. You'll receive a confirmation email shortly with session details and preparation materials for all your selected services.</p>
+                        <div class="mt-3">
+                            <strong>Booking ID:</strong> <span id="booking-id"></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-top-btn">
-        <i class="bi bi-chevron-up fs-5"></i>
-    </button>
-    
 
+    <!-- Scroll to Top Button --> 
+<button id="scrollTopBtn" class="scroll-top-btn">
+    <i class="fas fa-chevron-up"></i>
+</button>
     <!-- WhatsApp Icon -->
     <a href="https://wa.me/254768080749" target="_blank" 
        class="position-fixed bottom-0 start-0 m-4 btn btn-success rounded-circle shadow"
@@ -489,188 +741,311 @@
     
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Service Selection and Booking Form JavaScript
+let selectedServices = new Map();
+let totalPrice = 0;
+
+// Initialize the booking form
+document.addEventListener('DOMContentLoaded', function() {
+    initializeForm();
+    setupEventListeners();
+    setMinDate();
+});
+
+function initializeForm() {
+    const bookBtn = document.getElementById('book-btn');
+    const bookingSummary = document.getElementById('booking-summary');
     
-    <script>
-        let selectedService = null;
-        let bookingData = {};
+    updateBookingSummary();
+    updateBookButton();
+}
 
-        // Set minimum date to today
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
-
-        // Service selection
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('click', function() {
-                // Remove previous selection
-                document.querySelectorAll('.service-card').forEach(c => {
-                    c.classList.remove('selected');
-                });
-                
-                // Add selection to clicked card
-                this.classList.add('selected');
-                
-                // Store selected service data
-                selectedService = {
-                    name: this.querySelector('h4').textContent,
-                    price: parseInt(this.dataset.price),
-                    duration: this.dataset.duration,
-                    service: this.dataset.service
-                };
-
-                // Update booking summary
-                updateBookingSummary();
-                
-                // Enable booking button
-                const bookBtn = document.getElementById('book-btn');
-                bookBtn.disabled = false;
-                bookBtn.textContent = 'Book Your Session';
-                bookBtn.classList.remove('btn-disabled');
-                bookBtn.classList.add('pulse-glow');
-            });
+function setupEventListeners() {
+    // Service card click handlers
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function() {
+            toggleService(this);
         });
-
-        function updateBookingSummary() {
-            if (selectedService) {
-                document.getElementById('booking-summary').classList.remove('d-none');
-                document.getElementById('selected-service').textContent = selectedService.name;
-                document.getElementById('selected-duration').textContent = selectedService.duration + ' minutes';
-                document.getElementById('selected-price').textContent = '$' + selectedService.price;
-            }
+    });
+    
+    // Select All button
+    document.getElementById('selectAllBtn').addEventListener('click', selectAllServices);
+    
+    // Clear All button
+    document.getElementById('clearAllBtn').addEventListener('click', clearAllServices);
+    
+    // Book button
+    document.getElementById('book-btn').addEventListener('click', handleBooking);
+    
+    // Scroll to top button
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', scrollToTop);
+        window.addEventListener('scroll', toggleScrollButton);
+    }
+    
+    // Form validation
+    const requiredFields = ['name', 'email', 'date', 'time'];
+    requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.addEventListener('input', updateBookButton);
+            field.addEventListener('change', updateBookButton);
         }
+    });
+}
 
-        // Booking submission
-        document.getElementById('book-btn').addEventListener('click', function() {
-            if (validateForm()) {
-                processBooking();
-            }
+function setMinDate() {
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+    }
+}
+
+function toggleService(serviceCard) {
+    const serviceId = serviceCard.dataset.service;
+    const serviceName = serviceCard.querySelector('h4').textContent;
+    const servicePrice = parseInt(serviceCard.dataset.price);
+    const serviceDuration = serviceCard.dataset.duration;
+    
+    if (selectedServices.has(serviceId)) {
+        // Remove service
+        selectedServices.delete(serviceId);
+        serviceCard.classList.remove('selected');
+        totalPrice -= servicePrice;
+    } else {
+        // Add service
+        selectedServices.set(serviceId, {
+            name: serviceName,
+            price: servicePrice,
+            duration: serviceDuration
         });
+        serviceCard.classList.add('selected');
+        totalPrice += servicePrice;
+    }
+    
+    updateBookingSummary();
+    updateBookButton();
+}
 
-        function validateForm() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-
-            if (!selectedService) {
-                alert('Please select a service');
-                return false;
-            }
-
-            if (!name) {
-                alert('Please enter your full name');
-                document.getElementById('name').focus();
-                return false;
-            }
-
-            if (!email || !isValidEmail(email)) {
-                alert('Please enter a valid email address');
-                document.getElementById('email').focus();
-                return false;
-            }
-
-            if (!date) {
-                alert('Please select a preferred date');
-                document.getElementById('date').focus();
-                return false;
-            }
-
-            if (!time) {
-                alert('Please select a preferred time');
-                document.getElementById('time').focus();
-                return false;
-            }
-
-            return true;
+function selectAllServices() {
+    document.querySelectorAll('.service-card').forEach(card => {
+        const serviceId = card.dataset.service;
+        if (!selectedServices.has(serviceId)) {
+            toggleService(card);
         }
+    });
+}
 
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
+function clearAllServices() {
+    document.querySelectorAll('.service-card').forEach(card => {
+        const serviceId = card.dataset.service;
+        if (selectedServices.has(serviceId)) {
+            toggleService(card);
         }
+    });
+}
 
-        function processBooking() {
-            // Collect all form data
-            bookingData = {
-                service: selectedService,
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                experience: document.getElementById('experience').value,
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value,
-                goals: document.getElementById('goals').value.trim(),
-                bookingId: 'SIF-' + Date.now(),
-                timestamp: new Date().toISOString()
-            };
+function updateBookingSummary() {
+    const bookingSummary = document.getElementById('booking-summary');
+    const selectedServicesList = document.getElementById('selected-services-list');
+    const serviceCount = document.getElementById('service-count');
+    // const totalPriceElement = document.getElementById('total-price');
+    
+    if (selectedServices.size === 0) {
+        bookingSummary.classList.add('d-none');
+        return;
+    }
+    
+    bookingSummary.classList.remove('d-none');
+    
+    // Update services list
+    selectedServicesList.innerHTML = '';
+    selectedServices.forEach((service, serviceId) => {
+        const serviceItem = document.createElement('div');
+        serviceItem.className = 'selected-service-item';
+        serviceItem.innerHTML = `
+            <div>
+                <strong>${service.name}</strong><br>
+                <small class="text-muted">${service.duration} minutes</small>
+            </div>
+            <div class="text-end">
+                <div class="fw-bold" style="color: var(--orange-flame);">$${service.price}</div>
+                <button class="remove-service-btn" onclick="removeService('${serviceId}')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+        selectedServicesList.appendChild(serviceItem);
+    });
+    
+    // Update totals
+    serviceCount.textContent = selectedServices.size;
+    totalPriceElement.textContent = `$${totalPrice}`;
+}
 
-            // Disable button and show loading
-            const bookBtn = document.getElementById('book-btn');
-            bookBtn.disabled = true;
-            bookBtn.textContent = 'Processing Booking...';
-            bookBtn.classList.remove('pulse-glow');
-            bookBtn.classList.add('btn-disabled');
+function removeService(serviceId) {
+    const serviceCard = document.querySelector([`data-service="${serviceId}"`]);
+    if (serviceCard) {
+        toggleService(serviceCard);
+    }
+}
 
-            // Simulate booking process
-            setTimeout(() => {
-                // Show success message
-                document.getElementById('success-message').classList.remove('d-none');
-                
-                // Reset button
-                bookBtn.textContent = 'Booking Confirmed!';
-                bookBtn.classList.remove('btn-disabled');
-                bookBtn.style.background = 'linear-gradient(to right, #198754, #157347)';
-                
-                // Log booking data (in real implementation, send to server)
-                console.log('Booking Data:', bookingData);
-                
-                // Scroll to success message
-                document.getElementById('success-message').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
-
-                // Send confirmation email (placeholder)
-                sendConfirmationEmail(bookingData);
-                
-            }, 2000);
+function updateBookButton() {
+    const bookBtn = document.getElementById('book-btn');
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    
+    const hasSelectedServices = selectedServices.size > 0;
+    const hasRequiredFields = name && email && date && time;
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    
+    if (hasSelectedServices && hasRequiredFields && isValidEmail) {
+        bookBtn.disabled = false;
+        bookBtn.classList.remove('btn-disabled');
+        bookBtn.textContent = `Book ${selectedServices.size} Service${selectedServices.size > 1 ? 's' : ''} - $${totalPrice}`;
+    } else {
+        bookBtn.disabled = true;
+        bookBtn.classList.add('btn-disabled');
+        if (!hasSelectedServices) {
+            bookBtn.textContent = 'Select Services to Continue';
+        } else if (!hasRequiredFields) {
+            bookBtn.textContent = 'Please Fill Required Fields';
+        } else if (!isValidEmail) {
+            bookBtn.textContent = 'Please Enter Valid Email';
         }
+    }
+}
 
-        function sendConfirmationEmail(data) {
-            // In a real implementation, this would make an API call to your backend
-            console.log('Sending confirmation email to:', data.email);
-            console.log('Booking details:', {
-                service: data.service.name,
-                date: data.date,
-                time: data.time,
-                duration: data.service.duration + ' minutes',
-                price: '$' + data.service.price,
-                bookingId: data.bookingId
-            });
+function handleBooking() {
+    if (selectedServices.size === 0) {
+        alert('Please select at least one service.');
+        return;
+    }
+    
+    // Show loading state
+    const bookBtn = document.getElementById('book-btn');
+    const originalText = bookBtn.textContent;
+    bookBtn.textContent = 'Processing Booking...';
+    bookBtn.disabled = true;
+    
+    // Simulate booking process
+    setTimeout(() => {
+        showSuccessMessage();
+        scrollToElement(document.getElementById('success-message'));
+    }, 2000);
+}
+
+function showSuccessMessage() {
+    const successMessage = document.getElementById('success-message');
+    const bookingId = generateBookingId();
+    
+    document.getElementById('booking-id').textContent = bookingId;
+    successMessage.classList.remove('d-none');
+    
+    // Hide form sections
+    document.querySelector('.glass-effect .section-header').style.display = 'none';
+    document.getElementById('booking-summary').style.display = 'none';
+    document.querySelectorAll('.mb-3, .mb-4, .row.mb-3').forEach(el => el.style.display = 'none');
+    document.getElementById('book-btn').style.display = 'none';
+}
+
+function generateBookingId() {
+    const timestamp = Date.now().toString(36);
+    const randomStr = Math.random().toString(36).substr(2, 5);
+    return `SF-${timestamp}-${randomStr}.toUpperCase()`;
+}
+
+function scrollToElement(element) {
+    element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+    });
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+function toggleScrollButton() {
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    if (scrollBtn) {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
         }
+    }
+}
 
-        // Scroll to top functionality
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
+// Form validation helpers
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    const re = /^[\+]?[1-9][\d]{0,15}$/;
+    return phone === '' || re.test(phone.replace(/[\s\-\(\)]/g, ''));
+}
+
+// Enhanced form validation
+document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    
+    if (emailInput) {
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !validateEmail(this.value)) {
+                this.classList.add('is-invalid');
             } else {
-                scrollToTopBtn.classList.remove('visible');
+                this.classList.remove('is-invalid');
             }
         });
-        
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    }
+    
+    if (phoneInput) {
+        phoneInput.addEventListener('blur', function() {
+            if (this.value && !validatePhone(this.value)) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+            }
         });
-        
-        // Initialize form date
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
-    </script>
+    }
+});
+
+// Add pulse effect to selected services
+function addPulseEffect() {
+    document.querySelectorAll('.service-card.selected').forEach(card => {
+        card.classList.add('pulse-glow');
+        setTimeout(() => {
+            card.classList.remove('pulse-glow');
+        }, 2000);
+    });
+}
+
+// Call pulse effect when services are selected
+const originalToggleService = toggleService;
+toggleService = function(serviceCard) {
+    originalToggleService(serviceCard);
+    if (serviceCard.classList.contains('selected')) {
+        setTimeout(() => addPulseEffect(), 100);
+    }
+};
+  </script>  
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-    <!-- Load partials JS -->
-    <script src="js/loadpartials.js"></script>
+  <div id="footer-placeholder"></div>
+  <!-- Load partials Js at the end -->
+  <script src="js/loadpartials.js"></script>
 </body>
 </html>

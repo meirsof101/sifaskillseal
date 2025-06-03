@@ -26,6 +26,7 @@
         .text-brand-purple { color: var(--brand-purple); }
         .text-brand-orange { color: var(--brand-orange); }
         .text-brand-white { color: var(--brand-white); }
+        .text-brand-black { color: rgba(0, 0, 0, 0.8); }
 
         .team-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -46,7 +47,7 @@
             left: 0;
             right: 0;
             padding: 20px;
-            height: 50%; /* show content on bottom half */
+            height: 70%; /* show content on bottom half */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -175,33 +176,6 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        .bg-emmanuel {
-            background-image: url('/Images/mlewa2.jpg');
-        }
-        .bg-anthony {
-            background-image: url('/Images/anthony.jpg');
-        }
-        .bg-francis {
-            background-image: url('/Images/francis2.jpg');
-        }
-        .bg-kelvin {
-            background-image: url('/Images/kelvin1.jpg');
-        }
-        .bg-stella {
-            background-image: url('/Images/stella.jpg');
-        }
-       .bg-harold {
-            background-image: url('/Images/harold1.jpg');
-        }
-        .bg-fidel {
-            background-image: url('/Images/fidel.jpg');
-        }
-        .bg-phanice {
-            background-image: url('/Images/phanice1.jpg');
-        }
-        .bg-joseph {
-            background-image: url('/Images/joseph2.jpg');
-        }
         .team-card {
             background-size: cover;
             background-position: center;
@@ -212,7 +186,100 @@
             margin-top: auto;
             z-index: 1;
         }
-    </style>
+        .icon-circle {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .btn-brand-orange {
+            background-color: var(--brand-orange);
+            border-color: var(--brand-orange);
+            color: var(--brand-white);
+        }
+        
+        .btn-brand-orange:hover {
+            background-color: var(--brand-orange);
+            border-color: var(--brand-orange);
+            color: var(--brand-white);
+            opacity: 0.9;
+        }
+        
+        .btn-outline-white {
+            border: 2px solid var(--brand-white);
+            color: var(--brand-white);
+            background-color: transparent;
+        }
+        
+        .btn-outline-white:hover {
+            background-color: var(--brand-white);
+            color: var(--brand-navy);
+            border-color: var(--brand-white);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 1050;
+            background-color: var(--brand-orange);
+            color: var(--brand-white);
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: var(--brand-purple);
+            color: var(--brand-white);
+            text-decoration: none;
+        }
+        
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 1050;
+            background-color: var(--brand-orange);
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: var(--royal-amethyst);
+        }
+        .profile-circle img {
+            width: 100px;         /* adjust size as needed */
+            height: 100px;
+            border-radius: 50%;  /* makes it a circle */
+            object-fit: cover;   /* ensures the image covers the circle nicely */
+            border: 3px solid #ea580c; /* optional border matching your theme */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* optional subtle shadow */
+            }
+
+</style>
 </head>
 <body>
     <!-- Navbar placeholder -->
@@ -237,25 +304,27 @@
             <div class="team-grid mt-5">
                 <!-- Emmanuel Mkare -->
                 <div class="team-card bg-emmanuel p-4 rounded-4 shadow">
-                    <div class="d-flex align-items-start">                   
-                        <div class="team-content">
+                    <div class="profile-circle me-3"><img src="/Images/mlewa1.jpg" alt="Emmanuel Mkare" /></div> 
+                          <div class="team-content">                                                                                                                  
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Emmanuel Mkare</h3>
-                            <p class="text-brand-orange font-semibold mb-4"> Ethical Leader | Tax Expert | Finance & Accounting Professional</p>
+                            <h6 class="text-brand-orange font-semibold mb-4"> Ethical Leader | Tax Expert | Finance & Accounting Professional</h6>
+                                <p> Certified Public Accountant with extensive experience in financial reporting, tax compliance, and...</p>                           
                             <button onclick="openModal('emmanuel')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
-                </div>
-            
+               
 
                 <!-- Stella Zawadi -->
                 <div class="team-card bg-stella p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/stella.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Stella Zawadi</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">HR Specialist | Talent & Systems Strategist</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">HR Specialist | Talent & Systems Strategist</h6>
+                            <p>Certified HR Professional with experience managing HR operations for 900+ staff organizations.</p>
                             <button onclick="openModal('stella')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -266,10 +335,12 @@
 
                 <!-- Francis Muyekho -->
                 <div class="team-card bg-francis p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/francis.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Francis Muyekho</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Marketing & Business Development Consultant</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Marketing & Business Development Consultant</h6>
+                            <p>Dynamic marketing professional with expertise in brand positioning and corporate communications.</p>
                             <button onclick="openModal('francis')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -280,10 +351,12 @@
 
                 <!-- Harold -->
                 <div class="team-card bg-harold p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/harold1.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Harold Yaa</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Finance Specialist | Entrepreneurial Advisor | Creative Strategist</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Finance Specialist | Entrepreneurial Advisor | Creative Strategist</h6>
+                            <p>Harold fuses finance, strategy, and design to uplift startups and SMEs across East Africa.</p>
                             <button onclick="openModal('harold')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -294,10 +367,12 @@
 
                 <!-- Anthony Thoya Baya -->
                 <div class="team-card bg-anthony p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/anthony.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Anthony Thoya Baya</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Accountant | Financial Administrator | Community Trainer</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Accountant | Financial Administrator | Community Trainer</h6>
+                            <p>Finance expert with 5+ years in reporting, payroll, and compliance—ensuring transparency in budgeting and audits.</p>
                             <button onclick="openModal('anthony')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -308,10 +383,12 @@
 
                 <!-- Kevin O. Oduol -->
                 <div class="team-card bg-kelvin p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/kelvin1.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Kevin O. Oduol</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Education Leader | Youth Mentor | Professional Trainer</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Education Leader | Youth Mentor | Professional Trainer</h6>
+                            <p>With 14+ years in education, Kevin blends teaching, mentorship, and leadership to empower learners and educators.</p>
                             <button onclick="openModal('kevin')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -322,10 +399,12 @@
 
                 <!-- Fidel Mwaro -->
                 <div class="team-card bg-fidel p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/fidel.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Fidel Mwaro</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Agri-Tech Innovator | Agriculturalist | Web Designer | Software Developer</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Agri-Tech Innovator | Agriculturalist | Web Designer | Software Developer</h6>
+                            <p>Innovative agriculturalist leveraging technology, data, and climate-smart solutions to empower farmers, enhance...</p>
                             <button onclick="openModal('fidel')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -336,10 +415,12 @@
 
                 <!-- Bishop Phanice -->
                 <div class="team-card bg-phanice p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/phanice1.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Bishop Phanice Achieng'</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Distinguished Education Leader | Counseling Psychologist | Ordained Minister</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Distinguished Education Leader | Counseling Psychologist | Ordained Minister</h6>
+                            <p>Transformative leader whose unique blend of educational leadership, counseling and spiritual ministry has...</p>
                             <button onclick="openModal('phanice')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -350,10 +431,12 @@
 
                 <!-- Joseph Zia -->
                 <div class="team-card bg-joseph p-4 rounded-4 shadow">
+                    <div class="profile-circle me-3"><img src="/Images/joseph.jpg" alt="Emmanuel Mkare" /></div> 
                     <div class="d-flex align-items-start">
                         <div class="team-content">
                             <h3 class="h4 fw-bold text-brand-navy mb-2">Joseph Zia</h3>
-                            <p class="text-brand-orange fw-semibold mb-3">Logistics & Trade Facilitation Specialist</p>
+                            <h6 class="text-brand-orange fw-semibold mb-3">Logistics & Trade Facilitation Specialist</h6>
+                            <p>Seasoned logistics professional with deep expertise in customs clearance and regional freight operations.</p>
                             <button onclick="openModal('joseph')" class="view-details-btn text-white px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center shadow">
                                 <span class="me-2">View Details</span>
                                 <i class="fas fa-chevron-right"></i>
@@ -425,23 +508,23 @@
             </div>
         </div>
     </section>
- <!-- Bootstrap Modal -->
-<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content rounded-4 shadow">
-      
-      <div class="modal-header border-0">
-        <h5 class="modal-title" id="modalTitle">Modal Title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      
-      <div class="modal-body" id="modalContent">
-        <!-- Dynamic content goes here -->
-      </div>
-      
+        <!-- Bootstrap Modal -->
+    <div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow">
+            
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="modalTitle">Modal Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body" id="modalContent">
+                <!-- Dynamic content goes here -->
+            </div>
+            
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     <script>
         const teamData = {
             emmanuel: {
@@ -748,25 +831,35 @@ function openModal(memberKey) {
 </script>
     <!-- Footer placeholder -->
      <div id="footer-placeholder"></div>
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle" style="display: none; z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange);">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- WhatsApp Icon -->
-    <a href="https://wa.me/254768080749" target="_blank" 
-       class="position-fixed bottom-0 start-0 m-4 btn btn-success rounded-circle shadow"
-       style="z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange);"
-       aria-label="Chat on WhatsApp">
+    <!--whatsapp icon-->
+    <a href="https://wa.me/254768080749" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp fa-lg"></i>
     </a>
+    <!-- Scroll to Top Button --> 
+<button id="scrollTopBtn" class="scroll-top-btn">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Load partials JS -->
     <script src="js/loadpartials.js"></script>
-    <!-- Scroll to top JS -->
-    <script src="js/scroll-to-top.js"></script>
 
 </body>
 </html>

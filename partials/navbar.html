@@ -27,15 +27,21 @@
 /* Mobile positioning - fix content blocking */
 @media (max-width: 767.98px) {
     .navbar {
+        display: flex !important;          /* Make navbar a flex container */
+        justify-content: space-between !important; /* space between brand and toggler */
+        align-items: center !important;   /* vertically center contents */
+        height: 65px !important;           /* fix navbar height */
+        padding: 0 1rem !important;       /* control horizontal padding */
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         margin: 0 !important;
-        padding: 0.5rem 1rem !important;
         background: transparent !important;
-        height: 65px;
+        z-index: 1050 !important;          /* ensure navbar stays on top */
     }
+}
+
     
     /* Push content below navbar on mobile */
     body {
@@ -46,6 +52,7 @@
     .navbar-brand img {
         height: 35px !important;
         width: 35px !important;
+        margin-left: -10px !important;
     }
     
     .navbar-brand .fw-bold {
@@ -55,19 +62,20 @@
     .navbar-brand .small {
         font-size: 0.8rem !important;
     }
-}
 
 /* Transparent links by default */
 .nav-link {
     background: transparent !important;
-    color: white !important;
-    font-weight: bold !important;
+    color: var(--brand-navy) !important;
+    font-weight: 600 !important;
     padding: 0.5rem 1rem !important;
     border-radius: 25px !important;
     transition: all 0.3s ease !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7) !important;
     border: 2px solid transparent !important;
+    text-shadow: none !important; /* Removed blurriness */
+    font-size: 1rem !important;
 }
+
 
 /* Hover effects for links */
 .nav-link:hover {
@@ -115,6 +123,7 @@
 
 /* Logo hover effect */
 .navbar-brand {
+    margin-left: -10px !important;
     transition: transform 0.3s ease !important;
 }
 
@@ -123,16 +132,17 @@
 }
 </style>
 
-    <div class="container-fluid px-3 px-lg-5">  
+    <div class="container-fluid px-2 px-lg-5 d-flex justify-content-between align-items-center">  
         <!-- Logo and Brand -->
-        <a class="navbar-brand d-flex align-items-center py-2" href="#">
+        <a class="navbar-brand d-flex align-items-center py-2" href="index.html">
             <img src="Images/logo.jpg" alt="SifaSkills Logo" 
                  class="rounded-circle me-3" 
                  style="height: 45px; width: 45px; object-fit: cover; 
                         border: 3px solid var(--brand-orange);
                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+           <div class="text-2xl font-bold text-brand-navy">SifaSkills</div>
+                   <div class="ml-2 text-sm text-brand-purple font-medium">(EA) Ltd</div>
         </a>
-         
         <!-- Toggler Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
                 aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">

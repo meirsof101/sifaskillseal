@@ -20,6 +20,37 @@
         .text-brand-orange { color: #f48a32; }
         .text-brand-navy { color: #1b265d; }
         .rounded-xl { border-radius: 1rem; }
+            /* Scroll to top button styles */
+    #scrollToTop {
+      position: fixed;
+      bottom: 35px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--brand-orange);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #scrollToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #scrollToTop:hover {
+      background-color: var(--brand-purple);
+      transform: translateY(-3px);
+    }
     </style>
 </head>
 <body>
@@ -27,13 +58,12 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Page Header -->
-    <section class="bg-brand-navy text-brand-white py-5 text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Contact Us</h1>
-            <p class="lead">Let's start your transformation journey today</p>
-        </div>
-    </section>
-
+  <section class="bg-brand-navy text-brand-white py-5 text-center hero-bg">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Contact Us</h1>
+    <p class="lead">Let's start your transformation journey today</p>
+  </div>
+</section>
     <!-- Contact Information -->
     <section class="py-5 bg-white">
         <div class="container">
@@ -62,7 +92,7 @@
                         </div>
                         <h5 class="fw-bold text-brand-navy">Phone</h5>
                         <p class="fs-5 fw-semibold mb-1">0768 080 749</p>
-                        <small class="text-muted">Mon-Fri, 9AM-6PM</small>
+                        <small class="text-muted">Mon-Fri, 8AM-9PM</small>
                     </div>
                 </div>
 
@@ -116,7 +146,9 @@
                                 <option value="financial-advisory">Financial Advisory</option>
                                 <option value="hr-solutions">HR Solutions</option>
                                 <option value="marketing-branding">Marketing & Branding</option>
-                                <option value="logistics-trade">Logistics & Trade Facilitation</option>
+                                <option value="logistics-trade">Logistics & Trade Facilitation</option>                               
+                                <option value="it-solutions">IT Solutions</option>
+                                <option value="agribusiness">Agri-business</option>
                                 <option value="general-inquiry">General Inquiry</option>
                             </select>
                         </div>
@@ -189,12 +221,13 @@
        aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp fa-lg"></i>
     </a>
-
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     <!-- Load partials JS -->
     <script src="js/loadpartials.js"></script>
-    <!-- Scroll to top JS -->   
-    <script src="js/scroll-to-top.js"></script>
 </body>
 </html>
