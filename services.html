@@ -7,8 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Our Services - SifaSkills (EA) Ltd</title>
     
     <style>
@@ -16,24 +14,34 @@
             --deep-navy: #1b265d;
             --orange-flame: #f48a32;
             --royal-amethyst: #8c18a9;
-            --brand-orange: #f48a32;
-            --brand-purple: #8c18a9;
-            --brand-navy: #1b265d;
             --brand-white: #ffffff;
             --light-gray: #f8f9fa;
             --shadow-light: rgba(0,0,0,0.08);
             --shadow-medium: rgba(0,0,0,0.15);
-            --shadow-heavy: rgba(0,0,0,0.25);
         }
 
-        /* Gradient Backgrounds */
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--royal-amethyst) 50%, var(--orange-flame) 100%);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Hero Section with Background Image */
+        .hero-section {
+            background: linear-gradient(
+                135deg, 
+                rgba(27, 38, 93, 0.85) 0%, 
+                rgba(140, 24, 169, 0.75) 50%, 
+                rgba(244, 138, 50, 0.85) 100%
+            ),
+            url('Images/services.jpg') center/cover no-repeat;
             position: relative;
             overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
         }
 
-        .gradient-bg::before {
+        .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -44,136 +52,230 @@
             animation: shimmer 3s ease-in-out infinite;
         }
 
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.1) 100%);
+            pointer-events: none;
+        }
+
         @keyframes shimmer {
             0%, 100% { transform: translateX(-100%); }
             50% { transform: translateX(100%); }
         }
 
-        /* Enhanced Service Cards */
-        .service-card {
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--brand-white);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: var(--brand-white);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in-up:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-up:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-section {
+                min-height: 70vh;
+                padding: 2rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1.2rem;
+            }
+        }
+        /* Main Service Cards (Top 4) */
+        .main-service-card {
             background: var(--brand-white);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             height: 100%;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
-            box-shadow: 0 8px 25px var(--shadow-light);
+            box-shadow: 0 10px 30px var(--shadow-light);
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
+        .main-service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, var(--orange-flame), var(--royal-amethyst));
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
-        .service-card:hover::before {
+        .main-service-card:hover::before {
             transform: scaleX(1);
         }
 
+        .main-service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px var(--shadow-medium);
+        }
+
+        .main-service-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .main-service-icon.bg-orange {
+            background: linear-gradient(135deg, var(--orange-flame), #ff6b35);
+        }
+
+        .main-service-icon.bg-navy {
+            background: linear-gradient(135deg, var(--deep-navy), var(--royal-amethyst));
+        }
+
+        .main-service-icon.bg-purple {
+            background: linear-gradient(135deg, var(--royal-amethyst), #b347d9);
+        }
+
+        .main-service-icon.bg-gradient {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .main-service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .main-service-desc {
+            color: #6c757d;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Secondary Service Cards */
+        .service-card {
+            background: var(--brand-white);
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            margin-bottom: 2rem;
+        }
+
         .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--shadow-medium);
         }
 
-        .service-card.border-orange::before {
-            background: var(--orange-flame);
-        }
-
-        .service-card.border-navy::before {
-            background: var(--deep-navy);
-        }
-
-        /* Icon Styling */
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            position: relative;
             transition: all 0.3s ease;
         }
 
-        .service-icon::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: inherit;
-            opacity: 0.2;
-            transform: scale(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover .service-icon::after {
-            transform: scale(1.2);
-        }
-
-        .service-icon.bg-orange {
-            background: linear-gradient(135deg, var(--orange-flame), #ff6b35);
-        }
-
-        .service-icon.bg-navy {
-            background: linear-gradient(135deg, var(--deep-navy), var(--royal-amethyst));
-        }
-
-        /* Typography Enhancements */
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--brand-white), rgba(255,255,255,0.8));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--deep-navy);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--orange-flame), var(--royal-amethyst));
-            border-radius: 2px;
-        }
-
         .service-title {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: 600;
             color: var(--deep-navy);
             margin-bottom: 1rem;
         }
 
-        /* List Styling */
         .service-list {
             list-style: none;
             padding: 0;
         }
 
         .service-list li {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             color: #6c757d;
             font-weight: 500;
             position: relative;
@@ -198,7 +300,35 @@
             color: var(--deep-navy);
         }
 
-        /* Button Styling */
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange-flame), var(--royal-amethyst));
+            border-radius: 2px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--royal-amethyst) 100%);
+            color: var(--brand-white);
+            padding: 4rem 0;
+        }
+
         .btn-custom {
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -206,23 +336,7 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             border: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-custom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-custom:hover::before {
-            left: 100%;
+            margin: 0.5rem;
         }
 
         .btn-primary-custom {
@@ -251,72 +365,7 @@
             box-shadow: 0 8px 25px rgba(244, 138, 50, 0.4);
         }
 
-        .btn-outline-custom {
-            background: transparent;
-            color: var(--brand-white);
-            border: 2px solid var(--brand-white);
-        }
-
-        .btn-outline-custom:hover {
-            background: var(--brand-white);
-            color: var(--deep-navy);
-            transform: translateY(-2px);
-        }
-
-        /* Scroll to Top Button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-            width: 50px;
-            height: 50px;
-            background: var(--orange-flame);
-            color: var(--brand-white);
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(244, 138, 50, 0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .scroll-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background: var(--royal-amethyst);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(140, 24, 169, 0.4);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
-            background: var(--orange-flame);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(244, 138, 50, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            background: var(--royal-amethyst);
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(140, 24, 169, 0.4);
-        }
-
-        /* Background Section */
+        /* Background sections */
         .bg-light-custom {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
@@ -331,7 +380,7 @@
                 font-size: 2rem;
             }
             
-            .service-card {
+            .main-service-card {
                 margin-bottom: 2rem;
             }
             
@@ -341,7 +390,7 @@
             }
         }
 
-        /* Loading Animation */
+        /* Animation Classes */
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
@@ -353,144 +402,174 @@
             transform: translateY(0);
         }
 
-        /* Hover Effects for Better Interaction */
-        .interactive-element {
-            cursor: pointer;
-            transition: all 0.3s ease;
+        /* Force visibility for initial load */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .interactive-element:hover {
-            transform: scale(1.05);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-    </style>
-</head>
-<body>
-    <!-- Load the navbar -->
-    <div id="navbar-placeholder"></div>
-<style>
-     .services-hero {
-            position: relative;
-            min-height: 60vh;
+            /* Scroll to top button styles */
+    #scrollToTop {
+      position: fixed;
+      bottom: 35px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--brand-orange);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #scrollToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #scrollToTop:hover {
+      background-color: var(--brand-purple);
+      transform: translateY(-3px);
+    }
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%), 
-                              url('Images/services.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-            overflow: hidden;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
-        /* Alternative gradient backgrounds if you prefer */
-        .gradient-bg-blue {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .gradient-bg-purple {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .gradient-bg-orange {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .lead {
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .services-hero {
-                min-height: 50vh;
-                background-position: center 30%;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .lead {
-                font-size: 1.1rem !important;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .services-hero {
-                min-height: 45vh;
-                background-position: center 40%;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .lead {
-                font-size: 1rem !important;
-                padding: 0 1rem;
-            }
-        }
-
-        /* Optional: Add subtle animation to background */
-        .services-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: inherit;
-            animation: subtle-zoom 20s ease-in-out infinite alternate;
-            z-index: -1;
-        }
-
-        @keyframes subtle-zoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
     </style>
 </head>
 <body>
-
-<!-- Hero Section with Background Image -->
-<section class="services-hero text-white">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-10">
-                <h1 class="hero-title mb-4" data-aos="fade-up">Our Services</h1>
-                <p class="lead text-light mb-0 fs-4" data-aos="fade-up" data-aos-delay="200">
-                    Empowering individuals and businesses with comprehensive training, strategic guidance, and practical solutions for sustainable growth and success.
-                </p>
+     <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+    <!-- Hero Section with Background Image -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <div class="hero-content">
+                        <div class="hero-badge fade-in-up">
+                            <i class="fas fa-star me-2"></i>Professional Services
+                        </div>
+                        <h1 class="hero-title fade-in-up">Our Services</h1>
+                        <p class="hero-subtitle fade-in-up">
+                            Empowering individuals and businesses with comprehensive training, strategic guidance, and practical solutions for sustainable growth and success.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Student Skills Training Section -->
+        <!-- Main Services Section (Top 4) -->
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-10">
-                    <h2 class="section-title" data-aos="fade-up">Student Skills Training & Empowerment</h2>
-                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
-                        Building the foundation for career success through comprehensive skill development and practical training programs.
+                    <h2 class="section-title">Our Core Services</h2>
+                    <p class="lead text-muted">
+                        Comprehensive solutions tailored to your specific needs and goals
                     </p>
                 </div>
             </div>
 
             <div class="row g-4">
+                <!-- Software Development -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="main-service-card">
+                        <div class="main-service-icon bg-orange">
+                            <i class="fas fa-code text-white fs-2"></i>
+                        </div>
+                        <h3 class="main-service-title">Software Development</h3>
+                        <p class="main-service-desc">Custom software solutions, mobile apps, websites, and digital platforms to drive your business forward.</p>
+                    </div>
+                </div>
+
+                <!-- SME Services -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="main-service-card">
+                        <div class="main-service-icon bg-navy">
+                            <i class="fas fa-briefcase text-white fs-2"></i>
+                        </div>
+                        <h3 class="main-service-title">SME & Startup Services</h3>
+                        <p class="main-service-desc">Business strategy, financial advisory, operations, and growth solutions for small and medium enterprises.</p>
+                    </div>
+                </div>
+
+                <!-- Student Services -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="main-service-card">
+                        <div class="main-service-icon bg-purple">
+                            <i class="fas fa-graduation-cap text-white fs-2"></i>
+                        </div>
+                        <h3 class="main-service-title">Student Training</h3>
+                        <p class="main-service-desc">Comprehensive skill development, career preparation, and empowerment programs for students.</p>
+                    </div>
+                </div>
+
+                <!-- Agribusiness -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="main-service-card">
+                        <div class="main-service-icon bg-gradient">
+                            <i class="fas fa-seedling text-white fs-2"></i>
+                        </div>
+                        <h3 class="main-service-title">Agribusiness</h3>
+                        <p class="main-service-desc">Agricultural training, farm management, agri-tech solutions, and rural enterprise development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
+    <section class="py-5 bg-light-custom">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-10">
+                    <h2 class="section-title fade-in-up">Detailed Service Offerings</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
                 <!-- Career Development -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card border-orange">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-orange">
-                            <i class="fas fa-briefcase text-white fs-3"></i>
+                            <i class="fas fa-briefcase text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Career Development & Job Readiness</h3>
                         <ul class="service-list">
@@ -505,10 +584,10 @@
                 </div>
 
                 <!-- Business & Finance -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card border-navy">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-navy">
-                            <i class="fas fa-dollar-sign text-white fs-3"></i>
+                            <i class="fas fa-dollar-sign text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Business, Finance & Digital Skills</h3>
                         <ul class="service-list">
@@ -523,29 +602,31 @@
                     </div>
                 </div>
 
-                <!-- Tech & Creative -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card border-orange">
+                <!-- Software Development Details -->
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-orange">
-                            <i class="fas fa-desktop text-white fs-3"></i>
+                            <i class="fas fa-desktop text-white fs-4"></i>
                         </div>
-                        <h3 class="service-title">Tech & Creative Skills</h3>
+                        <h3 class="service-title">Software Development</h3>
                         <ul class="service-list">
-                            <li>Graphic Design Basics</li>
+                            <li>Mobile-first Apps</li>
                             <li>Presentation Design</li>
-                            <li>Computer Literacy & Digital Tools</li>
-                            <li>Introduction to Coding & Web Tools</li>
-                            <li>Video Editing Basics</li>
+                            <li>API Integration</li>
+                            <li>Websites & E-commerce</li>
+                            <li>Content Management Systems</li>
+                            <li>Graphic Design</li>
+                            <li>Video Editing</li>
                             <li>Cyber Café & Online Services</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Life Skills -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card border-navy">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-navy">
-                            <i class="fas fa-users text-white fs-3"></i>
+                            <i class="fas fa-users text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Life Skills & Personal Development</h3>
                         <ul class="service-list">
@@ -560,56 +641,42 @@
                 </div>
 
                 <!-- Practical Exposure -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-card border-orange">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-orange">
-                            <i class="fas fa-bolt text-white fs-3"></i>
+                            <i class="fas fa-bolt text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Practical Exposure & Experience</h3>
                         <ul class="service-list">
                             <li>Business Simulations</li>
                             <li>Live Projects</li>
                             <li>Internship & Job Placements</li>
-                            <li>Mentorship & Coaching</li>
+                            <li>Mentorship, Coaching & Counselling</li>
                         </ul>
                     </div>
                 </div>
-                                <!-- Project management -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card border-navy">
+
+                <!-- Project Management -->
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-navy">
-                            <i class="fas fa-users text-white fs-3"></i>
+                            <i class="fas fa-tasks text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Project Management</h3>
                         <ul class="service-list">
                             <li>Project Planning & Execution</li>
                             <li>Scheduling</li>
-                            <li>Risk Management & mitigation</li>
+                            <li>Risk Management & Mitigation</li>
                             <li>Monitoring & Evaluation</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-    <!-- Agricultural & Agribusiness Services Section -->
-    <section class="py-5 bg-light-custom">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-                <div class="col-lg-10">
-                    <h2 class="section-title" data-aos="fade-up">Agricultural & Agribusiness Services</h2>
-                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
-                        Empowering farmers and agribusinesses with modern agricultural practices, data-driven solutions, and digital technologies for sustainable growth.
-                    </p>
-                </div>
-            </div>
 
-            <div class="row g-4">
                 <!-- Farmer Training -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card border-orange">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-orange">
-                            <i class="fas fa-seedling text-white fs-3"></i>
+                            <i class="fas fa-seedling text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Farmer Training & Capacity Building</h3>
                         <ul class="service-list">
@@ -623,10 +690,10 @@
                 </div>
 
                 <!-- Farm Management -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card border-navy">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
                         <div class="service-icon bg-navy">
-                            <i class="fas fa-tractor text-white fs-3"></i>
+                            <i class="fas fa-tractor text-white fs-4"></i>
                         </div>
                         <h3 class="service-title">Farm Management Advisory</h3>
                         <ul class="service-list">
@@ -638,89 +705,7 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Agri-Enterprise -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card border-orange">
-                        <div class="service-icon bg-orange">
-                            <i class="fas fa-leaf text-white fs-3"></i>
-                        </div>
-                        <h3 class="service-title">Agri-Enterprise Development</h3>
-                        <ul class="service-list">
-                            <li>Youth & Rural Entrepreneurship</li>
-                            <li>Agribusiness Idea Validation</li>
-                            <li>Market Linkage Support</li>
-                            <li>Value Chain Development</li>
-                            <li>Business Viability Planning</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Data Services -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card border-navy">
-                        <div class="service-icon bg-navy">
-                            <i class="fas fa-chart-bar text-white fs-3"></i>
-                        </div>
-                        <h3 class="service-title">Data Services & Field Research</h3>
-                        <ul class="service-list">
-                            <li>Farmer Profiling & GIS Mapping</li>
-                            <li>GPS Farm Location Services</li>
-                            <li>Baseline & Impact Surveys</li>
-                            <li>Mobile Data Collection (ODK/KoboToolbox)</li>
-                            <li>Monitoring & Evaluation Support</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Digital Solutions -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-card border-orange">
-                        <div class="service-icon bg-orange">
-                            <i class="fas fa-mobile-alt text-white fs-3"></i>
-                        </div>
-                        <h3 class="service-title">Digital & Tech Solutions</h3>
-                        <ul class="service-list">
-                            <li>Agri-Tech App Development</li>
-                            <li>Website Design & Hosting</li>
-                            <li>Digital Farmer Tools</li>
-                            <li>Online Marketplaces & E-commerce</li>
-                            <li>Social Media & Digital Marketing</li>
-                        </ul>
-                    </div>
-                </div>
-        
-    </section>
-
-    <!-- SME Services Section -->
-    <section class="py-5 bg-light-custom">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-                <div class="col-lg-10">
-                    <h2 class="section-title" data-aos="fade-up">SME & Startup Services</h2>
-                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
-                        Comprehensive business solutions for startups and growing enterprises to streamline operations and drive scalable growth.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <!-- Strategy Advisory -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card border-navy">
-                        <div class="service-icon bg-navy">
-                            <i class="fas fa-chart-line text-white fs-3"></i>
-                        </div>
-                        <h3 class="service-title">Strategy & Growth Advisory</h3>
-                        <ul class="service-list">
-                            <li>Business Visioning & Goal-Setting</li>
-                            <li>Market Research & Analysis</li>
-                            <li>Growth & Expansion Planning</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Financial Advisory -->
+                                <!-- Financial Advisory -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card border-orange">
                         <div class="service-icon bg-orange">
@@ -796,28 +781,41 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Agri-Enterprise -->
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="service-card">
+                        <div class="service-icon bg-orange">
+                            <i class="fas fa-leaf text-white fs-4"></i>
+                        </div>
+                        <h3 class="service-title">Agri-Enterprise Development</h3>
+                        <ul class="service-list">
+                            <li>Youth & Rural Entrepreneurship</li>
+                            <li>Agribusiness Idea Validation</li>
+                            <li>Market Linkage Support</li>
+                            <li>Value Chain Development</li>
+                            <li>Business Viability Planning</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="gradient-bg py-5">
+    <section class="cta-section">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-10">
-                    <h2 class="display-4 fw-bold text-white mb-4" data-aos="fade-up">Ready to Transform Your Future?</h2>
-                    <p class="lead text-light mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="display-4 fw-bold mb-4 fade-in-up">Ready to Transform Your Future?</h2>
+                    <p class="lead mb-5 fade-in-up">
                         Whether you're looking to develop new skills or grow your business, our expert team is here to provide personalized solutions that drive real results.
                     </p>
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                        <a href="contact.html" class="btn btn-custom btn-primary-custom">
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center fade-in-up">
+                        <a href="booking.html" class="btn btn-custom btn-primary-custom">
                             <i class="fas fa-calendar-alt me-2"></i>Schedule Consultation
                         </a>
-                        <a href="booking.html" class="btn btn-custom btn-secondary-custom">
+                        <a href="contact.html" class="btn btn-custom btn-secondary-custom">
                             <i class="fas fa-rocket me-2"></i>Get Started Today
-                        </a>
-                        <a href="services.html" class="btn btn-custom btn-outline-custom">
-                            <i class="fas fa-info-circle me-2"></i>Learn More
                         </a>
                     </div>
                 </div>
@@ -825,44 +823,27 @@
         </div>
     </section>
 
-    <!-- Load the footer -->
-    <div id="footer-placeholder"></div>
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/254768080749" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp text-success fs-4"></i>
-    </a>
-   <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Load partials JS -->
-    <script src="js/loadpartials.js"></script>
 
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-
-        // Enhanced interaction effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Add loading animation to elements
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -876,9 +857,50 @@
             });
         }, observerOptions);
 
+        // Observe all fade-in elements
         document.querySelectorAll('.fade-in-up').forEach(el => {
             observer.observe(el);
         });
+
+        // Enhanced card hover effects
+        document.querySelectorAll('.main-service-card, .service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.classList.contains('main-service-card') 
+                    ? 'translateY(-15px) scale(1.03)' 
+                    : 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add smooth reveal animation on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-up').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animate');
+                    }, index * 100);
+                });
+            }, 300);
+        });
     </script>
+        <!-- WhatsApp Icon -->
+    <a href="https://wa.me/254768080749" target="_blank" 
+       class="position-fixed bottom-0 start-0 m-4 btn btn-success rounded-circle shadow"
+       style="z-index: 1050; background-color: var(--brand-orange); border-color: var(--brand-orange); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;"
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+      <!-- Scroll to Top Button -->
+    <button id="scrollToTop" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+      <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+  <!-- Load partials Js at the end -->
+  <script src="js/loadpartials.js"></script>
 </body>
 </html>
