@@ -25,21 +25,21 @@
             line-height: 1.6;
         }
 
-        /* Hero Section with Background Image */
+        /* Hero Section with Background Gradient Only */
         .hero-section {
             background: linear-gradient(
                 135deg, 
                 rgba(27, 38, 93, 0.85) 0%, 
                 rgba(140, 24, 169, 0.75) 50%, 
                 rgba(244, 138, 50, 0.85) 100%
-            ),
-            url('Images/consult.jpg') center/cover no-repeat;
+            );
             position: relative;
             overflow: hidden;
             min-height: 60vh;
             display: flex;
             align-items: center;
-        }
+}
+
 
         .hero-section::before {
             content: '';
@@ -544,8 +544,10 @@
                 <!-- Agribusiness -->
                 <div class="col-lg-3 col-md-6">
                     <div class="main-service-card">
-                        <div class="main-service-icon bg-gradient">
-                            <i class="fas fa-seedling text-white fs-2"></i>
+                        <div class="main-service-icon bg-navy">
+                            <!-- <i class="fas fa-seedling text-brand-black fs-2"></i> -->
+                             <i class="fa-solid fa-tractor fa-2x"></i>
+                             <!-- <i class="fa-thin fa-tractor"></i> -->
                         </div>
                         <h3 class="main-service-title">Agribusiness</h3>
                         <p class="main-service-desc">Agricultural training, farm management, agri-tech solutions, and rural enterprise development.</p>
