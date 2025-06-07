@@ -1,3 +1,4 @@
+
 // Form Handler for SifaSkills Contact Form
 // This script handles the contact form submission, validation, and user feedback.
 // Contact Form Handler
