@@ -72,208 +72,347 @@
 <body class="font-sans">
  <!-- Navbar Placeholder -->
   <div id="navbar-placeholder"></div>
+  <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+   /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 70px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Background Images with Timer Transition */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-background.active {
+            opacity: 1;
+        }
+
+        .bg-layer-1 {
+            background-image: linear-gradient(rgba(27, 38, 93, 0.4), rgba(244, 138, 50, 0.3)), 
+                              url('Images/bg1.png');
+        }
+
+        .bg-layer-2 {
+            background-image: linear-gradient(rgba(140, 24, 169, 0.4), rgba(27, 38, 93, 0.3)), 
+                              url('Images/bg3.avif');
+        }
+
+        .bg-layer-3 {
+            background-image: linear-gradient(rgba(244, 138, 50, 0.4), rgba(140, 24, 169, 0.3)), 
+                              url('Images/sifa.jpg');
+        }
+
+        /* Image Indicators */
+        .hero-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 4;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: var(--brand-orange);
+            transform: scale(1.2);
+        }
+
+        /* Main Overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(27, 38, 93, 0.7), rgba(140, 24, 169, 0.5));
+            z-index: 2;
+        }
+
+        /* Content Positioning */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+        }
+
+        /* Custom Button Styles */
+        .btn-custom {
+            background: linear-gradient(45deg, var(--brand-orange), var(--brand-purple));
+            border: none;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(244, 138, 50, 0.4);
+            color: white;
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--brand-purple), var(--brand-orange));
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-custom:hover::before {
+            left: 0;
+        }
+
+        /* Animation Classes */
+        .animate-fade-up {
+            animation: fadeUp 1s ease-out;
+        }
+
+        .animate-fade-up-delay {
+            animation: fadeUp 1s ease-out 0.3s both;
+        }
+
+        .animate-fade-up-delay-2 {
+            animation: fadeUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 100vh;
+                min-height: 500px;
+            }
+
+            .display-3 {
+                font-size: 2.5rem;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .btn-lg {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            .hero-indicators {
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                height: 100vh;
+                min-height: 450px;
+            }
+
+            .display-3 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .lead {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-indicators {
+                bottom: 15px;
+            }
+
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hero-section {
+                height: 70vh;
+                min-height: 600px;
+            }
+        }
+
+        /* Scroll to top button styles */
+        #scrollToTop {
+            position: fixed;
+            bottom: 35px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--brand-orange);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #scrollToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #scrollToTop:hover {
+            background-color: var(--brand-purple);
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
-<body>
 
-<!-- Enhanced Hero Section with Sliding Background Images -->
-<section id="home" class="hero-section text-white">
-  
-  <!-- Bootstrap Carousel with Background Images -->
-  <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="10000">
-    <div class="carousel-inner">
-      
-      <!-- Slide 1 -->
-      <div class="carousel-item active hero-bg-item" 
-           style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Images/bg1.png');">
-      </div>
-      
-      <!-- Slide 2 -->
-      <div class="carousel-item hero-bg-item" 
-           style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Images/bg3.avif');">
-      </div>
+<body class="font-sans">
+    <!-- Enhanced Hero Section with Multiple Background Images -->
+    <section id="home" class="hero-section text-white">
+        
+        <!-- Multiple Background Images with Timer -->
+        <div class="hero-background bg-layer-1 active"></div>
+        <div class="hero-background bg-layer-2"></div>
+        <div class="hero-background bg-layer-3"></div>
 
-    </div>
-    
-    <!-- Carousel Indicators -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-    
-    </div>
-  </div>
-
-  <!-- Enhanced Overlay -->
-  <div class="hero-overlay"></div>
-
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-8 text-center">
-          
-          <!-- Main Heading -->
-          <h1 class="display-5 display-md-4 display-lg-3 fw-bold mb-3 mb-md-4 animate-fade-up">
-            The <span style="color: var(--brand-orange);">SEAL</span> of Professional Growth
-          </h1>
-          
-          <!-- Subtitle -->
-          <p class="lead fs-4 fs-md-3 text-light mb-4 mb-md-5 px-3 px-md-0 animate-fade-up-delay">
-            Unlocking Human Potential & Driving Sustainable Development
-          </p>
-          
-          <!-- CTA Buttons -->
-          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center animate-fade-up-delay-2">
-            <a href="booking.html" class="btn btn-lg px-4 px-md-5 py-3 fw-semibold rounded-pill shadow-lg btn-custom">
-              Book A Session
-            </a>
-            
-            <a href="services.html" class="btn btn-lg px-4 px-md-5 py-3 fw-semibold rounded-pill shadow-lg btn-custom">
-              Explore Our Services
-            </a>
-          </div>
-          
+        <!-- Image Indicators -->
+        <div class="hero-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-</section>
-<!-- CSS Styles for Enhanced Effects -->
-<style>
-:root {
-  --brand-orange: #ff6b35;
-}
 
-/* Hero Section Base Styles */
-.hero-section {
-  position: relative;
-  overflow: hidden;
-  height: 80vh;
-  min-height: 500px;
-}
+        <!-- Enhanced Overlay -->
+        <div class="hero-overlay"></div>
 
-/* Ensure proper image fitting on all devices */
-.hero-bg-item {
-  height: 80vh !important;
-  min-height: 500px !important;
-  width: 100%;
-  background-size: cover !important;
-  background-position: center 25% !important;
-  background-repeat: no-repeat !important;
-}
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8 text-center">
+                        
+                        <!-- Main Heading -->
+                        <h1 class="display-3 fw-bold mb-4 animate-fade-up">
+                            The <span class="text-brand-orange">SEAL</span> of Professional Growth
+                        </h1>
+                        
+                        <!-- Subtitle -->
+                        <p class="lead fs-4 text-light mb-5 px-3 px-md-0 animate-fade-up-delay">
+                            Unlocking Human Potential & Driving Sustainable Development
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center animate-fade-up-delay-2">
+                            <a href="booking.html" class="btn btn-custom btn-lg px-5 py-3 fw-semibold rounded-pill shadow-lg">
+                                Book A Session
+                            </a>
+                            
+                            <a href="services.html" class="btn btn-custom btn-lg px-5 py-3 fw-semibold rounded-pill shadow-lg">
+                                Explore Our Services
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
-/* Enhanced carousel fade effect */
-.carousel-fade .carousel-item {
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Background image timer functionality
+        let currentSlide = 0;
+        const backgrounds = document.querySelectorAll('.hero-background');
+        const indicators = document.querySelectorAll('.indicator');
+        const slideInterval = 5000; // 5 seconds
 
-.carousel-fade .carousel-item.active {
-  opacity: 1;
-}
+        function showSlide(index) {
+            // Remove active class from all backgrounds and indicators
+            backgrounds.forEach(bg => bg.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            // Add active class to current slide
+            backgrounds[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
 
-/* Custom carousel indicators */
-.carousel-indicators button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid var(--brand-orange);
-  background-color: transparent;
-  margin: 0 8px;
-  transition: all 0.3s ease;
-}
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % backgrounds.length;
+            showSlide(currentSlide);
+        }
 
-.carousel-indicators button.active {
-  background-color: var(--brand-orange);
-  transform: scale(1.2);
-}
+        // Auto-advance slides
+        const slideTimer = setInterval(nextSlide, slideInterval);
 
-/* Responsive text sizing */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 80vh !important;
-    min-height: 500px !important;
-  }
-  
-  .display-5 {
-    font-size: 2.5rem !important;
-  }
-  
-  .lead {
-    font-size: 1.1rem !important;
-  }
-  
-  .btn-lg {
-    padding: 12px 24px !important;
-    font-size: 1rem !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-section {
-    height: 70vh !important;
-    min-height: 450px !important;
-  }
-  .hero-bg-item {
-    height: 70vh !important;
-    min-height: 450px !important;
-  }
-  .display-5 {
-    font-size: 2.5rem !important;
-    line-height: 1.2;
-  }
-  
-  .lead {
-    font-size: 1.1rem !important;
-    padding: 0 1rem;
-  }
-}
-
-/* Animation classes for content */
-.animate-fade-up {
-  animation: fadeUp 1s ease-out;
-}
-
-.animate-fade-up-delay {
-  animation: fadeUp 1s ease-out 0.3s both;
-}
-
-.animate-fade-up-delay-2 {
-  animation: fadeUp 1s ease-out 0.6s both;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Ensure images cover properly on all screen sizes */
-@media (max-width: 768px) {
- /* Keep cover for all screen sizes */
-.hero-bg-item {
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-  }
-
-
-@media (min-width: 769px) {
-  .h/* Keep cover for all screen sizes */
-.hero-bg-item {
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-  }
-
-</style>
+        // Manual indicator clicks
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+                // Reset timer
+                clearInterval(slideTimer);
+                setTimeout(() => {
+                    setInterval(nextSlide, slideInterval);
+                }, slideInterval);
+            });
+        });
+    </script>;
 <!-- About Section -->
 <section id="about" class="py-5 bg-light">
   <div class="container">
