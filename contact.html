@@ -199,79 +199,79 @@
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow">
-                <form id="contactForm">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label for="firstName" class="form-label text-brand-navy fw-semibold">First Name *</label>
-                            <input type="text" class="form-control" id="firstName" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="lastName" class="form-label text-brand-navy fw-semibold">Last Name *</label>
-                            <input type="text" class="form-control" id="lastName" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email" class="form-label text-brand-navy fw-semibold">Email Address *</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label text-brand-navy fw-semibold">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone">
-                        </div>
-                        <div class="col-12">
-                            <label for="service" class="form-label text-brand-navy fw-semibold">Service Interest *</label>
-                            <select class="form-select" id="service" required>
-                                <option value="">Select a service...</option>
-                                <option value="student-training">Student Skills Training</option>
-                                <option value="sme-consultancy">SME Consultancy</option>
-                                <option value="financial-advisory">Financial Advisory</option>
-                                <option value="hr-solutions">HR Solutions</option>
-                                <option value="marketing-branding">Marketing & Branding</option>
-                                <option value="logistics-trade">Logistics & Trade Facilitation</option>                               
-                                <option value="it-solutions">IT Solutions</option>
-                                <option value="agribusiness">Agri-business</option>
-                                <option value="general-inquiry">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label for="orgType" class="form-label text-brand-navy fw-semibold">Organization Type</label>
-                            <select class="form-select" id="orgType">
-                                <option value="">Select organization type...</option>
-                                <option value="individual">Individual</option>
-                                <option value="student">Student</option>
-                                <option value="startup">Startup</option>
-                                <option value="sme">Small/Medium Enterprise</option>
-                                <option value="ngo">NGO/Non-Profit</option>
-                                <option value="government">Government Agency</option>
-                                <option value="educational">Educational Institution</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label for="message" class="form-label text-brand-navy fw-semibold">Message *</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label text-brand-navy fw-semibold">Preferred Contact Method</label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="contactMethod" id="emailMethod" value="email" checked>
-                                <label class="form-check-label" for="emailMethod">Email</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="contactMethod" id="phoneMethod" value="phone">
-                                <label class="form-check-label" for="phoneMethod">Phone Call</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="contactMethod" id="whatsappMethod" value="whatsapp">
-                                <label class="form-check-label" for="whatsappMethod">WhatsApp</label>
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <button type="submit" class="btn bg-brand-navy text-white px-5 py-2 fw-semibold rounded-pill shadow" style="background-color: #1b265d;">Send Message</button>
-                            <p class="small text-muted mt-2">We'll respond within 24 hours</p>
-                            <p id="formResponse" class="text-success mt-2"></p>
-                        </div>
-                    </div>
-                </form>
+               <!-- Fixed form inputs with name attributes -->
+<form id="contactForm" action="contact_handler.php" method="POST">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="firstName" class="form-label text-brand-navy fw-semibold">First Name *</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" required>
+        </div>
+        <div class="col-md-6">
+            <label for="lastName" class="form-label text-brand-navy fw-semibold">Last Name *</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label text-brand-navy fw-semibold">Email Address *</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="col-md-6">
+            <label for="phone" class="form-label text-brand-navy fw-semibold">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone">
+        </div>
+        <div class="col-12">
+            <label for="service" class="form-label text-brand-navy fw-semibold">Service Interest *</label>
+            <select class="form-select" id="service" name="service" required>
+                <option value="">Select a service...</option>
+                <option value="student-training">Student Skills Training</option>
+                <option value="sme-consultancy">SME Consultancy</option>
+                <option value="financial-advisory">Financial Advisory</option>
+                <option value="hr-solutions">HR Solutions</option>
+                <option value="marketing-branding">Marketing & Branding</option>
+                <option value="logistics-trade">Logistics & Trade Facilitation</option>                               
+                <option value="it-solutions">IT Solutions</option>
+                <option value="agribusiness">Agri-business</option>
+                <option value="general-inquiry">General Inquiry</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="orgType" class="form-label text-brand-navy fw-semibold">Organization Type</label>
+            <select class="form-select" id="orgType" name="orgType">
+                <option value="">Select organization type...</option>
+                <option value="individual">Individual</option>
+                <option value="student">Student</option>
+                <option value="startup">Startup</option>
+                <option value="sme">Small/Medium Enterprise</option>
+                <option value="ngo">NGO/Non-Profit</option>
+                <option value="government">Government Agency</option>
+                <option value="educational">Educational Institution</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="message" class="form-label text-brand-navy fw-semibold">Message *</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="col-12">
+            <label class="form-label text-brand-navy fw-semibold">Preferred Contact Method</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="contactMethod" id="emailMethod" value="email" checked>
+                <label class="form-check-label" for="emailMethod">Email</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="contactMethod" id="phoneMethod" value="phone">
+                <label class="form-check-label" for="phoneMethod">Phone Call</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="contactMethod" id="whatsappMethod" value="whatsapp">
+                <label class="form-check-label" for="whatsappMethod">WhatsApp</label>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn bg-brand-purple text-brand-navy px-5 py-2 fw-semibold rounded-pill shadow">Send Message</button>
+            <p class="small text-muted mt-2">We'll respond within 24 hours</p>
+        </div>
+    </div>
+</form>
             </div>
         </div>
           <!-- Map Section (OpenStreetMap) -->
@@ -331,31 +331,7 @@
     <div id="footer-placeholder"></div>
     
     <script>
-        // Contact Form Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                orgType: document.getElementById('orgType').value,
-                message: document.getElementById('message').value,
-                contactMethod: document.querySelector('input[name="contactMethod"]:checked').value
-            };
-            
-            // Here you would normally send the data to your server
-            console.log('Form submitted:', formData);
-            
-            // Show success popup
-            showSuccessPopup();
-            
-            // Reset form
-            this.reset();
-        });
+
 
         function showSuccessPopup() {
             const popup = document.getElementById('successPopup');
@@ -394,5 +370,7 @@
     
     <!-- Load partials JS -->
     <script src="js/loadpartials.js"></script>
+    <!-- Form Handler JS -->
+    <script src="js/formhandler.js"></script>
 </body>
 </html>
