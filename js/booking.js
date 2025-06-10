@@ -1,18 +1,13 @@
-// Service Selection and Booking Form JavaScript
-let selectedServices = new Map();
-let totalPrice = 0;
-
-// Initialize the booking form
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeForm();
     setupEventListeners();
     setMinDate();
 });
 
+let selectedServices = new Map();
+
 function initializeForm() {
-    const bookBtn = document.getElementById('book-btn');
-    const bookingSummary = document.getElementById('booking-summary');
-    
     updateBookingSummary();
     updateBookButton();
 }
@@ -31,8 +26,8 @@ function setupEventListeners() {
     // Clear All button
     document.getElementById('clearAllBtn').addEventListener('click', clearAllServices);
     
-    // Book button
-    document.getElementById('book-btn').addEventListener('click', handleBooking);
+    // Form submission
+    document.getElementById('booking-form').addEventListener('submit', handleFormSubmit);
     
     // Scroll to top button
     const scrollBtn = document.getElementById('scrollTopBtn');
@@ -64,24 +59,21 @@ function setMinDate() {
 
 function toggleService(serviceCard) {
     const serviceId = serviceCard.dataset.service;
-    const serviceName = serviceCard.querySelector('h4').textContent;
-    const servicePrice = parseInt(serviceCard.dataset.price) || 0;
+    const serviceName = serviceCard.querySelector('h4').textContent.trim();
     const serviceDuration = serviceCard.dataset.duration;
     
     if (selectedServices.has(serviceId)) {
         // Remove service
         selectedServices.delete(serviceId);
         serviceCard.classList.remove('selected');
-        totalPrice -= servicePrice;
     } else {
         // Add service
         selectedServices.set(serviceId, {
             name: serviceName,
-            price: servicePrice,
-            duration: serviceDuration
+            duration: serviceDuration,
+            id: serviceId
         });
         serviceCard.classList.add('selected');
-        totalPrice += servicePrice;
     }
     
     updateBookingSummary();
@@ -129,8 +121,7 @@ function updateBookingSummary() {
                 <small class="text-muted">${service.duration} minutes</small>
             </div>
             <div class="text-end">
-                ${service.price > 0 ? `<div class="fw-bold" style="color: var(--orange-flame);">$${service.price}</div>` : ''}
-                <button class="remove-service-btn" onclick="removeService('${serviceId}')">
+                <button class="remove-service-btn" data-service-id="${serviceId}">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -138,15 +129,20 @@ function updateBookingSummary() {
         selectedServicesList.appendChild(serviceItem);
     });
     
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-service-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const serviceId = this.getAttribute('data-service-id');
+            const serviceCard = document.querySelector(`.service-card[data-service="${serviceId}"]`);
+            if (serviceCard) {
+                toggleService(serviceCard);
+            }
+        });
+    });
+    
     // Update totals
     serviceCount.textContent = selectedServices.size;
-}
-
-function removeService(serviceId) {
-    const serviceCard = document.querySelector(`[data-service="${serviceId}"]`);
-    if (serviceCard) {
-        toggleService(serviceCard);
-    }
 }
 
 function updateBookButton() {
@@ -177,25 +173,11 @@ function updateBookButton() {
     }
 }
 
-async function handleBooking() {
+function handleFormSubmit(e) {
+    e.preventDefault();
+    
     if (selectedServices.size === 0) {
         alert('Please select at least one service.');
-        return;
-    }
-    
-    // Validate required fields
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    
-    if (!name || !email || !date || !time) {
-        alert('Please fill in all required fields.');
-        return;
-    }
-    
-    if (!validateEmail(email)) {
-        alert('Please enter a valid email address.');
         return;
     }
     
@@ -205,79 +187,62 @@ async function handleBooking() {
     bookBtn.textContent = 'Processing Booking...';
     bookBtn.disabled = true;
     
-    try {
-        // Prepare booking data
-        const bookingData = {
-            name: name,
-            email: email,
-            phone: document.getElementById('phone').value.trim(),
-            experience: document.getElementById('experience').value,
-            date: date,
-            time: time,
-            goals: document.getElementById('goals').value.trim(),
-            services: Array.from(selectedServices.entries()).map(([id, service]) => ({
-                id: id,
-                name: service.name,
-                duration: service.duration,
-                price: service.price
-            })),
-            totalServices: selectedServices.size,
-            totalPrice: totalPrice,
-            bookingId: generateBookingId()
-        };
-        
-        // Send booking request
-        const response = await fetch('booking.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(bookingData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showSuccessMessage(bookingData.bookingId);
-            scrollToElement(document.getElementById('success-message'));
+    // Prepare form data
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        experience: document.getElementById('experience').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        goals: document.getElementById('goals').value,
+        services: Array.from(selectedServices.values())
+    };
+    
+    // Set the hidden input value
+    document.getElementById('services-data').value = JSON.stringify(Array.from(selectedServices.values()));
+    
+    // Submit via AJAX
+    fetch('booking_handler.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showSuccessMessage(data.data.booking_id);
         } else {
-            throw new Error(result.message || 'Booking failed');
+            alert(data.message);
+            bookBtn.textContent = originalText;
+            bookBtn.disabled = false;
         }
-        
-    } catch (error) {
-        console.error('Booking error:', error);
-        alert('Sorry, there was an error processing your booking. Please try again or contact us directly.');
-        
-        // Restore button state
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting your booking. Please try again.');
         bookBtn.textContent = originalText;
         bookBtn.disabled = false;
-    }
+    });
 }
 
 function showSuccessMessage(bookingId) {
     const successMessage = document.getElementById('success-message');
+    const bookingForm = document.getElementById('booking-form');
     
     document.getElementById('booking-id').textContent = bookingId;
     successMessage.classList.remove('d-none');
+    bookingForm.reset();
     
-    // Hide form sections
-    document.querySelector('.glass-effect .section-header').style.display = 'none';
-    document.getElementById('booking-summary').style.display = 'none';
-    document.querySelectorAll('.mb-3, .mb-4, .row.mb-3').forEach(el => el.style.display = 'none');
-    document.getElementById('book-btn').style.display = 'none';
-}
-
-function generateBookingId() {
-    const timestamp = Date.now().toString(36);
-    const randomStr = Math.random().toString(36).substr(2, 5);
-    return `SF-${timestamp}-${randomStr}`.toUpperCase();
-}
-
-function scrollToElement(element) {
-    element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
-    });
+    // Clear selected services
+    selectedServices.clear();
+    updateBookingSummary();
+    updateBookButton();
+    
+    // Scroll to success message
+    successMessage.scrollIntoView({ behavior: 'smooth' });
 }
 
 function scrollToTop() {
@@ -296,51 +261,4 @@ function toggleScrollButton() {
             scrollBtn.classList.remove('visible');
         }
     }
-}
-
-// Form validation helpers
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-function validatePhone(phone) {
-    const re = /^[\+]?[1-9][\d]{0,15}$/;
-    return phone === '' || re.test(phone.replace(/[\s\-\(\)]/g, ''));
-}
-
-// Enhanced form validation
-document.addEventListener('DOMContentLoaded', function() {
-    const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('phone');
-    
-    if (emailInput) {
-        emailInput.addEventListener('blur', function() {
-            if (this.value && !validateEmail(this.value)) {
-                this.classList.add('is-invalid');
-            } else {
-                this.classList.remove('is-invalid');
-            }
-        });
-    }
-    
-    if (phoneInput) {
-        phoneInput.addEventListener('blur', function() {
-            if (this.value && !validatePhone(this.value)) {
-                this.classList.add('is-invalid');
-            } else {
-                this.classList.remove('is-invalid');
-            }
-        });
-    }
-});
-
-// Add pulse effect to selected services
-function addPulseEffect() {
-    document.querySelectorAll('.service-card.selected').forEach(card => {
-        card.classList.add('pulse-glow');
-        setTimeout(() => {
-            card.classList.remove('pulse-glow');
-        }, 2000);
-    });
 }
